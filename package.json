@@ -22,7 +22,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --mode=development --watch"
   },
   "repository": {
     "type": "git",
@@ -34,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/Msheezi/fullstack/issues"
   },
-  "homepage": "https://github.com/Msheezi/fullstack#readme"
+  "homepage": "https://github.com/Msheezi/fullstack#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.3.5"
+  }
 }
