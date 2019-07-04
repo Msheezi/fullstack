@@ -6,6 +6,7 @@ const Greeting = ({currentUser, logout}) => {
         <nav className="login-signup">
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
+            <img src="../images/loginImages.mxpxlogo.png" />
         </nav>
     );
     const personalGreeting = () => (

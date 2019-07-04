@@ -15,6 +15,35 @@
  */
 
 
+  .navbar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+    list-style-type: none;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 2px 2px lightgrey;
+    height: 30px;
+
+  }
+
+  .maincontent {
+    margin-top: 30px
+  }
+
+   .navbar ul{
+   width: 100%;
+
+  }
+
+  .navbar li{
+    display: inline;
+    list-style-type: none;
+    padding: 10px;
+    margin: 10px;
+
+  }
 
 
  .login-form-container {
