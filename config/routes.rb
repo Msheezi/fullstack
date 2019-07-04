@@ -5,14 +5,6 @@ Rails.application.routes.draw do
       
     resource :session, only: [:create, :destroy]
     end
-
-
-    # post '/search', to: 'users#search'
-
-    # resources :chirps
-    # resources :likes, only: [:create]
-    # delete '/likes', to: 'likes#destroy'
-    # resources :follows, only: [:create, :destroy]
   
   root to: 'root#root'
 

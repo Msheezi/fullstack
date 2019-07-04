@@ -10,15 +10,20 @@ class Api::SessionsController < ApplicationController
                 login(@user)
                 render 'api/users/show';
             else
-                render json: {message: "bad info bro"}, status: 401
+                render json: ["bad info bro"], status: 401
                 
             end
     end
 
     def destroy
-        logout
-        render json: { message: 'Logout successful.' }
-
+        @user = current_user
+        if @user
+            logout
+            render json: { message: 'Logout successful.' }
+        else 
+            render json: ["No active User"]
+            
+        end
     end
 end
 
