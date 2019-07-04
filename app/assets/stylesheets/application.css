@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+
+ .login-form-container {
+   display: flex;
+   justify-content: center;
+   margin-top: 100px;
+ }
+
+ .login-form {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+ }
+
+ .login-input {
+   margin-left: 0px;
+ }
+
+ .login-form-box {
+   outline: 1px solid black;
+   padding: 20px;
+ }
+
+ .signin-input {
+     display: none
+ }
