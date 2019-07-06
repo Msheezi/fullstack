@@ -4,18 +4,18 @@ import LogInFormContainer from './session_form/login_form_container';
 import GreetingContainer from './greeting_container'
 import {Route, Link, HashRouter} from 'react-router-dom'
 import NavBar from './navbar'
+import IndexContainer from './index/index_container'
 
 const App = () => (
     <div>
         <header>
             <NavBar />
-            {/* <h1> MyPX</h1> */}
-            {/* <GreetingContainer/> */}
+            
             
 
         </header>
-        <main class="maincontent">
-
+        <main className="maincontent">
+        <Route path="/" component={IndexContainer}/>
         <Route path="/login" component={LogInFormContainer}/>
         <Route path="/signup" component={SignUpFormContainer}/>
         </main>
