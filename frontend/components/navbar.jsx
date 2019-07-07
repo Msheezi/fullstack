@@ -10,6 +10,7 @@ const NavBar = ({currentUser, logout}) => {
     <span className='logo'>   
         <h3><Link to="/">My<sup>PX</sup></Link></h3>
     </span>
+    
     <span className='links'>
         <ul >
             <li>Discover</li>
