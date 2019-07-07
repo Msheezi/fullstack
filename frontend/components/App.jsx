@@ -6,19 +6,22 @@ import {Route, Link, HashRouter} from 'react-router-dom'
 import NavBar from './navbar'
 import SplashContainer from './splash/splash_container'
 import {AuthRoute, ProtectedRoute} from '../util/route_util'
+import NavBarContainer from './navbar_container'
+
 
 const App = () => (
     <div>
         <header>
-            <NavBar />
+            <NavBarContainer />
+            
             
         </header>
 
         <main className="maincontent">
             {/* <Route exact path="/" component={SplashContainer}/> */}
             {/* <AuthRoute exactRoute path="/home" component={HomeContainer} /> */}
-            <AuthRoute exactRoute path="/login" component={LogInFormContainer}/>
-            <AuthRoute exactRoute path="/signup" component={SignUpFormContainer}/>
+            <Route exactRoute path="/login" component={LogInFormContainer}/>
+            <Route exactRoute path="/signup" component={SignUpFormContainer}/>
         </main>
         
     </div>

@@ -42,11 +42,9 @@ export const login = user => dispatch => SessionAPIUtil.login(user)
 // export const logout = () => dispatch => (
 //     SessionAPIUtil.logout().then(user => dispatch(logoutCurrentUser())))
 
-export const logout = () => dispatch => {
-    debugger
-   return( SessionAPIUtil.logout().then(user => (
-        dispatch(logoutCurrentUser())
-    )))
-}
+export const logout = () => dispatch => (
+
+    SessionAPIUtil.logout().then(user => dispatch(logoutCurrentUser())
+    ))
     
 ;

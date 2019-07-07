@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 
 
 
-const NavBar = (props) => (
+const NavBar = ({currentUser, logout}) => { 
+    debugger
+     return (
 <div className="navbar">
     <span className='logo'>   
         <h3><Link to="/">My<sup>PX</sup></Link></h3>
@@ -27,7 +29,7 @@ const NavBar = (props) => (
             <button className="header-button" onClick={logout}>Log Out</button>
        
     </span>
-</div>
-)
+</div> )
+}
 
 export default NavBar
