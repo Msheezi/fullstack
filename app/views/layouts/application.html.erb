@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <%= javascript_include_tag 'application' %>
     <% if logged_in %>
-  <script type="text/javascript">
+      <script type="text/javascript">
       window.currentUser =
-        <%= render("api/users/show.json.jbuilder", user: current_user).html_safe %>
+        <%= render("api/users/show.json.jbuilder", user: @current_user).html_safe %>
   </script>
 <% end %>
   </head>
