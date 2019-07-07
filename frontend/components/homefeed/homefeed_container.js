@@ -1,2 +1,2 @@
 import { connect } from 'react-redux'
-import Index from './index'
+import homeFeed from './homefeed'

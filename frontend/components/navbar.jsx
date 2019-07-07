@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const NavBar = () => (
+const NavBar = (props) => (
 <div className="navbar">
     <span className='logo'>   
         <h3><Link to="/">My<sup>PX</sup></Link></h3>
@@ -24,6 +24,7 @@ const NavBar = () => (
        
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
+            <button className="header-button" onClick={logout}>Log Out</button>
        
     </span>
 </div>

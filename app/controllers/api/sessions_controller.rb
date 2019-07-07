@@ -19,7 +19,7 @@ class Api::SessionsController < ApplicationController
         @user = current_user
         if @user
             logout
-            render json: { message: 'Logout successful.' }
+            render "api/users/show" #json: { message: 'Logout successful.' }
         else 
             render json: ["No active User"]
             
