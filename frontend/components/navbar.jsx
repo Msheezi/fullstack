@@ -24,7 +24,7 @@ const NavBar = (props) => (
        
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
-            <button className="header-button" onClick={logout}>Log Out</button>
+            <button className="header-button" onClick={props.logoutUser}>Log Out</button>
        
     </span>
 </div>
