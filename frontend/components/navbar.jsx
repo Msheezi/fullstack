@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 const NavBar = ({currentUser, logout}) => { 
-    debugger
+    
      return (
 <div className="navbar">
     <span className='logo'>   
