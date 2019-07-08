@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { login, clearSessionErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
+// import demoLogin from '../../util/demologin'
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +11,8 @@ const mapStateToProps = state => {
     formType: 'Login',
     navLink: <Link to="/signup">Sign Up</Link>,
     inputClass:'signin-input',
-    message: "Don't Have an Account?"
+    message: "Don't Have an Account?",
+    // demoaccount: demoLogin
   };
 };
 

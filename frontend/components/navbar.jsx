@@ -23,7 +23,7 @@ const NavBar = ({currentUser, logout}) => {
      return (
 <div className="navbar">
     <span className='logo'>   
-        <h3><Link to="/">My<sup>PX</sup></Link></h3>
+        <h3 id="logo"><Link to="/">My<sup>PX</sup></Link></h3>
     </span>
 
     <span className='links'>

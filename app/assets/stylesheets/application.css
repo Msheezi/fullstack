@@ -43,6 +43,10 @@
   
 }
 
+#logo {
+  text-decoration: none;
+}
+
 .navbar ul {
      display: flex;
      box-sizing: border-box;
