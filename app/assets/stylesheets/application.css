@@ -50,7 +50,7 @@
 .navbar ul {
      display: flex;
      box-sizing: border-box;
-     width: 1000px;
+     width: 900px;
      
      
     
@@ -68,7 +68,7 @@
   .login-buttons {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 50px;
 
   }
 
