@@ -12,7 +12,8 @@ const mapStateToProps = state => {
     navLink: <Link to="/signup">Sign Up</Link>,
     inputClass:'signin-input',
     message: "Don't Have an Account?",
-    formHeader: "Log In to MyPx"
+    formHeader: "Log In to MyPx",
+    labelHide: "label-hide"
     // demoaccount: demoLogin
   };
 };

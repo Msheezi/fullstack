@@ -11,7 +11,8 @@ const mapStateToProps = ({ errors }) => {
     navLink:  <Link to="/login"> Log In</Link>,
     inputClass: 'login-input',
     message: "Already Have an Account?",
-    formHeader: "Join MyPx"
+    formHeader: "Join MyPx",
+    
   };
 };
 

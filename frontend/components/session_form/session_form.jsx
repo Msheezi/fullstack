@@ -74,7 +74,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br/>
-            <label className={this.props.inputClass}>Email
+            <label className={this.props.labelHide}>Email
             <br />
               <input type="text"
                 value={this.state.email}
@@ -83,7 +83,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br />
-            <label className={this.props.inputClass} >First Name
+            <label className={this.props.labelHide} >First Name
             <br />
               <input type="text"
                 value={this.state.firstName}
@@ -92,7 +92,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br />
-            <label className={this.props.inputClass} >Last Name
+            <label className={this.props.labelHide} >Last Name
             <br />
               <input type="text"
                 value={this.state.lastName}

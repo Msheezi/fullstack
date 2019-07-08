@@ -53,8 +53,6 @@
      box-sizing: border-box;
      width: 900px;
      
-    
-
 }
 
   .navbar li{
@@ -85,13 +83,11 @@
   padding-left: 15px;
 }
 
-
-
     .maincontent {
     margin-top: 60px;
     background-color: rgb(223, 219, 219)
   }
-
+/* Login forms */
  .login-form-container {
    display: flex;
    justify-content: center;
@@ -102,8 +98,6 @@
    padding: 32px 40px 24px;
    box-sizing: border-box;
    
-
-
  }
 
  .login-form {
@@ -120,6 +114,8 @@
    box-sizing: border-box;
    line-height: 21px;
    width: 100%;
+   border-radius: 3px;
+   background-color: rgb(209, 234, 255);
    
  }
 
@@ -132,14 +128,18 @@
    font-weight: 400;
    width: 400px;
    background-color: white;
+   border-radius: px;
 
  }
  .login-form-box h1 {
    text-align: center;
  }
-
+/* hides unused form elements */
  .signin-input {
      display: none
  }
 
+ .label-hide {
+   display: none;
+ }
  
