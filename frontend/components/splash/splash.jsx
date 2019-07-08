@@ -11,7 +11,22 @@ export default class Splash extends React.Component {
 
     render() {
 
-        return <h2>Splash Page</h2>
+        return  (
+        <div className="splash-main">
+            <h3>The global network for photographers</h3>
+            <br/>
+            <h1> Discover and share the world's best photos</h1>
+            <p>Get inspired with incredible photos from diverse styles and genres 
+             from around the world. <br/>
+             We're not guided by fads - just great photography.
+             </p>
+
+             <button className="splash-button" onClick={() => this.props.history.push("/signup")}>Sign Up</button>
+        </div>
+
+
+        )
+        
     }
 
 }

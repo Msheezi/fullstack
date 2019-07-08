@@ -9,7 +9,9 @@ const mapStateToProps = ({ errors }) => {
     errors: errors.session,
     formType: 'SignUp',
     navLink:  <Link to="/login"> Log In</Link>,
-    message: "Already Have an Account?"
+    inputClass: 'login-input',
+    message: "Already Have an Account?",
+    formHeader: "Join MyPx"
   };
 };
 

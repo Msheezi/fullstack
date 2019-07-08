@@ -1,0 +1,18 @@
+
+.splash-main {
+    background-image: url( https://web.500px.com/static/media/bg_wave_tablet.862d773e.svg);
+    background-size: contain; 
+    width: 100%;
+    /* max-width: 1024px; */
+    display: inline-block;
+    height: 800px;
+    background-color: rgb(25,214,192);
+    overflow: hidden;
+    padding-top: 72px;
+    background-position: 0% 100.5%;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+
+}
+
+/* url(https://web.500px.com/static/media/discover.be9b60f7.jpg); */

@@ -14,19 +14,20 @@
  *= require_self
  */
 
-
+/* Nav bar */
   .navbar {
     overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
-    background: 30px white;
+    background: 30px rgb(25,214,192);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
     box-shadow: 2px 2px lightgrey;
     height: 50px;
+    box-sizing: border-box;
      
 
   }
@@ -52,7 +53,6 @@
      box-sizing: border-box;
      width: 900px;
      
-     
     
 
 }
@@ -69,17 +69,41 @@
     display: flex;
     align-items: center;
     margin-right: 50px;
+    padding: 10px;
 
   }
+  .header-button {
+    margin-left: 10px;
+  }
+
+
+
+/* splash page */
+
+.splash-main {
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 15px;
+}
+
+
 
     .maincontent {
-    margin-top: 60px
+    margin-top: 60px;
+    background-color: rgb(223, 219, 219)
   }
 
  .login-form-container {
    display: flex;
    justify-content: center;
    margin-top: 100px;
+   margin: auto;
+   background-color: white;
+   
+   padding: 32px 40px 24px;
+   box-sizing: border-box;
+   
+
+
  }
 
  .login-form {
@@ -90,11 +114,28 @@
 
  .login-input {
    margin-left: 0px;
+   display: block;
+   font-size: 14px;
+   font-family: 'Montserrat', sans-serif;
+   box-sizing: border-box;
+   line-height: 21px;
+   width: 100%;
+   
  }
 
  .login-form-box {
-   outline: 1px solid black;
+   outline: .5px solid lightgray;
    padding: 20px;
+   font-family: 'Montserrat', sans-serif;
+   color: rgb(82,85,88);
+   box-sizing: border-box;
+   font-weight: 400;
+   width: 400px;
+   background-color: white;
+
+ }
+ .login-form-box h1 {
+   text-align: center;
  }
 
  .signin-input {

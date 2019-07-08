@@ -46,7 +46,9 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Log In to MyPx
+          <h1>
+          {this.props.formHeader}
+          </h1>
           <br/>
           
           {this.renderErrors()}
@@ -72,7 +74,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br/>
-            <label className={this.props.inputClass} >Email
+            <label className={this.props.inputClass}>Email
             <br />
               <input type="text"
                 value={this.state.email}
