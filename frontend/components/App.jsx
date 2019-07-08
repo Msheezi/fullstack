@@ -7,6 +7,7 @@ import NavBar from './navbar'
 import SplashContainer from './splash/splash_container'
 import {AuthRoute, ProtectedRoute} from '../util/route_util'
 import NavBarContainer from './navbar_container'
+import Home from './homefeed/homefeed'
 
 
 const App = () => (
@@ -18,8 +19,9 @@ const App = () => (
         </header>
 
         <main className="maincontent">
+            
             {/* <Route exact path="/" component={SplashContainer}/> */}
-            {/* <AuthRoute exactRoute path="/home" component={HomeContainer} /> */}
+            <AuthRoute exactRoute path="/home" component={Home} />
             <Route exactRoute path="/login" component={LogInFormContainer}/>
             <Route exactRoute path="/signup" component={SignUpFormContainer}/>
         </main>
