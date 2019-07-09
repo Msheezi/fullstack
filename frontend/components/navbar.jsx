@@ -7,8 +7,10 @@ const NavBar = ({currentUser, logout}) => {
     
     const sessionLinks = () => (
         <span className="login-buttons">
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/login" id="login-btn" >Login</Link>
+            <Link to="/signup" className="login-buttons-btn" >Sign Up</Link>
+            {/* <button className="login-buttons-btn" onClick={() => this.props.history.push("/signin")}>Log in</button>
+            <button className="login-buttons-btn" onClick={() => this.props.history.push("/signup")}>Sign Up</button> */}
 
         </span>
     );
@@ -23,7 +25,7 @@ const NavBar = ({currentUser, logout}) => {
      return (
 <div className="navbar">
     <span className='logo'>   
-        <h3 id="logo"><Link to="/">My<sup>PX</sup></Link></h3>
+        <h3 id="logo"><Link to="/" id="logo">MYpx</Link></h3>
     </span>
 
     <span className='links'>

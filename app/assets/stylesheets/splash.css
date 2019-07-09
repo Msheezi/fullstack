@@ -4,7 +4,9 @@
     background-size: contain; 
     width: 100%;
     /* max-width: 1024px; */
-    display: inline-block;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     height: 800px;
     background-color: rgb(25,214,192);
     overflow: hidden;
@@ -12,16 +14,41 @@
     background-position: 0% 100.5%;
     background-repeat: no-repeat;
     box-sizing: border-box;
+    padding-bottom: 250px;
 
+}
+
+.splash-txt {
+    display: flex;
+    flex-direction: column;;
+    margin-left: 50px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
 .splash-button {
     border-radius: 30px;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 500;
     height: 32px;
     margin-top: 16px;
+    width: 90px;
+    background-color: white;
+
     
+}
+
+
+
+.splash-img {
+    display:flex;
+    max-width: 700px;
+    box-sizing: border-box;
+}
+
+.splash-img img {
+    width: 100%;
+    height: auto;
 }
 /* url(https://web.500px.com/static/media/discover.be9b60f7.jpg); */

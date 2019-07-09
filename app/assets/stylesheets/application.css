@@ -41,11 +41,16 @@
 .logo {
   display: flex;
   text-decoration: none;
+  align-items: center;
   
 }
 
 #logo {
+  display: flex;
   text-decoration: none;
+  margin-left: 10px;
+  color: black;
+
 }
 
 .navbar ul {
@@ -70,7 +75,30 @@
     margin-right: 20px;
     margin-left: auto;
     padding: 10px;
+    text-decoration: none;
+    
+    
 
+  }
+
+  #login-btn{
+    text-decoration: none;
+    color: black;
+  }
+
+  .login-buttons-btn{
+    border-radius: 30px;
+    background-color: rgb(25,214,192);
+    border: 2px solid black;
+    margin: 10px;
+    padding-top: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
   }
   .header-button {
     margin-left: 10px;
