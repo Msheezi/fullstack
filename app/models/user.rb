@@ -1,7 +1,25 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  username        :string           not null
+#  email           :string           not null
+#  first_name      :string           not null
+#  last_name       :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#
+
 class User < ApplicationRecord 
 validates :username, :email,  presence: true, uniqueness: true
 validates :first_name, :last_name, presence: true
 validates :password, length: {minimum: 6, allow_nil: true}
+
+
+  has_many :posts,
+    foreign_key: :author_id,
+    class_name: :Post
 
 attr_reader :password
 

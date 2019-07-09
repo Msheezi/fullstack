@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
       
     resource :session, only: [:create, :destroy]
+    resources :posts, only: [:create, :destroy, :show, :index]
     end
   
   root to: 'root#root'
