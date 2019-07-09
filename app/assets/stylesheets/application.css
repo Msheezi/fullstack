@@ -23,7 +23,7 @@
     background: 30px rgb(25,214,192);
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     font-family: 'Montserrat', sans-serif;
     box-shadow: 2px 2px lightgrey;
     height: 50px;
@@ -51,7 +51,8 @@
 .navbar ul {
      display: flex;
      box-sizing: border-box;
-     width: 900px;
+
+     /* width: 900px; */
      
 }
 
@@ -66,7 +67,8 @@
   .login-buttons {
     display: flex;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 20px;
+    margin-left: auto;
     padding: 10px;
 
   }
@@ -84,7 +86,7 @@
 }
 
     .maincontent {
-    margin-top: 60px;
+    margin-top: 30px;
     background-color: rgb(223, 219, 219)
   }
 /* Login forms */
