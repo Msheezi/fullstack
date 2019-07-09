@@ -19,14 +19,20 @@
 class Post < ApplicationRecord
     validates :title, :category_id, :author_id, presence: true
     has_one_attached :photo
+    validate :ensure_photo
 
     belongs_to :author,
     foreign_key: :author_id,
     class_name: :User
 
-    # belongs_to :category, 
-    # foreign_key: :category_id,
-    # class_name: :Category
+    belongs_to :category, 
+    foreign_key: :category_id,
+    class_name: :Category
 
+    def ensure_photo
+        unless self.photo.attached?
+            errors[:photo] << "No Photo Attached"
+        end
+    end
 
 end

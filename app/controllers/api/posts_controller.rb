@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
 
-
+skip_before_action :verify_authenticity_token
     def show
         @post = Post.find(params[:id])
         render :show
@@ -9,12 +9,12 @@ class Api::PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-        @post.author_id = current_user.id
+        # @post.author_id = current_user.id
         
             if @post.save
                 render :show
             else
-                render json: @post.errors.full_messages, status: 401
+                render json: @post.errors.full_messages, status: 422
             end
 
     end 
@@ -33,7 +33,7 @@ class Api::PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:title, :image_url, :category_id, :author_id, :camera_name, :lens, :f_stop, :shutter_speed, :iso)
+        params.require(:post).permit(:title, :photo :category_id, :author_id, :camera_name, :lens, :f_stop, :shutter_speed, :iso)
     end
 
 
