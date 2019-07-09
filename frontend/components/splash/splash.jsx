@@ -14,7 +14,7 @@ export default class Splash extends React.Component {
         return  (
         <div className="splash-main">
             <div className="splash-img">
-               <img src="./assets/bridgesmaller.jpg"/>
+                    <img src="https://mypx-dev.s3-us-west-1.amazonaws.com/bridgesmaller.jpg"/>
             </div>
             <div className="splash-txt">
                 <h3>The global network for photographers</h3>
