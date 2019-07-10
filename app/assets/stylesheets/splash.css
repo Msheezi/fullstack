@@ -39,7 +39,9 @@
     
 }
 
-
+.splash-button:hover{
+    color: lightgrey;
+}
 
 .splash-img {
     display:flex;

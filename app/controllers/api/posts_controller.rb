@@ -33,7 +33,7 @@ skip_before_action :verify_authenticity_token
     private
 
     def post_params
-        params.require(:post).permit(:title, :photo :category_id, :author_id, :camera_name, :lens, :f_stop, :shutter_speed, :iso)
+        params.require(:post).permit(:title, :photo, :category_id, :author_id, :camera_name, :lens, :f_stop, :shutter_speed, :iso)
     end
 
 

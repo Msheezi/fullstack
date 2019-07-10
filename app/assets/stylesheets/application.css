@@ -100,6 +100,16 @@
     color: black;
     font-weight: 500;
   }
+
+.login-buttons-btn:hover{
+    color: lightgrey;
+}
+#login-btn:hover{
+    color: lightgrey;
+}
+
+
+
   .header-button {
     margin-left: 10px;
   }
@@ -113,8 +123,8 @@
   padding-left: 15px;
 }
 
-    .maincontent {
-    margin-top: 30px;
+  .maincontent {
+    margin-top: 50px;
     background-color: rgb(223, 219, 219)
   }
 /* Login forms */

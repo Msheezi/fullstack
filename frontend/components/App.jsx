@@ -20,16 +20,16 @@ const App = () => (
             
         </header>
 
-        <main className="maincontent">
+        <div className="maincontent">
             
             <Switch>
             {/* <Route path="/posts/new" component={Form}/> */}
-            <Route exactRoute path="/login" component={LogInFormContainer}/>
-            <Route exactRoute path="/signup" component={SignUpFormContainer}/>
+            <AuthRoute exactRoute path="/login" component={LogInFormContainer}/>
+            <AuthRoute exactRoute path="/signup" component={SignUpFormContainer}/>
             <ProtectedRoute exactRoute path="/home" component={Home} />
-            <Route exactRoute="/" component={SplashContainer}/>
+            <AuthRoute exactRoute="/" component={SplashContainer}/>
             </Switch>
-        </main>
+        </div>
         
     </div>
 )

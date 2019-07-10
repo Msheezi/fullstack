@@ -32,7 +32,7 @@ class SessionForm extends React.Component {
   }
 
   handleDemoSubmit(e){
-    debugger
+    
     e.preventDefault();
     const user = {username: "demo", password: "password"}
     this.props.processForm(user).then(() => this.props.history.push("/home"))
