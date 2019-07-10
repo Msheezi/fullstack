@@ -8,7 +8,7 @@ import Splash from './splash/splash'
 import {AuthRoute, ProtectedRoute} from '../util/route_util'
 import NavBarContainer from './navbar_container'
 import Home from './homefeed/homefeed'
-import Form from './posts/form'
+import PostFormContainer from './posts/post_form_container'
 
 
 
@@ -27,6 +27,7 @@ const App = () => (
             <AuthRoute exactRoute path="/login" component={LogInFormContainer}/>
             <AuthRoute exactRoute path="/signup" component={SignUpFormContainer}/>
             <ProtectedRoute exactRoute path="/home" component={Home} />
+            <ProtectedRoute exactRoute path="/post/new" component={PostFormContainer}/>
             <AuthRoute exactRoute="/" component={SplashContainer}/>
             </Switch>
         </div>

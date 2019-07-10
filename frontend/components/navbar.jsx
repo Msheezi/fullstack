@@ -16,6 +16,7 @@ const NavBar = ({currentUser, logout}) => {
     );
     const personalGreeting = () => (
         <span className='login-buttons'>
+            <Link to="/post/new">Add A New Photo</Link>
             <h3 className="header-name">Hi, {currentUser.username}!</h3> 
             <button className="header-button" onClick={logout}>Log Out</button>
         </span >
