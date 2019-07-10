@@ -8,7 +8,7 @@ export default class PostForm extends React.Component {
         this.state = {
             title: "",
             category_id: "",
-            author_id: this.props.currentUser.id,
+            author_id: this.props.currentUser,
             camera_name: ""
         }
         this.handleFile = this.handleFile.bind(this)
@@ -22,6 +22,9 @@ export default class PostForm extends React.Component {
         })
     };
 
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
 
     handleFile(e) {
         const file = e.currentTarget.files[0];
@@ -46,9 +49,20 @@ export default class PostForm extends React.Component {
 
             formData.append('post[photo]', this.state.photoFile);
         }
-        this.props.submitPost(formData)
+        this.props.submitPost(formData).then(() => this.props.history.push("/home"));
         
         
+    }
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
     }
 
 
@@ -80,6 +94,7 @@ export default class PostForm extends React.Component {
                         <input type="file"
                             onChange={this.handleFile} />
                         </label>
+                        {this.renderErrors()}
                     <h3>Image preview </h3>
                     <button>Make a new Post!</button>
                     {preview}
