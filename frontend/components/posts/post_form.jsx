@@ -8,7 +8,7 @@ export default class PostForm extends React.Component {
         this.state = {
             title: "",
             category_id: "",
-            author_id: this.props.currentUser,
+            author_id: this.props.currentUser.id,
             camera_name: ""
         }
         this.handleFile = this.handleFile.bind(this)
@@ -16,9 +16,11 @@ export default class PostForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
 
     }
-    handleInput(e) {
-        this.setState({ title: e.currentTarget.value });
-    }
+    handleInput(field) {
+        return e => this.setState({
+            [field]: e.target.value
+        })
+    };
 
 
     handleFile(e) {
@@ -34,24 +36,19 @@ export default class PostForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        
         const formData = new FormData();
-        formData.append('post[title]', this.state.title);
+        formData.append('post[title]', this.state.title)
+        formData.append('post[category_id]', this.state.category_id)
+        formData.append('post[author_id]', this.state.author_id)
+        formData.append('post[camera_name]', this.state.camera_name);
         if (this.state.photoFile) {
 
             formData.append('post[photo]', this.state.photoFile);
         }
-        $.ajax({
-            url: '/api/posts',
-            method: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false
-        }).then(
-            (response) => console.log(response.message),
-            (response) => {
-                console.log(response.responseJSON)
-            }
-        );
+        this.props.submitPost(formData)
+        
+        
     }
 
 
@@ -62,16 +59,30 @@ export default class PostForm extends React.Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="post-body">Body of Post</label>
-                    <input type="text"
-                        id="post-body"
+                    <label htmlFor="title">Title
+                        <input type="text"
+                        id="title"
                         value={this.state.title}
-                        onChange={this.handleInput} />
-                    <input type="file"
-                        onChange={this.handleFile} />
+                        onChange={this.handleInput('title')} />
+                    </label>
+                    <label>Category
+                        <input type="number"
+                        // id="post-body"
+                        value={this.state.category_id}
+                        onChange={this.handleInput('category_id')} />
+                    </label>
+                    <label>Camera
+                        <input type="text"
+                        value={this.state.camera_name}
+                        onChange={this.handleInput('camera_name')} />
+                    </label>
+                    <label >Body of Post
+                        <input type="file"
+                            onChange={this.handleFile} />
+                        </label>
                     <h3>Image preview </h3>
-                    {preview}
                     <button>Make a new Post!</button>
+                    {preview}
                 </form>
             </div>
         );

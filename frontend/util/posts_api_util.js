@@ -13,13 +13,21 @@ export const fetchPost = (id) => (
     })
 )
 
-export const createPost = post => (
-    $.ajax({
-        method: 'post',
-        url: 'api/posts',
-        data: {post}
-    })
-)
+export const createPost = (post) => {
+
+    debugger
+    return (
+        
+        $.ajax({
+            method: 'post',
+            url: 'api/posts',
+            data: post,
+            contentType: false,
+            processData: false
+        })
+    )
+    }
+
 
 export const updatePost = post => (
     $.ajax({

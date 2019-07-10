@@ -8,6 +8,7 @@ skip_before_action :verify_authenticity_token
     end
 
     def create
+        
         @post = Post.new(post_params)
         # @post.author_id = current_user.id
         
