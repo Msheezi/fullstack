@@ -4,6 +4,7 @@ import {RECEIVE_POST,
 import { merge } from 'lodash'
 
 const PostsReducer = (state = {}, action) => {
+
     Object.freeze(state)
     switch(action.type){
         case RECEIVE_POST:

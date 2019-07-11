@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Dashboard from './posts/modal_form'
 
 
 
@@ -16,9 +17,10 @@ const NavBar = ({currentUser, logout}) => {
     );
     const personalGreeting = () => (
         <span className='login-buttons'>
-            <Link to="/post/new">Add A New Photo</Link>
+            {/* <Link to="/post/new">Add A New Photo</Link> */}
+            <Dashboard/>
             <h3 className="header-name">Hi, {currentUser.username}!</h3> 
-            <button className="header-button" onClick={logout}>Log Out</button>
+            <button className="login-buttons-btn" onClick={logout}>Log Out</button>
         </span >
     )
     let loginButtons = currentUser ? personalGreeting() : sessionLinks();

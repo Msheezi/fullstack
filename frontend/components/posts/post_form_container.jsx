@@ -22,6 +22,7 @@ clearErrors: () => dispatch(clearPostErrors())
 
 
 
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

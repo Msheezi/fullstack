@@ -17,7 +17,7 @@
 #
 
 class Post < ApplicationRecord
-    validates :title, :category_id, :author_id, presence: true
+    validates :title, :author_id, presence: true
     has_one_attached :photo
     validate :ensure_photo
 
@@ -25,9 +25,7 @@ class Post < ApplicationRecord
     foreign_key: :author_id,
     class_name: :User
 
-    belongs_to :category, 
-    foreign_key: :category_id,
-    class_name: :Category
+   
 
     def ensure_photo
         unless self.photo.attached?

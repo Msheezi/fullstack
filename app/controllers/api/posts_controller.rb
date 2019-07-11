@@ -26,6 +26,10 @@ skip_before_action :verify_authenticity_token
     end
 
     def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+
+    render :index
 
     end
 

@@ -49,7 +49,22 @@ export default class PostForm extends React.Component {
 
             formData.append('post[photo]', this.state.photoFile);
         }
-        this.props.submitPost(formData).then(() => this.props.history.push("/home"));
+        this.props.submitPost(formData)
+        .then(() => {
+             this.props.handleClose();
+             this.props.clearErrors();
+             this.setState({
+                title: "",
+                category_id: "",
+                author_id: this.props.currentUser,
+                camera_name: "",
+                photoFile:  undefined,
+                photoUrl: "",
+
+            })
+        }
+        , () => this.renderErrors())
+            
         
         
     }
@@ -69,34 +84,35 @@ export default class PostForm extends React.Component {
 
     render() {
        
-        const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
+        const preview = this.state.photoUrl ? <img className='img-preview' src={this.state.photoUrl} /> : null;
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="title">Title
+            <div className="form-container">
+                <form className='form-itself' onSubmit={this.handleSubmit}>
+                    <label htmlFor="title">Title     
                         <input type="text"
                         id="title"
                         value={this.state.title}
                         onChange={this.handleInput('title')} />
                     </label>
-                    <label>Category
+                    {/* <label>Category
                         <input type="number"
                         // id="post-body"
                         value={this.state.category_id}
                         onChange={this.handleInput('category_id')} />
-                    </label>
-                    <label>Camera
+                    </label> */}
+                    {/* <label>Camera
                         <input type="text"
                         value={this.state.camera_name}
                         onChange={this.handleInput('camera_name')} />
-                    </label>
-                    <label >Body of Post
+                    </label> */}
+                    <label >
                         <input type="file"
                             onChange={this.handleFile} />
                         </label>
                         {this.renderErrors()}
                     <h3>Image preview </h3>
-                    <button>Make a new Post!</button>
+                    {/* <button onClick={this.props.handleClose}>Add Photo</button> */}
+                    <input type="submit" value="add Photo"/>
                     {preview}
                 </form>
             </div>

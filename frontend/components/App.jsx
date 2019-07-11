@@ -10,6 +10,7 @@ import NavBarContainer from './navbar_container'
 import Home from './homefeed/homefeed'
 import PostFormContainer from './posts/post_form_container'
 import HomeFeedContainer from './homefeed/homefeed_container'
+import Dashboard from './posts/modal_form'
 
 
 
@@ -17,6 +18,7 @@ const App = () => (
     <div>
         <header>
             <NavBarContainer />
+            
             
             
         </header>
