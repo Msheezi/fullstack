@@ -14,11 +14,10 @@ MyPx is an app gearded towards allowing photographers of every level to share an
 
 ### Photo Uploads: 
 
-From the navigation bar, users can select the "+" symbol to open the modal below.  
-The Attach Photo button serves as the means to submit the photo as well as closing the modal.  To ensure the modal doesn't close prematurely and prevent the user from seeing important errors, additional logic was added into the `handleSubmit` function.  Once a user submits the photo, if it is successfully persisted to the database, the modal is closed and the user is directed back to the index page and can see their recently added photo.  If the photo is not successfully persisted, errors are rendered and the modal remains open until the user resolves.  Once successfully saved, the modal will close and errors will clear. 
-
 ![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/upload.png "Logo Image Upload")
 
+From the navigation bar, users can select the "+" symbol to open the modal below.  
+The Attach Photo button serves as the means to submit the photo as well as closing the modal.  To ensure the modal doesn't close prematurely and prevent the user from seeing important errors, additional logic was added into the `handleSubmit` function.  Once a user submits the photo, if it is successfully persisted to the database, the modal is closed and the user is directed back to the index page and can see their recently added photo.  If the photo is not successfully persisted, errors are rendered and the modal remains open until the user resolves.  Once successfully saved, the modal will close and errors will clear. 
 
 ```javascript
  handleSubmit(e) {
