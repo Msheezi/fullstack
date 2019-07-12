@@ -263,6 +263,7 @@
   display: flex;
   max-width: 400px;
   height: auto;
+  overflow:scroll; 
 }
 
 .modal-button {
@@ -278,12 +279,13 @@
 
 .form-container {
 display: flex;
-
+overflow:scroll; 
 
 }
 
 .form-itself {
   display: flex;
- flex-direction: column;
+ flex-direction: row;
+ overflow:scroll; 
  
 }
