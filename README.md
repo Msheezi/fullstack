@@ -7,7 +7,8 @@ MyPx is an app gearded towards allowing photographers of every level to share an
 
 
 * User authentication using BCrypt encryption
-* Users can add photos to their page
+* Users can create a profile and upload their pictures
+* Users can see all the photos they've previously posted
 
 
 
