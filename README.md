@@ -5,22 +5,19 @@ MyPx is an app gearded towards allowing photographers of every level to share an
 ## Features
 ****
 
-Things you may want to cover:
+* User authentication using BCrypt encryption
+* Users can add photos to their page
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+
+Features to be implemeted at a later date
+* Comments
+* Photos Categories and Search
+* Photo Detail page with specifics (camera and lens settings)
