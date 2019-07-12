@@ -10,11 +10,6 @@ MyPx is an app gearded towards allowing photographers of every level to share an
 * Users can add photos to their page
 
 
-### Photo uploads
-[photoupload](https://github.com/Msheezi/fullstack/blob/master/Image%207-12-19%20at%2011.23%20AM.jpg)
-
-
-
 
 
 
