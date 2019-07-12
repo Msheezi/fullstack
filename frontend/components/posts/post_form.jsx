@@ -59,7 +59,7 @@ export default class PostForm extends React.Component {
                 author_id: this.props.currentUser,
                 camera_name: "",
                 photoFile:  undefined,
-                photoUrl: "",
+                photoUrl: ""
 
             })
         }

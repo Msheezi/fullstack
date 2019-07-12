@@ -13,7 +13,7 @@ export default class Home extends React.Component{
 
 render(){
 
-    let posts = this.props.posts.map(post => <PostIndexItem key={post.id} post={post} deletePost={this.props.deletePost} />)
+    let posts = this.props.posts.map(post => <PostIndexItem key={post.id} post={post} deletePost={this.props.deletePost} props={this.props} />)
 
     return (
         

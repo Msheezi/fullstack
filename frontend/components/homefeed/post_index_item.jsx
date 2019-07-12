@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const PostIndexItem = ({ post, deletePost }) => {
+const PostIndexItem = ( { post, deletePost, props }) => {
 
 
   return   (
@@ -13,7 +13,7 @@ const PostIndexItem = ({ post, deletePost }) => {
         
         <br/>
 
-        <button onClick={(e)=> deletePost(post.id, e)}>Delete</button>
+        {/* <button onClick={(e)=> deletePost(post.id, e).then(()=>props.fetchPosts())}>Delete</button> */}
     </li>
 );
 }

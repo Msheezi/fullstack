@@ -35,8 +35,7 @@ const NavBar = ({currentUser, logout}) => {
         <ul >
             <li>Discover</li>
             
-            <li>Search Box</li>
-            <li>Search Box</li>
+            
             {/* <li>Search Box</li>
             <li>Search Box</li>
             <li>Search Box</li> */}
