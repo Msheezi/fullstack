@@ -14,6 +14,13 @@
  *= require_self
  */
 
+
+body {
+/* remove the white space on the sides of pages */
+ margin: 0;
+ padding: 0;
+}
+
 /* Nav bar */
   .navbar {
     overflow: hidden;
@@ -25,7 +32,7 @@
     flex-direction: row;
     /* justify-content: space-between; */
     font-family: 'Montserrat', sans-serif;
-    box-shadow: 2px 2px lightgrey;
+    /* box-shadow: 2px 2px lightgrey; */
     height: 50px;
     box-sizing: border-box;
      
@@ -121,11 +128,15 @@
 .splash-main {
   font-family: 'Montserrat', sans-serif;
   padding-left: 15px;
+  background-color: rgb(25,214,192);
+  width: 100%;
+  
 }
 
   .maincontent {
     margin-top: 50px;
-    background-color: white;
+    width: 100%;
+    /* background-color: white; */
     /* background-color: rgb(223, 219, 219) */
   }
 /* Login forms */
@@ -175,6 +186,24 @@
  .login-form-box h1 {
    text-align: center;
  }
+
+
+.session-submit{
+
+  background-color: #34BF49;
+  color: #FFFFFF;
+  height: 40px;
+  font-size: 18px;
+
+}
+
+.button-demo-acct{
+background-color: #3B5998;
+height: 40px;
+font-size: 18px;
+color: #FFFFFF;
+}
+
 /* hides unused form elements */
  .signin-input {
      display: none
