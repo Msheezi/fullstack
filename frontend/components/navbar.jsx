@@ -3,9 +3,20 @@ import { Link } from 'react-router-dom'
 import Dashboard from './posts/modal_form'
 
 
+// const setNavClass = ({currentUser})=> {
+//     let navClass
+//     if (currentUser !== null) {
+//         navClass = "nav-logged"
+//     } else if (currentUser === null) {
+//         navClass = "nav-not-logged"
+//     }
+//     return navClass
+// }
+    
 
 const NavBar = ({currentUser, logout}) => { 
-    
+   
+
     const sessionLinks = () => (
         <span className="login-buttons">
             <Link to="/login" id="login-btn" >Login</Link>
@@ -26,7 +37,7 @@ const NavBar = ({currentUser, logout}) => {
     let loginButtons = currentUser ? personalGreeting() : sessionLinks();
         
      return (
-<div className="navbar">
+<div className={(currentUser) ? "nav-logged": "nav-not-logged"}>
     <span className='logo'>   
         <h3 id="logo"><Link to="/" id="logo">MYpx</Link></h3>
     </span>
