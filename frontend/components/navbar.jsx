@@ -44,7 +44,7 @@ const NavBar = ({currentUser, logout}) => {
 
     <span className='links'>
         <ul >
-            <li>Discover</li>
+            {/* <li>Discover</li> */}
             
             
             {/* <li>Search Box</li>
