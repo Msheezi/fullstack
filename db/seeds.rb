@@ -22,7 +22,7 @@ cat4 = Category.create!(title:"Animals")
 cat5 = Category.create!(title:"Food")
 cat6 = Category.create!(title:"Black and White")
 
-
+Post.destroy_all
 file1 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/bridge.jpg')
 post1 = Post.create(title:"Bridge",  author_id: user1.id)
 post1.photo.attach(io: file1, filename: "bridge.jpg")
