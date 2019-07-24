@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import Root from './components/root'
 import configureStore from './store/store'
 import * as SessionUtil from './util/session_api_util'
+// import * as APIUtil from './util/posts_api_util'
+import * as Actions from './actions/posts_actions'
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -30,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.signup = SessionUtil.signup
     window.logout = SessionUtil.logout
     window.store  = store
+    window.fetchAllPosts = Actions.fetchAllPosts
+    window.fetchPost = Actions.fetchPost
     
     
 

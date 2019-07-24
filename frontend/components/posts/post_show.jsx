@@ -9,13 +9,19 @@ import {withRouter} from 'react-router-dom'
 
 
     componentDidMount(){
-        this.props.fetchPost(this.props.match.postId)
+        
+        this.props.fetchPost(this.props.match.params.postId)
     }
 
     render(){
+        let post = this.props.post
+        
+        return(
+
             <div>
-                <img src={this.props.post.photoUrl} />
+                <img src={post.photoUrl} className="post-show-img"/>
             </div>
+            )
 
 
     }

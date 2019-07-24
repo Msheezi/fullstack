@@ -5,10 +5,10 @@ import {fetchPost} from '../../actions/posts_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
-let postId = ownProps.match.params.id
+let postId = ownProps.match.params.postId
 
 return ({
-    post: state.entities.posts[(ownProps.match.params.postId)]
+    post: state.entities.posts[postId]
 })
 
 }

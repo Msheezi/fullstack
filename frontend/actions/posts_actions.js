@@ -34,7 +34,7 @@ export const clearPostErrors = () => {
     });
 };
 
-export const fetchPost = id => dispatch => (
+export const fetchPost = (id) => dispatch => (
     PostAPIUtil.fetchPost(id).then(post => dispatch(receivePost(post)))
 )
 
