@@ -269,22 +269,31 @@ color: #FFFFFF;
    overflow: hidden;
    /* margin: 20px 10px 0px 10px; */
  }
+
+ .photo-index-title {
+   margin-left:10px;
+   text-align: left;
+   text-decoration: none;
+   color: black;
+   font-size: 24px;
+   font-family: "Helvectica neue", "Helvectica"
+ }
  
   .photo-post-index {
     text-decoration: none;
     list-style-type: none;
     margin: 0px 10px 40px 10px;
-    text-align: center;
-     border: 1px solid black;
-   border-radius: 15px;
+    /* text-align: center; */
+   
+   
    box-sizing: border-box;
    padding: 0px 0px 20px 0px;
    overflow: hidden;
   }
 
-  .photo-post-index a {
-    margin-left:10px;
-  }
+  /* .photo-post-index a {
+    
+  } */
 
   .index-title {
     background-color: white;

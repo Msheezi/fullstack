@@ -11,6 +11,7 @@ import Home from './homefeed/homefeed'
 import PostFormContainer from './posts/post_form_container'
 import HomeFeedContainer from './homefeed/homefeed_container'
 import Dashboard from './posts/modal_form'
+import PostShowContainer from './posts/post_show_container'
 
 
 
@@ -29,8 +30,9 @@ const App = () => (
             {/* <Route path="/posts/new" component={Form}/> */}
             <AuthRoute exactRoute path="/login" component={LogInFormContainer}/>
             <AuthRoute exactRoute path="/signup" component={SignUpFormContainer}/>
-            <ProtectedRoute exactRoute path="/home" component={HomeFeedContainer} />
+            <ProtectedRoute exactRoute path ="/posts/:postId" component={PostShowContainer}/>
             <ProtectedRoute exactRoute path="/post/new" component={PostFormContainer}/>
+            <ProtectedRoute exactRoute path="/home" component={HomeFeedContainer} />
             <AuthRoute exactRoute="/" component={SplashContainer}/>
             </Switch>
         </div>

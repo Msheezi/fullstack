@@ -9,7 +9,8 @@ const PostIndexItem = ( { post, deletePost, props }) => {
         {/* debugger */}
         <img className='photo-post-index-photo' src={post.photoUrl}/>
         {/* <p>{state.entities.users[post.author_id].first_name}</p> */}
-        <Link to={`/posts/${post.id}`}>{post.title}</Link>
+        <br/>
+        <Link to={`/posts/${post.id}`} className="photo-index-title">{post.title}</Link>
         
         <br/>
 
