@@ -1,31 +1,23 @@
-import React from 'react'
-import {withRouter} from 'react-router-dom'
+import React from "react";
+import { withRouter } from "react-router-dom";
 
+class PostShow extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
- class PostShow extends React.Component {
-    constructor(props){
-        super(props)
-    }
+  componentDidMount() {
+    this.props.fetchPost(this.props.match.params.postId);
+  }
 
-
-    componentDidMount(){
-        
-        this.props.fetchPost(this.props.match.params.postId)
-    }
-
-    render(){
-        let post = this.props.post
-        
-        return(
-
-            <div>
-                <img src={post.photoUrl} className="post-show-img"/>
-            </div>
-            )
-
-
-    }
-
+  render() {
+    return (
+      <div>
+        <img src={this.props.post.photoUrl} className="post-show-img" />
+        <h3 className="post-show-title">{this.props.post.title}</h3>
+      </div>
+    );
+  }
 }
 
-export default withRouter(PostShow)
+export default withRouter(PostShow);

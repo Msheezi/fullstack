@@ -12,7 +12,7 @@ import Dashboard from './posts/modal_form'
 //     }
 //     return navClass
 // }
-    
+     
 
 const NavBar = ({currentUser, logout}) => { 
    
