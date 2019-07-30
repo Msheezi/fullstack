@@ -14,59 +14,52 @@
  *= require_self
  */
 
-
 body {
-/* remove the white space on the sides of pages */
- margin: 0;
- padding: 0;
+  /* remove the white space on the sides of pages */
+  margin: 0;
+  padding: 0;
 }
 
 /* Nav bar */
-  .nav-not-logged {
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: 30px rgb(25,214,192);
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
-    font-family: 'Montserrat', sans-serif;
-    /* box-shadow: 2px 2px lightgrey; */
-    height: 50px;
-    box-sizing: border-box;
-     
+.nav-not-logged {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: 30px rgb(25, 214, 192);
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  font-family: "Montserrat", sans-serif;
+  /* box-shadow: 2px 2px lightgrey; */
+  height: 50px;
+  box-sizing: border-box;
+}
 
-  }
-
-  .nav-logged {
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: 30px #FFFFFF;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
-    font-family: 'Montserrat', sans-serif;
-    /* box-shadow: 2px 2px lightgrey; */
-    height: 50px;
-    box-sizing: border-box;
-     
-
-  }
-  sup { 
-    line-height: 0; 
-    font-size: 70%; 
-    vertical-align: top;
-    
+.nav-logged {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: 30px #ffffff;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  font-family: "Montserrat", sans-serif;
+  /* box-shadow: 2px 2px lightgrey; */
+  height: 50px;
+  box-sizing: border-box;
+}
+sup {
+  line-height: 0;
+  font-size: 70%;
+  vertical-align: top;
 }
 
 .logo {
   display: flex;
   text-decoration: none;
   align-items: center;
-  
 }
 
 #logo {
@@ -74,252 +67,229 @@ body {
   text-decoration: none;
   margin-left: 10px;
   color: black;
-
 }
 
 .nav-logged ul {
-     display: flex;
-     box-sizing: border-box;
+  display: flex;
+  box-sizing: border-box;
 
-     /* width: 900px; */
-     
+  /* width: 900px; */
 }
 
-  .nav-logged li{
-    display: flex;
-   list-style-type: none;
-    margin-left: 20px;
-  box-sizing: border-box
-
+.nav-logged li {
+  display: flex;
+  list-style-type: none;
+  margin-left: 20px;
+  box-sizing: border-box;
 }
 
 .nav-not-logged ul {
-     display: flex;
-     box-sizing: border-box;
+  display: flex;
+  box-sizing: border-box;
 
-     /* width: 900px; */
-     
+  /* width: 900px; */
 }
 
- .nav-not-logged li{
-    display: flex;
-   list-style-type: none;
-    margin-left: 20px;
-  box-sizing: border-box
-
+.nav-not-logged li {
+  display: flex;
+  list-style-type: none;
+  margin-left: 20px;
+  box-sizing: border-box;
 }
 
-  .login-buttons {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-    margin-left: auto;
-    padding: 10px;
-    text-decoration: none;
-    
-    
-
-  }
-
-  #login-btn{
-    text-decoration: none;
-    color: black;
-  }
-
-  .login-buttons-btn{
-    border-radius: 30px;
-    background-color: inherit;
-    border: 2px solid black;
-    margin: 10px;
-    padding-top: 7px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 8px;
-    box-sizing: border-box;
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-  }
-
-.login-buttons-btn:hover{
-    color: lightgrey;
-}
-#login-btn:hover{
-    color: lightgrey;
+.login-buttons {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: auto;
+  padding: 10px;
+  text-decoration: none;
 }
 
+#login-btn {
+  text-decoration: none;
+  color: black;
+}
 
+.login-buttons-btn {
+  border-radius: 30px;
+  background-color: inherit;
+  border: 2px solid black;
+  margin: 10px;
+  padding-top: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
 
-  .header-button {
-    margin-left: 10px;
-  }
+.login-buttons-btn:hover {
+  color: lightgrey;
+}
+#login-btn:hover {
+  color: lightgrey;
+}
 
-
+.header-button {
+  margin-left: 10px;
+}
 
 /* splash page */
 
 .splash-main {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   padding-left: 15px;
-  background-color: rgb(25,214,192);
+  background-color: rgb(25, 214, 192);
   width: 100%;
-  
 }
 
-  .maincontent {
-    margin-top: 50px;
-    width: 100%;
-    /* background-color: white; */
-    /* background-color: rgb(223, 219, 219) */
-  }
+.maincontent {
+  margin-top: 50px;
+  width: 100%;
+  /* background-color: white; */
+  /* background-color: rgb(223, 219, 219) */
+}
 /* Login forms */
- .login-form-container {
-   display: flex;
-   justify-content: center;
-   margin-top: 100px;
-   margin: auto;
-   background-color: white;
-   
-   padding: 32px 40px 24px;
-   box-sizing: border-box;
-   
- }
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin: auto;
+  background-color: white;
 
- .login-form {
-   display: flex;
-   justify-content: center;
-   flex-direction: column;
- }
+  padding: 32px 40px 24px;
+  box-sizing: border-box;
+}
 
- .login-input {
-   margin-left: 0px;
-   display: block;
-   font-size: 14px;
-   font-family: 'Montserrat', sans-serif;
-   box-sizing: border-box;
-   line-height: 21px;
-   width: 100%;
-   border-radius: 3px;
-   background-color: rgb(209, 234, 255);
-   
- }
+.login-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
- .login-form-box {
-   outline: .5px solid lightgray;
-   padding: 20px;
-   font-family: 'Montserrat', sans-serif;
-   color: rgb(82,85,88);
-   box-sizing: border-box;
-   font-weight: 400;
-   width: 400px;
-   background-color: white;
-   border-radius: px;
+.login-input {
+  margin-left: 0px;
+  display: block;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+  line-height: 21px;
+  width: 100%;
+  border-radius: 3px;
+  background-color: rgb(209, 234, 255);
+}
 
- }
- .login-form-box h1 {
-   text-align: center;
- }
+.login-form-box {
+  outline: 0.5px solid lightgray;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(82, 85, 88);
+  box-sizing: border-box;
+  font-weight: 400;
+  width: 400px;
+  background-color: white;
+  border-radius: px;
+}
+.login-form-box h1 {
+  text-align: center;
+}
 
-
-.session-submit{
-
-  background-color: #34BF49;
-  color: #FFFFFF;
+.session-submit {
+  background-color: #34bf49;
+  color: #ffffff;
   height: 40px;
   font-size: 18px;
-
 }
 
-.button-demo-acct{
-background-color: #3B5998;
-height: 40px;
-font-size: 18px;
-color: #FFFFFF;
+.button-demo-acct {
+  background-color: #3b5998;
+  height: 40px;
+  font-size: 18px;
+  color: #ffffff;
 }
 
 /* hides unused form elements */
- .signin-input {
-     display: none
- }
+.signin-input {
+  display: none;
+}
 
- .label-hide {
-   display: none;
- }
+.label-hide {
+  display: none;
+}
 
- /*photo index*/
+/*photo index*/
 
- .photo-index-container{
-   display:flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   list-style-type: none;
-   background-color: white;
+.photo-index-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  background-color: white;
 
-   margin: 50px auto 0px auto;
-   box-sizing: border-box;
-  
-   
- }
+  margin: 50px auto 0px auto;
+  box-sizing: border-box;
+}
 
+.photo-post-index-photo {
+  display: flex;
+  height: 300px;
+  max-width: 400px;
+  overflow: hidden;
+  /* margin: 20px 10px 0px 10px; */
+}
 
- .photo-post-index-photo {
-   display: flex;
-   height: 300px;
-   max-width: 400px;
-   overflow: hidden;
-   /* margin: 20px 10px 0px 10px; */
- }
+.photo-index-title {
+  margin-left: 10px;
+  text-align: left;
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  font-family: "Helvectica neue", "Helvectica";
+}
 
- .photo-index-title {
-   margin-left:10px;
-   text-align: left;
-   text-decoration: none;
-   color: black;
-   font-size: 24px;
-   font-family: "Helvectica neue", "Helvectica"
- }
- 
-  .photo-post-index {
-    text-decoration: none;
-    list-style-type: none;
-    margin: 0px 10px 40px 10px;
-    /* text-align: center; */
-   
-   
-   box-sizing: border-box;
-   padding: 0px 0px 20px 0px;
-   overflow: hidden;
-  }
+.photo-post-index {
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0px 10px 40px 10px;
+  border: 10px black;
+  /* text-align: center; */
 
-  /* .photo-post-index a {
+  box-sizing: border-box;
+  padding: 0px 0px 20px 0px;
+  overflow: hidden;
+}
+
+/* .photo-post-index a {
     
   } */
 
-  .index-title {
-    background-color: white;
-    margin-top: 80px;
-    margin-left: 20px;
-    
-  }
+.index-title {
+  background-color: white;
+  margin-top: 80px;
+  margin-left: 20px;
+}
 
-  /* Modal */
-  .modal {
+/* Modal */
+.modal {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
 }
 
 .modal-main {
-  position:fixed;
+  position: fixed;
   background: white;
   width: 90%;
   height: 90%;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .display-block {
@@ -334,37 +304,71 @@ color: #FFFFFF;
   display: flex;
   max-width: 400px;
   height: auto;
-  overflow:scroll; 
+  overflow: scroll;
 }
 
 .modal-button {
-  background:transparent;
+  background: transparent;
   border: none;
   font-size: 20pt;
   margin-right: 20px;
 }
 
-.modal-button:hover{
+.modal-button:hover {
   color: lightgray;
 }
 
 .form-container {
-display: flex;
-overflow:scroll; 
-
+  display: flex;
+  overflow: scroll;
 }
 
 .form-itself {
   display: flex;
- flex-direction: row;
- overflow:scroll; 
- 
+  flex-direction: row;
+  overflow: scroll;
 }
 
 /* post show */
 
+.post-show-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
 .post-show-img {
-  width: 600px;
+  display: flex;
+  width: 80%;
   height: auto;
+  margin: 0 auto;
+}
 
+.post-show-title {
+  display: flex;
+  align-content: center;
+  margin-left: 10%;
+  padding: 0;
+  font-size: 18pt;
+}
+.post-show-author {
+  display: flex;
+  align-content: center;
+  margin-left: 10%;
+  padding: 0;
+  font-size: 18pt;
+}
+.post-create-time {
+  display: flex;
+  align-content: center;
+  margin-left: 10%;
+  padding: 0;
+  font-size: 18pt;
+}
+.post-category {
+  display: flex;
+  align-content: center;
+  margin-left: 10%;
+  padding: 0;
+  font-size: 18pt;
 }
