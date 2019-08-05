@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
 
-skip_before_action :verify_authenticity_token
+# skip_before_action :verify_authenticity_token
     def show
         @post = Post.find(params[:id])
         render :show
