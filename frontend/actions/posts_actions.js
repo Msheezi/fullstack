@@ -1,17 +1,14 @@
 import * as PostAPIUtil from '../util/posts_api_util'
-import * as CommentApiUtil from '../util/comments_api_util'
+
 
 export const RECEIVE_POST = 'RECEIVE_POST'
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS'
 export const REMOVE_POST = 'REMOVE_POST'
 export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS'
 export const CLEAR_POST_ERRORS = 'CLEAR_POST_ERRORS'
-export const RECEIVE_COMMENT = 'RECEIVE_COMMENT'
 
-const receiveComment = (comment) => ({
-    type: RECEIVE_COMMENT,
-    comment
-})
+
+
 
 
 const receivePost = (post) => ({
@@ -67,6 +64,3 @@ export const deletePost = (postId) => dispatch => (
 )
 
 
-export const receiveReview = (id) => dispatch => (
-    CommentApiUtil.fetchComment(id).then(comment => dispatch(receiveComment(comment)))
-)

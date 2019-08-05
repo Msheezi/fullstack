@@ -10,9 +10,18 @@ class Api::CommentsController < ApplicationController
 
     end
 
+    def index
+        @comments = Comment.all
+        render :index
+    end
+
+    private
+
     def comment_params
         params.require(:comment).permit(:body, :post_id, :author_id)
     end
+
+
 
 
 end

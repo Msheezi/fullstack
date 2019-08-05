@@ -23,7 +23,7 @@ class Api::PostsController < ApplicationController
 
     def index
         posts = Post.all
-        @posts = posts.includes(:comments)
+         @posts = posts.includes(:comments)
         render :index
     end
 

@@ -23,3 +23,16 @@ export const fetchComment = (id) => {
         })
     )
 }
+
+export const fetchComments = () => {
+
+
+    return (
+
+        $.ajax({
+            method: 'get',
+            url: 'api/comments/'
+
+        })
+    )
+}
