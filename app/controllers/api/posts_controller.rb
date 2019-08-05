@@ -3,6 +3,7 @@ class Api::PostsController < ApplicationController
 # skip_before_action :verify_authenticity_token
     def show
         @post = Post.find(params[:id])
+        
         render :show
 
     end
@@ -21,7 +22,8 @@ class Api::PostsController < ApplicationController
     end 
 
     def index
-        @posts = Post.all
+        posts = Post.all
+        @posts = posts.includes(:comments)
         render :index
     end
 
