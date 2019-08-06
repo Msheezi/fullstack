@@ -35,6 +35,14 @@ class Api::PostsController < ApplicationController
 
     end
 
+    def comments
+        post = Post.find(params[:id])
+
+        if post
+            @comments = post.comments.order(created_at: desc)
+            render :comments
+        end
+    end
 
 
     private
