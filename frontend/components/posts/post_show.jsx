@@ -8,10 +8,13 @@ class PostShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchPost(this.props.match.params.postId);
-    // this.props.fetchComments(this.props.match.params.postId)
+    this.props.fetchComments()
   }
 
   render() {
+    debugger
+    let comment = this.props.comments.body
+    debugger
     return (
       <div className="post-show-container">
         <img src={this.props.post.photoUrl} className="post-show-img" />
@@ -19,6 +22,8 @@ class PostShow extends React.Component {
         <h2 className="post-show-author">by Author</h2>
         <p className="post-create-time">post time</p>
         <p className="post-category">category</p>
+        <p className="post-comment">comment</p>
+        <p>{comment}</p>
       </div>
     );
   }
