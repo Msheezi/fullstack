@@ -23,10 +23,10 @@ export default class Home extends React.Component {
     console.log(this.props.posts);
     return (
       <div className="index-title">
-        <h2>Your Photos</h2>
+        <h2>Discover</h2>
 
         <div className="photo-index-container">
-          <br />
+         
 
           {posts}
         </div>
