@@ -22,8 +22,8 @@ class Api::PostsController < ApplicationController
     end 
 
     def index
-        posts = Post.all
-         @posts = posts.includes(:comments)
+        @posts = Post.all
+        #   @posts = posts.includes(:comments)
         render :index
     end
 
