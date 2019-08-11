@@ -14,7 +14,8 @@ class PostShow extends React.Component {
   render() {
     
     let comment = this.props.comments.body
-    debugger
+    
+    // debugger
     return (
       <div className="post-show-container">
         <img src={this.props.post.photoUrl} className="post-show-img" />

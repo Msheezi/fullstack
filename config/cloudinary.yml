@@ -1,0 +1,18 @@
+development:
+  cloud_name: ddtykf72z
+  api_key: '667657127216932'
+  api_secret: EI2jMBqplOVv29_iU3N54-AhjYQ
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: ddtykf72z
+  api_key: '667657127216932'
+  api_secret: EI2jMBqplOVv29_iU3N54-AhjYQ
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: ddtykf72z
+  api_key: '667657127216932'
+  api_secret: EI2jMBqplOVv29_iU3N54-AhjYQ
+  enhance_image_tag: true
+  static_file_support: false
