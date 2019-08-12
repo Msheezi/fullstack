@@ -244,7 +244,7 @@ sup {
 }
 
 .photo-post-index-photo:hover {
-  
+
 }
 
 
@@ -346,7 +346,7 @@ sup {
 }
 .post-show-img {
   display: flex;
-  width: 80%;
+  width: 800px;
   height: auto;
   margin: 0 auto;
 }

@@ -21,6 +21,7 @@ export default class Home extends React.Component {
       />
     ));
     console.log(this.props.posts);
+    // debugger
     return (
       <div className="index-title">
         <h2>Discover</h2>
