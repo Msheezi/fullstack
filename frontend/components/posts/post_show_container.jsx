@@ -1,4 +1,4 @@
-import React from "react";
+
 import { connect } from "react-redux";
 import PostShow from "./post_show";
 import { fetchPost } from "../../actions/posts_actions";

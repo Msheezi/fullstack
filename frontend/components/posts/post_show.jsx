@@ -31,7 +31,8 @@ class PostShow extends React.Component {
         <h3 className="post-comment">Comments</h3>
         <ul>
         <Comments
-          comments={this.props.comments[postId]}
+          // comments={this.props.comments[postId]}
+          postId={this.props.match.params.postId}
         /></ul>
       </div>
     );

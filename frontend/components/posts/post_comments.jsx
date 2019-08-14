@@ -30,6 +30,7 @@ export default class Comments extends React.Component {
     }
 
     render() {
+            debugger
          const coms = this.props.comments.map(comment => (<li>{comment.body}</li>))
         return (
         <div className="comment-container">
