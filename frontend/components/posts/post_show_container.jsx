@@ -6,12 +6,12 @@ import {fetchComments} from '../../actions/comment_actions'
 
 const mapStateToProps = (state, ownProps) => {
   let postId = ownProps.match.params.postId;
-  let author_id = state.entities.posts[postId].author_id
+  // let author_id = state.entities.posts[postId].author_id;
 
   return {
     postId: postId,
     post: state.entities.posts[postId] || {},
-    author: state.entities.users[author_id],
+    // author: state.entities.users[state.entities.posts.postId.author_id],
     users: state.entities.users
     
   };
