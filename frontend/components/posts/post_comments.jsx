@@ -41,7 +41,19 @@ export default class Comments extends React.Component {
 
     render() {
             debugger
-         const coms = this.props.comments.map(comment => (<li>{comment.body}</li>))
+        const coms = this.props.comments.map(comment => (<li>{comment.body}</li>))
+             
+            
+        //     if (comment.post_id === this.props.postId){
+        //          return (<li>{comment.body}</li> )
+        //      }
+        //  })
+            
+            
+
+            //  if (comment.post_id === this.props.postId)
+            //   ())
+         
         return (
         <div className="comment-container">
             <ul>
