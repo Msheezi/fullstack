@@ -54,7 +54,7 @@ export default class Comments extends React.Component {
 
     render() {
             // debugger
-         const coms = this.state.comments.map(comment => (<li>{comment.body}</li>))
+         const coms = this.state.comments.map(comment => (<li key={comment.id}>{comment.body}</li>))
         return (
         <div className="comment-container">
             <ul>
