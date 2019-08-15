@@ -7,7 +7,7 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPosts().then(()=> this.props.fetchUsers())
     // this.props.fetchComments();
   }
 

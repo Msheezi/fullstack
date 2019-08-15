@@ -29,7 +29,7 @@ class PostShow extends React.Component {
       <div className="post-show-container">
         <img src={this.props.post.photoUrl} className="post-show-img" />
         <h3 className="post-show-title">{this.props.post.title}</h3>
-        <h2 className="post-show-author">by {this.props.author.first_name}</h2>
+        <h2 className="post-show-author">by {this.props.author.first_name + ' ' + this.props.author.last_name}</h2>
         <p>Camera: {this.props.post.camera_name}</p>
         {this.props.post.f_stop}
         {this.props.post.iso}
@@ -42,6 +42,7 @@ class PostShow extends React.Component {
           // comments={this.props.comments[postId]}
           postId={this.props.match.params.postId}
           comments={this.state.comments}
+          users={this.props.users}
         /></ul>
       </div>
       );

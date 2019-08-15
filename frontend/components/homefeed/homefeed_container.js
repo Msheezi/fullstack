@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import homeFeed from './homefeed'
 import {fetchAllPosts, deletePost} from '../../actions/posts_actions'
 import {fetchComments} from '../../actions/comment_actions'
+import {fetchAllUsers} from '../../actions/user_actions'
 
 
 const mapStateToProps = state => ({
@@ -13,7 +14,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     fetchPosts: () => dispatch(fetchAllPosts()),
     deletePost: (postId) => dispatch(deletePost(postId)),
-    fetchComments: () => dispatch(fetchComments())
+    fetchComments: () => dispatch(fetchComments()),
+    fetchUsers: () => dispatch(fetchAllUsers())
 
 })
 

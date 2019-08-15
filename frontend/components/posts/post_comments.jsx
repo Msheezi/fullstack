@@ -24,15 +24,7 @@ export default class Comments extends React.Component {
         }).then(res => {
             return this.setState({comments: res.comments})
         })
-        // this.setState({
-        //     body: '',
-        //     post_id: this.props.postId,
-        //     author_id: this.props.currentUser,
-        //     comments: []
-        // }).then(() => this.props.fetchComments(this.props.postId))
-        // .then(res => {
-        //     this.setState({ comments: res.comments })
-        // })
+       
     }
 
     update(field) {
@@ -47,33 +39,37 @@ export default class Comments extends React.Component {
         })
     }
 
-    // componentDidUpdate(prevProps){
-    //     if (this.props.comments !== prevProps.comments)
-    //     this.props.fetchComments()
-    // }
+    
 
     render() {
             // debugger
-         const coms = this.state.comments.map(comment => (<li key={comment.id}>{comment.body}</li>))
+        const coms = this.state.comments.map(comment => (
+            <div key={comment.id} className="comment-item">
+                <h3  className="comment-username">
+                     {this.props.users[comment.author_id].first_name + ' ' + this.props.users[comment.author_id].last_name}</h3>
+                
+                <p className="comment-body">{comment.body}</p>
+            </div>
+        ))
         return (
         <div className="comment-container">
-            <ul>
+            <ul className="comment-ul">
                 {coms}
             </ul>
             <form onSubmit={this.handleSubmit} className="comment-submit">
             <br />
-                <label>Leave A Comment
+                <label>Comments
             <br />
-                 <input type="text"
-                value={this.state.body}
-                onChange={this.update('body')}
-                className="comment-body"
-                name="comment"/>
+                    <input type="text"
+                        value={this.state.body}
+                        onChange={this.update('body')}
+                        className="comment-body"
+                        name="comment"/>
                 </label>
-                <input type="submit" value="post comment"/>
-                </form>
+                    <input type="submit" value="post comment"/>
+            </form>
               
-            </div>
+        </div>
         )
 
        
