@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps )=> {
     return {
         postId: postId,
         currentUser: state.session.id,
-        comments: Object.keys(state.entities.comments).map(id => state.entities.comments[id] )
+        // comments: Object.keys(state.entities.comments).map(id => state.entities.comments[id] )
     }
 
     

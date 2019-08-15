@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   let author_id = state.entities.posts[postId].author_id
 
   return {
+    postId: postId,
     post: state.entities.posts[postId] || {},
     comments: state.entities.comments || {} ,
     author: state.entities.users[author_id]
@@ -18,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchPost: postId => dispatch(fetchPost(postId)),
-  fetchComments: comments => dispatch(fetchComments(comments))
+  fetchComments: id => dispatch(fetchComments(id))
 });
 
 export default connect(

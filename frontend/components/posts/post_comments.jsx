@@ -7,6 +7,7 @@ export default class Comments extends React.Component {
             body: '',
             post_id: this.props.postId,
             author_id: this.props.currentUser,
+            comments: []
             
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,12 +17,22 @@ export default class Comments extends React.Component {
         e.preventDefault();
         // const user = Object.assign({}, this.state);
         const subCom = Object.assign({}, this.state)
-        this.props.createComment(subCom);
-        this.setState({
-            body: '',
-            post_id: this.props.postId,
-            author_id: this.props.currentUser,
+        this.props.createComment(subCom).then(() => {
+            return this.setState({body: ''});
+        }).then(() => {
+            return this.props.fetchComments(this.props.postId);
+        }).then(res => {
+            return this.setState({comments: res.comments})
         })
+        // this.setState({
+        //     body: '',
+        //     post_id: this.props.postId,
+        //     author_id: this.props.currentUser,
+        //     comments: []
+        // }).then(() => this.props.fetchComments(this.props.postId))
+        // .then(res => {
+        //     this.setState({ comments: res.comments })
+        // })
     }
 
     update(field) {
@@ -31,7 +42,9 @@ export default class Comments extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchComments(this.props.postId)
+        this.props.fetchComments(this.props.postId).then(res=>{
+            this.setState({comments: res.comments})
+        })
     }
 
     // componentDidUpdate(prevProps){
@@ -40,8 +53,8 @@ export default class Comments extends React.Component {
     // }
 
     render() {
-            debugger
-         const coms = this.props.comments.map(comment => (<li>{comment.body}</li>))
+            // debugger
+         const coms = this.state.comments.map(comment => (<li>{comment.body}</li>))
         return (
         <div className="comment-container">
             <ul>

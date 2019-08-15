@@ -5,16 +5,24 @@ import Comments from './post_comments_container'
 class PostShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      fetchDone: false,
+      comments: []
+    }
   }
 
   componentDidMount() {
-    this.props.fetchPost(this.props.match.params.postId);
+    this.props.fetchPost(this.props.match.params.postId).then(() => this.props.fetchComments(this.props.match.params.postId)).then((res) => {
+      this.setState({fetchDone: true},
+        this.setState({comments: res.comments}))
+    });
     // this.props.fetchComments()
   }
 
   render() {
-    
-    // let comments = this.props.comments.body
+    // debugger
+    if (this.state.fetchDone) {
+    // let comments = this.props.fetchComments(this.props)
     
     let postId = this.props.match.params.postId
     return (
@@ -33,9 +41,11 @@ class PostShow extends React.Component {
         <Comments
           // comments={this.props.comments[postId]}
           postId={this.props.match.params.postId}
+          comments={this.state.comments}
         /></ul>
       </div>
-    );
+      );
+    } else {return ''}
   }
 }
 
