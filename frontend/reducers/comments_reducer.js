@@ -5,11 +5,15 @@ const CommentsReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState;
     switch (action.type) {
-        case RECEIVE_ALL_COMMENTS:
-                      
-            return merge({}, state, action.comments);
+        case RECEIVE_ALL_COMMENTS:   
+            newState = {};
+            action.comments.forEach(el => (newState[el.id] = el))
+            
+            return merge({}, state, newState);
         case RECEIVE_COMMENT:
-            return merge({}, state, { [action.comment.id]: action.comment });
+            newState = merge({}, state)
+            newState[action.comment.id] = action.comment
+            return newState;
                 default:
             return state;
     }

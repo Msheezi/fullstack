@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     post: state.entities.posts[postId] || {},
-    comments: state.entities.comments[postId] || {} ,
+    comments: state.entities.comments || {} ,
     author: state.entities.users[author_id]
     
   };

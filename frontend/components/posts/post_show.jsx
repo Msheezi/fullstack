@@ -9,7 +9,7 @@ class PostShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchPost(this.props.match.params.postId);
-    this.props.fetchComments()
+    // this.props.fetchComments()
   }
 
   render() {

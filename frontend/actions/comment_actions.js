@@ -13,9 +13,14 @@ const receiveComments = (comments) => ({
     comments
 })
 
+export const createComment = (comment) => dispatch => (
+    CommentApiUtil.createComment(comment).then(comment => dispatch(receiveComment(comment)))
 
-export const fetchComments = () => dispatch => (
-    CommentApiUtil.fetchComments().then(comments => dispatch(receiveComments(comments)))
+)
+
+
+export const fetchComments = (id) => dispatch => (
+    CommentApiUtil.fetchComments(id).then(comments => dispatch(receiveComments(comments)))
 )
 
 

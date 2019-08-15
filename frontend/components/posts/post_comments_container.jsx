@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { fetchComments } from '../../actions/comment_actions'
+import { fetchComments, createComment } from '../../actions/comment_actions'
 import Comments from './post_comments'
 
 
@@ -8,8 +8,9 @@ const mapStateToProps = (state, ownProps )=> {
     let postId = ownProps.postId
     
     return {
-
-        comments: Object.keys(state.entities.comments).filter(id=> id === postId).map(id => state.entities.comments[id] )
+        postId: postId,
+        currentUser: state.session.id,
+        comments: Object.keys(state.entities.comments).map(id => state.entities.comments[id] )
     }
 
     
@@ -17,7 +18,8 @@ const mapStateToProps = (state, ownProps )=> {
 
 
 const mapDispatchToProps = dispatch => ({
-    fetchComments: comments => dispatch(fetchComments(comments))
+    fetchComments: (id) => dispatch(fetchComments(id)),
+    createComment: comment => dispatch(createComment(comment))
 })
 
 export default connect(

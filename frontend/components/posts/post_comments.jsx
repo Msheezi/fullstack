@@ -5,18 +5,23 @@ export default class Comments extends React.Component {
         super(props)
         this.state = {
             body: '',
-            post_id: '',
-            author_id: '',
-            first_name: '',
-            last_name: ''
+            post_id: this.props.postId,
+            author_id: this.props.currentUser,
+            
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user)
+        // const user = Object.assign({}, this.state);
+        const subCom = Object.assign({}, this.state)
+        this.props.createComment(subCom);
+        this.setState({
+            body: '',
+            post_id: this.props.postId,
+            author_id: this.props.currentUser,
+        })
     }
 
     update(field) {
@@ -26,8 +31,13 @@ export default class Comments extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchComments()
+        this.props.fetchComments(this.props.postId)
     }
+
+    // componentDidUpdate(prevProps){
+    //     if (this.props.comments !== prevProps.comments)
+    //     this.props.fetchComments()
+    // }
 
     render() {
             debugger
@@ -47,6 +57,7 @@ export default class Comments extends React.Component {
                 className="comment-body"
                 name="comment"/>
                 </label>
+                <input type="submit" value="post comment"/>
                 </form>
               
             </div>

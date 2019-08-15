@@ -24,14 +24,14 @@ export const fetchComment = (id) => {
     )
 }
 
-export const fetchComments = () => {
+export const fetchComments = (id) => {
 
 
     return (
 
         $.ajax({
             method: 'get',
-            url: 'api/comments/'
+            url: `api/posts/${id}/comments`
 
         })
     )
