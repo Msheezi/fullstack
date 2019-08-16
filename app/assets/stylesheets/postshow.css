@@ -7,8 +7,8 @@
   margin: 0 auto;
 }
 
-.post-show-img-container{
-    background-color: #222222;
+.post-show-img-container {
+  background-color: #222222;
 }
 .post-show-img {
   display: flex;
@@ -18,39 +18,34 @@
 }
 
 .post-show-post-details {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-
-
-.post-show-post-camera-details{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    height: auto;
-    
-
+.post-show-post-camera-details {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: auto;
 }
-.post-show-author{
-    display:flex;
-    flex-direction: column;
-    line-height: 0.25;
-    justify-content: flex-start;
+.post-show-author {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.25;
+  justify-content: flex-start;
 }
 
-.post-show-post-camera-details p{
-    display:flex;
-    flex-direction: column;
-    margin-left: 20%;
-    line-height: 0.25;
+.post-show-post-camera-details p {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+  line-height: 0.25;
 }
 
-.post-show-comments{
-    width: 40%;
+.post-show-comments {
+  width: 40%;
 }
-
 
 .post-show-title {
   display: flex;
@@ -81,8 +76,26 @@
   font-size: 18pt;
 }
 
-
 /* comments */
 .comment-container {
-    /* background-color: black; */
+  /* background-color: black; */
+}
+
+.comment-body {
+  height: 59px;
+  min-height: 59px;
+  max-height: 194px;
+  overflow-y: hidden;
+  font-size: 16pt;
+}
+
+.comment-body {
+  font-size: 16pt;
+  margin-bottom: 5px;
+  margin-top: 2px;
+}
+.comment-username {
+  font-size: 16pt;
+  margin-top: 2px;
+  margin-bottom: 5px;
 }
