@@ -39,8 +39,7 @@ class Api::PostsController < ApplicationController
         @post = Post.find_by(id: params[:post_id])
 
         if @post
-            @comments = @post.comments
-            # .order(created_at: :desc)
+            @comments = @post.comments.order(created_at: :desc)
             render :comments
         end
     end

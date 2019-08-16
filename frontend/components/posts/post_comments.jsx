@@ -53,9 +53,9 @@ export default class Comments extends React.Component {
         ))
         return (
         <div className="comment-container">
-            <ul className="comment-ul">
-                {coms}
-            </ul>
+            
+                
+            
             <form onSubmit={this.handleSubmit} className="comment-submit">
             <br />
                 <label>Comments
@@ -68,7 +68,7 @@ export default class Comments extends React.Component {
                 </label>
                     <input type="submit" value="post comment"/>
             </form>
-              
+              {coms}
         </div>
         )
 

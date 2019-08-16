@@ -16,35 +16,43 @@ class PostShow extends React.Component {
       this.setState({fetchDone: true},
         this.setState({comments: res.comments}))
     });
-    // this.props.fetchComments()
+    
   }
 
   render() {
     // debugger
     if (this.state.fetchDone) {
-    // let comments = this.props.fetchComments(this.props)
     
-    let postId = this.props.match.params.postId
-    return (
+      return (
       <div className="post-show-container">
-        <img src={this.props.post.photoUrl} className="post-show-img" />
-        <h3 className="post-show-title">{this.props.post.title}</h3>
-        {/* <h2 className="post-show-author">by {this.props.author.first_name + ' ' + this.props.author.last_name}</h2> */}
-        <h2 className="post-show-author">by {this.props.users[this.props.post.author_id].first_name + ' ' + this.props.users[this.props.post.author_id].last_name}</h2>
-        <p>Camera: {this.props.post.camera_name}</p>
-        {this.props.post.f_stop}
-        {this.props.post.iso}
-        {this.props.post.lens}
-        <p className="post-create-time">post time</p>
-        <p className="post-category">category</p>
-        <h3 className="post-comment">Comments</h3>
-        <ul>
-        <Comments
-          // comments={this.props.comments[postId]}
-          postId={this.props.match.params.postId}
-          comments={this.state.comments}
-          users={this.props.users}
-        /></ul>
+        <div className="post-show-img-container">
+          <img src={this.props.post.photoUrl} className="post-show-img" />
+        </div>
+        
+        <div className="post-show-post-details">
+          <div className="post-show-post-camera-details">
+            <div className="post-show-author">
+              <h3 className="post-show-title">{this.props.post.title}</h3>
+              <h4 className="post-show-author">by {this.props.users[this.props.post.author_id].first_name + ' ' + this.props.users[this.props.post.author_id].last_name}</h4>
+            </div>
+            <p>Camera: {this.props.post.camera_name}</p>
+              <p>f/0: {this.props.post.f_stop}</p>
+              <p>ISO: {this.props.post.iso}</p>
+              <p>Lens: {this.props.post.lens}</p>
+            <p className="post-create-time">posted: </p>
+            <p className="post-category">category</p>
+        </div>
+
+        <div className="post-show-comments">
+          <h3 className="post-comment">Comments</h3>
+        
+          <Comments
+            postId={this.props.match.params.postId}
+            comments={this.state.comments}
+            users={this.props.users}/>
+        </div>
+
+      </div>
       </div>
       );
     } else {return ''}

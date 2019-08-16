@@ -8,8 +8,7 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     this.props.fetchPosts().then(()=> this.props.fetchUsers())
-    // this.props.fetchComments();
-  }
+    }
 
   render() {
     let posts = this.props.posts.map(post => (
