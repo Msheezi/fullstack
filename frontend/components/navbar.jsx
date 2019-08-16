@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Dashboard from "./posts/modal_form";
+import PostFormContainer from "./posts/post_form_container";
 
-const NavBar = ({ currentUser, logout }) => {
+const NavBar = ({ currentUser, logout, openModal }) => {
   const sessionLinks = () => (
     <span className="login-buttons">
       <Link to="/login" id="login-btn">
@@ -18,7 +19,10 @@ const NavBar = ({ currentUser, logout }) => {
   const personalGreeting = () => (
     <span className="login-buttons">
       {/* <Link to="/post/new">Add A New Photo</Link> */}
-      <Dashboard />
+      <button type="button" className="modal-button" onClick={openModal}>
+        +
+      </button>
+
       <h3 className="header-name">Hi, {currentUser.username}!</h3>
       <button className="login-buttons-btn" onClick={logout}>
         Log Out

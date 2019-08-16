@@ -3,6 +3,7 @@ import PostShow from "./post_show";
 import { fetchPost } from "../../actions/posts_actions";
 import { fetchComments } from "../../actions/comment_actions";
 import { fetchAllUsers } from "../../actions/user_actions";
+import { closeModal } from "../../actions/ui_actions";
 
 const mapStateToProps = (state, ownProps) => {
   let postId = ownProps.match.params.postId;
@@ -17,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchPost: postId => dispatch(fetchPost(postId)),
   fetchComments: id => dispatch(fetchComments(id)),
-  fetchAllUsers: () => dispatch(fetchAllUsers())
+  fetchAllUsers: () => dispatch(fetchAllUsers()),
+  closeModal: () => dispatch(closeModal())
 });
 
 export default connect(

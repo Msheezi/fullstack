@@ -323,8 +323,31 @@ sup {
   color: lightgray;
 }
 
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-box {
+  width: 80%;
+  height: 80%;
+  padding: 10px;
+  border-radius: 30px;
+  margin-left: 10%;
+  margin-top: 5%;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
 .form-container {
   display: flex;
+
   flex-direction: row;
   overflow: scroll;
   align-content: space-around;

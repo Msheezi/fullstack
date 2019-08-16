@@ -122,3 +122,14 @@
   align-self: center;
   width: 190px;
 }
+
+.close-modal {
+  background-color: #9c232a;
+  height: 40px;
+  font-size: 18px;
+  color: #ffffff;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  align-self: center;
+  width: 190px;
+}

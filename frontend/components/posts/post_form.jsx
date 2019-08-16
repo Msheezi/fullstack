@@ -48,7 +48,7 @@ export default class PostForm extends React.Component {
     }
     this.props.submitPost(formData).then(
       () => {
-        this.props.handleClose();
+        this.props.closeModal();
         this.props.clearErrors();
         this.setState({
           title: "",
@@ -76,45 +76,71 @@ export default class PostForm extends React.Component {
     const preview = this.state.photoUrl ? (
       <img className="img-preview" src={this.state.photoUrl} />
     ) : null;
-    return (
-      <div className="form-container">
-        <form className="form-itself">
-          <label htmlFor="title">
-            Post Title
-            <input
-              type="text"
-              id="title"
-              value={this.state.title}
-              onChange={this.handleInput("title")}
-            />
-          </label>
+    if (this.props.postModalOpen) {
+      return (
+        <div className="modal-background">
+          <div className="modal-box">
+            <div className="form-container">
+              <form className="form-itself">
+                <label htmlFor="title">
+                  Post Title
+                  <input
+                    type="text"
+                    id="title"
+                    value={this.state.title}
+                    onChange={this.handleInput("title")}
+                  />
+                </label>
 
-          {/* <label>Category
-                        <input type="number"
-                        // id="post-body"
-                        value={this.state.category_id}
-                        onChange={this.handleInput('category_id')} />
-                    </label> */}
-          {/* <label>Camera
-                        <input type="text"
-                        value={this.state.camera_name}
-                        onChange={this.handleInput('camera_name')} />
-                    </label> */}
-          <label>
-            <input type="file" onChange={this.handleFile} />
-          </label>
-          {this.renderErrors()}
-          <br />
-          <button className="comment-submit-btn" onClick={this.handleSubmit}>
-            {" "}
-            Submit
-          </button>
-        </form>
-        <div className="modal-image-preview">
-          <h3>Image preview </h3>
-          {preview}
+                <label>
+                  Category
+                  <input
+                    type="text"
+                    value={this.state.category_id}
+                    onChange={this.handleInput("category_id")}
+                  />
+                </label>
+                <label>
+                  Camera
+                  <input
+                    type="text"
+                    value={this.state.camera_name}
+                    onChange={this.handleInput("camera_name")}
+                  />
+                </label>
+                <label>
+                  <input type="file" onChange={this.handleFile} />
+                </label>
+                {this.renderErrors()}
+                <br />
+                <button
+                  className="comment-submit-btn"
+                  onClick={this.handleSubmit}
+                >
+                  {" "}
+                  Submit
+                </button>
+                <button
+                  className="close-modal"
+                  onClick={() => {
+                    this.props.closeModal();
+                    this.props.clearErrors();
+                    this.setState({ photoUrl: "" });
+                  }}
+                >
+                  Cancel
+                </button>
+              </form>
+              <div className="modal-image-preview">
+                <h3>Image preview </h3>
+                {preview}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return "";
+    }
   }
 }
