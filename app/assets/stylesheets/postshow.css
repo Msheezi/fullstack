@@ -99,3 +99,11 @@
   margin-top: 2px;
   margin-bottom: 5px;
 }
+.comment-submit-btn {
+  background-color: #3b5998;
+  height: 40px;
+  font-size: 18px;
+  color: #ffffff;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
