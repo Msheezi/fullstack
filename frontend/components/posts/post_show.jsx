@@ -44,12 +44,13 @@ class PostShow extends React.Component {
                     this.props.users[this.props.post.author_id].last_name}
                 </h4>
               </div>
+
               <p>Camera: {this.props.post.camera_name}</p>
               <p>f/0: {this.props.post.f_stop}</p>
               <p>ISO: {this.props.post.iso}</p>
               <p>Lens: {this.props.post.lens}</p>
               <p className="post-create-time">posted: </p>
-              <p className="post-category">category</p>
+              <p className="post-category">Category</p>
             </div>
 
             <div className="post-show-comments">
