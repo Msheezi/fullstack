@@ -239,14 +239,12 @@ sup {
   width: 300px;
   overflow: hidden;
   margin: 10px 5px 0px 5px;
-  border: 1px solid black ;
+  border: 1px solid black;
   object-fit: cover;
 }
 
 .photo-post-index-photo:hover {
-
 }
-
 
 .photo-index-title {
   margin-left: 10px;
@@ -309,7 +307,7 @@ sup {
 
 .img-preview {
   display: flex;
-  max-width: 400px;
+  max-width: 200px;
   height: auto;
   overflow: scroll;
 }
@@ -327,12 +325,13 @@ sup {
 
 .form-container {
   display: flex;
+  flex-direction: row;
   overflow: scroll;
+  align-content: space-around;
 }
 
 .form-itself {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   overflow: scroll;
 }
-
