@@ -42,6 +42,8 @@ export default class Comments extends React.Component {
     });
   }
 
+  
+
   render() {
     // debugger
     const coms = this.state.comments.map(comment => (

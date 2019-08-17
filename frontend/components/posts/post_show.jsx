@@ -18,8 +18,9 @@ class PostShow extends React.Component {
       .then(() => this.props.fetchComments(this.props.match.params.postId))
       .then(res => {
         this.setState(
-          { fetchDone: true },
-          this.setState({ comments: res.comments })
+          { fetchDone: true }
+          // ,
+          // this.setState({ comments: res.comments })
         );
       });
   }
@@ -58,7 +59,7 @@ class PostShow extends React.Component {
 
               <Comments
                 postId={this.props.match.params.postId}
-                comments={this.state.comments}
+                // comments={this.state.comments}
                 users={this.props.users}
               />
             </div>

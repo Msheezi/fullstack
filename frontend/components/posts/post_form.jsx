@@ -1,6 +1,7 @@
 import React from "react";
+import { withRouter } from 'react-router-dom';
 
-export default class PostForm extends React.Component {
+ class PostForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,7 +48,7 @@ export default class PostForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    this.setState({author_id: this.props.currentUser})
     const formData = new FormData();
     formData.append("post[title]", this.state.title);
     formData.append("post[category_id]", this.state.category_id);
@@ -56,7 +57,8 @@ export default class PostForm extends React.Component {
     if (this.state.photoFile) {
       formData.append("post[photo]", this.state.photoFile);
     }
-    this.props.submitPost(formData).then(
+    this.props.submitPost(formData)
+    .then(() => this.props.history.push("/home")).then(
       () => {
         this.props.closeModal();
         this.props.clearErrors();
@@ -205,7 +207,7 @@ export default class PostForm extends React.Component {
   }
 }
 
-
+export default withRouter(PostForm)
 
 
 // render() {
