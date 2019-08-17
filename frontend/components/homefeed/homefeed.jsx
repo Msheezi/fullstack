@@ -18,7 +18,7 @@ export default class Home extends React.Component {
         deletePost={this.props.deletePost}
         props={this.props}
       />
-    ));
+    )).reverse();
     console.log(this.props.posts);
     // debugger
     return (
