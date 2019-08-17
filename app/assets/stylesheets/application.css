@@ -349,12 +349,23 @@ sup {
   display: flex;
 
   flex-direction: row;
-  overflow: scroll;
-  align-content: space-around;
+  
+  align-content: space-between;
 }
 
 .form-itself {
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  width: 40%;
+  
+}
+
+.upload-data{
+   display: flex;
+  flex-direction: column;
+}
+
+.modal-image-preview{
+  margin-left: 30px;
+  width: 60%;
 }
