@@ -37,7 +37,6 @@ class PostShow extends React.Component {
         })})
   }
   componentDidUpdate(prevProps, prevState) {
-    debugger
     if (prevState.postId !== this.props.postId){
       this.resetMyState()
        
@@ -45,7 +44,7 @@ class PostShow extends React.Component {
   }
 
   render() {
-    debugger
+    
     if (this.state.fetchDone) {
       return (
         <div className="post-show-container">
