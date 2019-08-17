@@ -12,6 +12,11 @@ export default class PostForm extends React.Component {
     this.handleFile = this.handleFile.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitFile = this.handleSubmitFile.bind(this);
+    this.renderFileUpload = this.renderFileUpload.bind(this);
+    this.renderUpload = this.renderUpload.bind(this);
+
+ 
   }
   handleInput(field) {
     return e =>
@@ -33,6 +38,11 @@ export default class PostForm extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
+  }
+
+  handleSubmitFile(e){
+    e.preventDefault();
+    this.setState({})
   }
 
   handleSubmit(e) {
@@ -72,11 +82,26 @@ export default class PostForm extends React.Component {
     );
   }
 
-  render() {
+  renderFileUpload() {
+    return (
+     <div>
+       <form>
+      <label>
+        <input type="file" onChange={this.handleFile} />
+      </label>
+                { this.renderErrors() }
+    <br />
+     
+      </form>
+    </div>
+    )
+  }
+
+  renderUpload() {
     const preview = this.state.photoUrl ? (
       <img className="img-preview" src={this.state.photoUrl} />
     ) : null;
-    if (this.props.postModalOpen) {
+    
       return (
         <div className="modal-background">
           <div className="modal-box">
@@ -108,9 +133,7 @@ export default class PostForm extends React.Component {
                     onChange={this.handleInput("camera_name")}
                   />
                 </label>
-                <label>
-                  <input type="file" onChange={this.handleFile} />
-                </label>
+                
                 {this.renderErrors()}
                 <br />
                 <button
@@ -139,8 +162,108 @@ export default class PostForm extends React.Component {
           </div>
         </div>
       );
+    
+  }
+
+  render(){
+
+    if (this.props.postModalOpen){
+
+      if (!this.state.photoFile) {
+       return (
+
+        <div className="modal-background">
+          <div className="modal-box">
+           { this.renderFileUpload()}
+          </div> 
+        </div>)
+      } else {
+        return (
+          <div className="modal-background">
+            <div className="modal-box">
+              {this.renderUpload()}
+            </div>
+          </div>
+        )
+      }
     } else {
-      return "";
+      return null
     }
+
   }
 }
+
+
+
+
+// render() {
+//   const preview = this.state.photoUrl ? (
+//     <img className="img-preview" src={this.state.photoUrl} />
+//   ) : null;
+//   if (this.props.postModalOpen) {
+//     return (
+//       <div className="modal-background">
+//         <div className="modal-box">
+//           <div className="form-container">
+//             <form className="form-itself">
+//               <label htmlFor="title">
+//                 Post Title
+//                   <input
+//                   type="text"
+//                   id="title"
+//                   value={this.state.title}
+//                   onChange={this.handleInput("title")}
+//                 />
+//               </label>
+
+//               <label>
+//                 Category
+//                   <input
+//                   type="text"
+//                   value={this.state.category_id}
+//                   onChange={this.handleInput("category_id")}
+//                 />
+//               </label>
+//               <label>
+//                 Camera
+//                   <input
+//                   type="text"
+//                   value={this.state.camera_name}
+//                   onChange={this.handleInput("camera_name")}
+//                 />
+//               </label>
+//               <label>
+//                 <input type="file" onChange={this.handleFile} />
+//               </label>
+//               {this.renderErrors()}
+//               <br />
+//               <button
+//                 className="comment-submit-btn"
+//                 onClick={this.handleSubmit}
+//               >
+//                 {" "}
+//                 Submit
+//                 </button>
+//               <button
+//                 className="close-modal"
+//                 onClick={() => {
+//                   this.props.closeModal();
+//                   this.props.clearErrors();
+//                   this.setState({ photoUrl: "" });
+//                 }}
+//               >
+//                 Cancel
+//                 </button>
+//             </form>
+//             <div className="modal-image-preview">
+//               <h3>Image preview </h3>
+//               {preview}
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   } else {
+//     return "";
+//   }
+// }
