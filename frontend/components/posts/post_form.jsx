@@ -16,6 +16,7 @@ import { withRouter } from 'react-router-dom';
     // this.handleSubmitFile = this.handleSubmitFile.bind(this);
     this.renderFileUpload = this.renderFileUpload.bind(this);
     this.renderUpload = this.renderUpload.bind(this);
+    this.modalClose = this.modalClose.bind(this)
 
  
   }
@@ -82,6 +83,12 @@ import { withRouter } from 'react-router-dom';
         ))}
       </ul>
     );
+  }
+
+  modalClose(){
+    this.props.closeModal();
+    this.props.clearErrors();
+    this.setState({ photoFile: undefined })
   }
 
   renderFileUpload() {
@@ -186,15 +193,15 @@ import { withRouter } from 'react-router-dom';
       if (!this.state.photoFile) {
        return (
 
-        <div className="modal-background">
-          <div className="modal-box">
+         <div className="modal-background" onClick={this.modalClose}>
+           <div className="modal-box" onClick={e => e.stopPropagation()}>
            { this.renderFileUpload()}
           </div> 
         </div>)
       } else {
         return (
-          <div className="modal-background">
-            <div className="modal-box">
+          <div className="modal-background" onClick={this.modalClose}>
+            <div className="modal-box" onClick={e => e.stopPropagation()}>
               {this.renderUpload()}
             </div>
           </div>
