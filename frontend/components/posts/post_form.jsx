@@ -58,7 +58,7 @@ import { withRouter } from 'react-router-dom';
       formData.append("post[photo]", this.state.photoFile);
     }
     this.props.submitPost(formData)
-    .then(() => this.props.history.push("/home")).then(
+    .then((res) => this.props.history.push(`/posts/${res.post.id}`)).then(
       () => {
         this.props.closeModal();
         this.props.clearErrors();

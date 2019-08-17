@@ -7,8 +7,11 @@ class PostShow extends React.Component {
     super(props);
     this.state = {
       fetchDone: false,
-      comments: []
+      comments: [],
+      postId: this.props.postId
     };
+
+    this.resetMyState = this.resetMyState.bind(this)
   }
 
   componentDidMount() {
@@ -25,8 +28,24 @@ class PostShow extends React.Component {
       });
   }
 
+  resetMyState() {
+    this.setState({ fetchDone: false})
+    this.setState({postId: this.props.postId})
+    this.props.fetchComments(this.state.postId)
+        .then((res) => {this.setState({
+          fetchDone: true
+        })})
+  }
+  componentDidUpdate(prevProps, prevState) {
+    debugger
+    if (prevState.postId !== this.props.postId){
+      this.resetMyState()
+       
+    }
+  }
+
   render() {
-    // debugger
+    debugger
     if (this.state.fetchDone) {
       return (
         <div className="post-show-container">
@@ -58,7 +77,7 @@ class PostShow extends React.Component {
               <h3 className="post-comment">Comments</h3>
 
               <Comments
-                postId={this.props.match.params.postId}
+                postId={this.props.postId}
                 // comments={this.state.comments}
                 users={this.props.users}
               />
