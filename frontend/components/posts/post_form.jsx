@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
   constructor(props) {
     super(props);
     this.state = {
-      // drag: 'drag-hide',
+      
       title: "",
       category_id: "",
       author_id: this.props.currentUser,
@@ -28,19 +28,17 @@ import { withRouter } from 'react-router-dom';
    handleDragEnter(e) {
      e.preventDefault();
      e.stopPropagation()
-    //  this.setState({ drag: 'drag-modal' });
+    
    }
 
    handleDragLeave(e) {
      e.preventDefault();
      e.stopPropagation()
-    //  this.setState({ drag: 'drag-hide' });
+    
    }
 
    handleDrop(e) {
      e.preventDefault();
-     
-     this.setState({ drag: 'drag-hide' });
      const file = e.dataTransfer.files[0];
      const fileReader = new FileReader();
      fileReader.onloadend = () => {
@@ -216,7 +214,6 @@ import { withRouter } from 'react-router-dom';
          
          <div className="modal-background" onClick={this.modalClose}>
            <div className="modal-box" onClick={e => e.stopPropagation()}
-             
              onDragOver={e => e.preventDefault()}
              onDragLeave={this.handleDragLeave}
              onDrop={this.handleDrop}>
