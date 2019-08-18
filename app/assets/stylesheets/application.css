@@ -26,7 +26,8 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: 30px rgb(25, 214, 192);
+  /* background: 30px rgb(25, 214, 192); */
+  background: transparent;
   display: flex;
   flex-direction: row;
   /* justify-content: space-between; */
@@ -49,6 +50,7 @@ body {
   /* box-shadow: 2px 2px lightgrey; */
   height: 50px;
   box-sizing: border-box;
+  
 }
 sup {
   line-height: 0;
@@ -144,6 +146,7 @@ sup {
   padding-left: 15px;
   background-color: rgb(25, 214, 192);
   width: 100%;
+  margin-top: -50px;
 }
 
 .maincontent {

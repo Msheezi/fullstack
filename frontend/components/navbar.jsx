@@ -28,7 +28,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
     </span>
   );
   let loginButtons = currentUser ? personalGreeting() : sessionLinks();
-
+    
   return (
     <div className={currentUser ? "nav-logged" : "nav-not-logged"}>
       <span className="logo">
