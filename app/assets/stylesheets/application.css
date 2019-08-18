@@ -377,8 +377,8 @@ sup {
 .form-flex {
   display: flex;
   flex-direction: column;
-  align-items: center ;
   justify-content: center;
+  align-items: center ;
 }
 
 .input-file {
@@ -390,7 +390,7 @@ sup {
 	z-index: -1;
 }
 
-.input-file + label {
+.post-show-label {
     font-size: 16px;
     font-weight: 700;
     color: white;
@@ -402,6 +402,8 @@ sup {
     text-align: center;
     border-radius: 3px;
     border: 1px solid #3899E5;
+    margin-top:20%;
+    
     
     
     

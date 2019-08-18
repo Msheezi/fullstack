@@ -120,8 +120,8 @@ import { withRouter } from 'react-router-dom';
      
        <form className="form-flex" >
         
-          <input type="file" name="file" id="file" className="input-file" onChange={this.handleFile} />
-       <label htmlFor="file"> Select a File </label>
+       <input type="file" name="file" id="file" className="input-file" onChange={this.handleFile} />
+       <label className="post-show-label" htmlFor="file"> Select a File </label>
        <p>Or drag & drop photos anywhere on this page</p>
       </form>
   
