@@ -53,6 +53,7 @@ class PostShow extends React.Component {
           </div>
 
           <div className="post-show-post-details">
+            <div className="post-show-spacer"></div>
             <div className="post-show-post-camera-details">
               <div className="post-show-author">
                 <h3 className="post-show-title">{this.props.post.title}</h3>
@@ -64,7 +65,7 @@ class PostShow extends React.Component {
                 </h4>
               </div>
 
-              <p><span ><i class="fas fa-camera"></i> Camera Nikon D500 {this.props.post.camera_name}</span> </p>
+              <p><span ><i className="fas fa-camera"></i> Camera Nikon D500 {this.props.post.camera_name}</span> </p>
               <p>f/2.2{this.props.post.f_stop}</p>
               <p>ISO 400{this.props.post.iso}</p>
               <p>Lens M.Zuiko{this.props.post.lens}</p>
@@ -84,6 +85,7 @@ class PostShow extends React.Component {
                 users={this.props.users}
               />
             </div>
+            <div className="post-show-spacer"></div>
           </div>
         </div>
       );
