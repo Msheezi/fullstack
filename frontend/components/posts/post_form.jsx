@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
   constructor(props) {
     super(props);
     this.state = {
+      // drag: 'drag-hide',
       title: "",
       category_id: "",
       author_id: this.props.currentUser,
@@ -17,9 +18,39 @@ import { withRouter } from 'react-router-dom';
     this.renderFileUpload = this.renderFileUpload.bind(this);
     this.renderUpload = this.renderUpload.bind(this);
     this.modalClose = this.modalClose.bind(this)
+    this.handleDragEnter = this.handleDragEnter.bind(this);
+    this.handleDragLeave = this.handleDragLeave.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
 
  
   }
+
+   handleDragEnter(e) {
+     e.preventDefault();
+     e.stopPropagation()
+    //  this.setState({ drag: 'drag-modal' });
+   }
+
+   handleDragLeave(e) {
+     e.preventDefault();
+     e.stopPropagation()
+    //  this.setState({ drag: 'drag-hide' });
+   }
+
+   handleDrop(e) {
+     e.preventDefault();
+     
+     this.setState({ drag: 'drag-hide' });
+     const file = e.dataTransfer.files[0];
+     const fileReader = new FileReader();
+     fileReader.onloadend = () => {
+       this.setState({ photoFile: file, photoUrl: fileReader.result });
+     };
+     if (file) {
+       fileReader.readAsDataURL(file);
+     }
+   }
+
   handleInput(field) {
     return e =>
       this.setState({
@@ -89,24 +120,17 @@ import { withRouter } from 'react-router-dom';
 
   renderFileUpload() {
     return (
-     <div>
-       <form>
-        <label>
-          <input type="file" onChange={this.handleFile} />
-        </label>
+     
+       <form className="form-flex" >
+        
+          <input type="file" name="file" id="file" className="input-file" onChange={this.handleFile} />
+       <label htmlFor="file"> Select a File </label>
+       <p>Or drag & drop photos anywhere on this page</p>
       </form>
-        <button
-          className="close-modal"
-          onClick={() => {
-            this.props.closeModal();
-            this.props.clearErrors();
-            this.setState({ photoFile: undefined });
-          }}
-        >
-          Cancel
-                </button>
+      
 
-    </div>
+    
+    
     )
   }
 
@@ -188,12 +212,19 @@ import { withRouter } from 'react-router-dom';
 
       if (!this.state.photoFile) {
        return (
-
+         
+         
          <div className="modal-background" onClick={this.modalClose}>
-           <div className="modal-box" onClick={e => e.stopPropagation()}>
+           <div className="modal-box" onClick={e => e.stopPropagation()}
+             
+             onDragOver={e => e.preventDefault()}
+             onDragLeave={this.handleDragLeave}
+             onDrop={this.handleDrop}>
            { this.renderFileUpload()}
           </div> 
-        </div>)
+        </div>
+        
+        )
       } else {
         return (
           <div className="modal-background" onClick={this.modalClose}>
