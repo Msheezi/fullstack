@@ -14,7 +14,6 @@ import { withRouter } from 'react-router-dom';
     this.handleFile = this.handleFile.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleSubmitFile = this.handleSubmitFile.bind(this);
     this.renderFileUpload = this.renderFileUpload.bind(this);
     this.renderUpload = this.renderUpload.bind(this);
     this.modalClose = this.modalClose.bind(this)
@@ -125,10 +124,7 @@ import { withRouter } from 'react-router-dom';
        <label htmlFor="file"> Select a File </label>
        <p>Or drag & drop photos anywhere on this page</p>
       </form>
-      
-
-    
-    
+  
     )
   }
 
