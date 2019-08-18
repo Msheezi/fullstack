@@ -64,16 +64,19 @@ class PostShow extends React.Component {
                 </h4>
               </div>
 
-              <p>Camera: {this.props.post.camera_name}</p>
-              <p>f/0: {this.props.post.f_stop}</p>
-              <p>ISO: {this.props.post.iso}</p>
-              <p>Lens: {this.props.post.lens}</p>
-              <p className="post-create-time">posted: </p>
-              <p className="post-category">Category</p>
+              <p><span ><i class="fas fa-camera"></i> Camera Nikon D500 {this.props.post.camera_name}</span> </p>
+              <p>f/2.2{this.props.post.f_stop}</p>
+              <p>ISO 400{this.props.post.iso}</p>
+              <p>Lens M.Zuiko{this.props.post.lens}</p>
+              <p className="post-create-time">Date Added August 26, 2019</p>
+              <p className="post-category">Category Architecture</p>
             </div>
 
             <div className="post-show-comments">
-              <h3 className="post-comment">Comments</h3>
+              <h3 className="post-comment"><span style={{ fontSize: 30, color: 'Tomato', height: 20 }}>
+
+                <i className="fas fa-comments"></i>
+              </span> Comments</h3>
 
               <Comments
                 postId={this.props.postId}

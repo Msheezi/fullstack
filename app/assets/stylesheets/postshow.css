@@ -20,7 +20,7 @@
 .post-show-post-details {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .post-show-post-camera-details {

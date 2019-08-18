@@ -75,7 +75,8 @@ export default class Comments extends React.Component {
         </form>
         <button className="comment-submit-btn" onClick={this.handleSubmit}>
           Post a Comment
-        </button>
+        </button> 
+        
         {/* <input type="submit" value="post comment" /> */}
         {coms}
       </div>

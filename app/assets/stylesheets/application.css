@@ -422,3 +422,7 @@ sup {
   z-index: 60;
   border: 2px dashed blue;
 }
+
+.fa-camera {
+  color: lightgray;
+}
