@@ -145,6 +145,7 @@ import { withRouter } from 'react-router-dom';
               <label htmlFor="title">
                 
                 <input
+                  className="post-form-input"
                   type="text"
                   id="title"
                   value={this.state.title}
@@ -156,6 +157,7 @@ import { withRouter } from 'react-router-dom';
               <label>
                 
                 <input
+                  className="post-form-input"
                   type="text"
                   value={this.state.category_id}
                   onChange={this.handleInput("category_id")}
@@ -165,6 +167,7 @@ import { withRouter } from 'react-router-dom';
               <label>
                 
                 <input
+                  className="post-form-input"
                   type="text"
                   value={this.state.camera_name}
                   onChange={this.handleInput("camera_name")}
@@ -175,7 +178,7 @@ import { withRouter } from 'react-router-dom';
               {this.renderErrors()}
               <br />
               <button
-                className="comment-submit-btn"
+                className="post-submit-btn"
                 onClick={this.handleSubmit}
               >
                 {" "}

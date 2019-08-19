@@ -15,12 +15,12 @@ import PostShowContainer from "./posts/post_show_container";
 
 const App = () => (
   <div>
-    <PostFormContainer />
     <header>
       <NavBarContainer />
     </header>
     <div>
       <div className="maincontent">
+    <PostFormContainer />
         <Switch>
           {/* <Route path="/posts/new" component={Form}/> */}
           <AuthRoute exactRoute path="/login" component={LogInFormContainer} />
