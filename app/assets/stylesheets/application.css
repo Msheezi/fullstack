@@ -130,9 +130,11 @@ sup {
 
 .login-buttons-btn:hover {
   color: lightgrey;
+  cursor:pointer;
 }
 #login-btn:hover {
   color: lightgrey;
+  cursor:pointer;
 }
 
 .header-button {
@@ -320,6 +322,7 @@ sup {
   border: none;
   font-size: 20pt;
   margin-right: 20px;
+  cursor:pointer;
 }
 
 .modal-button:hover {
