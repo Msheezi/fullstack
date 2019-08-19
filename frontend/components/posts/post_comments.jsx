@@ -14,7 +14,6 @@ export default class Comments extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // const user = Object.assign({}, this.state);
     const subCom = Object.assign({}, this.state);
     this.props
       .createComment(subCom)

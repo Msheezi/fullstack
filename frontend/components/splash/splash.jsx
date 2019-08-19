@@ -1,9 +1,8 @@
-
-
 import React from 'react'
+import { connect } from 'react-redux'
 
 
-export default class Splash extends React.Component {
+ class Splash extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -35,3 +34,15 @@ export default class Splash extends React.Component {
     }
 
 }
+
+const mapStateToProps = (state, ownProps) => ({
+    history: ownProps.history
+})
+
+
+
+const mapDispatchToProps = dispatch => ({
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Splash)

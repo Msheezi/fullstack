@@ -1,7 +1,12 @@
 import React from "react";
 import PostIndexItem from "./post_index_item";
+import { connect } from 'react-redux'
 
-export default class Home extends React.Component {
+import { fetchAllPosts, deletePost } from '../../actions/posts_actions'
+import { fetchComments } from '../../actions/comment_actions'
+import { fetchAllUsers } from '../../actions/user_actions'
+
+ class Home extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -34,3 +39,20 @@ export default class Home extends React.Component {
     );
   }
 }
+
+
+const mapStateToProps = state => ({
+  posts: Object.keys(state.entities.posts).map(id => state.entities.posts[id])
+
+})
+
+
+const mapDispatchToProps = dispatch => ({
+  fetchPosts: () => dispatch(fetchAllPosts()),
+  deletePost: (postId) => dispatch(deletePost(postId)),
+  fetchComments: () => dispatch(fetchComments()),
+  fetchUsers: () => dispatch(fetchAllUsers())
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
