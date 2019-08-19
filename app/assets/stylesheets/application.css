@@ -50,7 +50,6 @@ body {
   /* box-shadow: 2px 2px lightgrey; */
   height: 50px;
   box-sizing: border-box;
-  
 }
 sup {
   line-height: 0;
@@ -130,11 +129,11 @@ sup {
 
 .login-buttons-btn:hover {
   color: lightgrey;
-  cursor:pointer;
+  cursor: pointer;
 }
 #login-btn:hover {
   color: lightgrey;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .header-button {
@@ -312,7 +311,7 @@ sup {
 
 .img-preview {
   display: flex;
-  max-width: 200px;
+  max-width: 300px;
   height: auto;
   overflow: scroll;
 }
@@ -322,7 +321,7 @@ sup {
   border: none;
   font-size: 20pt;
   margin-right: 20px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .modal-button:hover {
@@ -340,39 +339,36 @@ sup {
 }
 
 .modal-box {
-  width: 80%;
-  height: 80%;
+  width: 60%;
+  height: 60%;
   padding: 10px;
   border-radius: 30px;
-  margin-left: 10%;
+  margin-left: 20%;
   margin-top: 5%;
   background-color: #ffffff;
   box-sizing: border-box;
   border: 1px solid black;
-  
 }
 
 .form-container {
   display: flex;
 
   flex-direction: row;
-  
+
   align-content: center;
 }
 
 .form-itself {
-  
   width: 50%;
-  
 }
 
-.upload-data{
-   display: flex;
+.upload-data {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.modal-image-preview{
+.modal-image-preview {
   margin-left: 30px;
   width: 60%;
 }
@@ -381,39 +377,36 @@ sup {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center ;
+  align-items: center;
 }
 
 .input-file {
   width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
 .post-show-label {
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    background-color: #3899E5;
-    min-width: 180px;
-    height:40px;
-    padding: 0 10px;
-    line-height: 38px;
-    text-align: center;
-    border-radius: 3px;
-    border: 1px solid #3899E5;
-    margin-top:20%;
-
-    
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background-color: #3899e5;
+  min-width: 180px;
+  height: 40px;
+  padding: 0 10px;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid #3899e5;
+  margin-top: 20%;
 }
 
-
 .input-file + label:hover {
-    background-color: red;
-    cursor:pointer;
+  background-color: red;
+  cursor: pointer;
 }
 
 .drag-modal {
@@ -432,20 +425,17 @@ sup {
 }
 
 .post-form-input {
-
   background-color: white;
   height: 40px;
   font-size: 18px;
-  
-  
+  margin-top: 30px;
+
   margin-bottom: 10px;
   align-self: center;
   width: 250px;
-
-
 }
 .post-submit-btn {
-  background-color: #34BF49;
+  background-color: #34bf49;
   height: 40px;
   font-size: 18px;
   color: #ffffff;
@@ -454,5 +444,3 @@ sup {
   align-self: center;
   width: 190px;
 }
-
-
