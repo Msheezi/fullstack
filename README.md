@@ -3,7 +3,7 @@
 # MyPx
 [MyPx](https://mypx123.herokuapp.com/)
 
-MyPx is an app gearded towards allowing photographers of every level to share and showcase their work.  This project is modeled off of the 500px website.  This app uses a Rails backend with a React/Redux frontend.  This app was originally built in 9 days.  
+MyPx is an app gearded towards allowing photographers of every level to share and showcase their work.  This project is modeled off of the 500px website.  This app uses a Rails backend with a React/Redux frontend.
 
 ## Features
 
@@ -12,6 +12,7 @@ MyPx is an app gearded towards allowing photographers of every level to share an
 * Users can create a profile and upload their pictures
 * Users can see all the photos they've previously posted
 * Drag and drop photo uploads
+* Add comments to photos
 
 ### Photo Uploads: 
 
