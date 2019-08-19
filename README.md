@@ -19,9 +19,9 @@ From the navigation bar, users can select the "+" symbol to open the photo uploa
 
 ![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/modal-start.png "Intial Modal State")
 
+Once a photo is selected, the update to state will render the image preview and input form for users to add information to complete the post.  After posting, the user is redirected to the show page for the post. 
 
 ![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/modal-detail.png "Modal after photo selected")
-Once a photo is selected, the update to state will render the image preview and input form for users to add information to complete the post.  After posting, the user is redirected to the show page for the post.  
  
 
 ```javascript
