@@ -23,6 +23,7 @@ Once a photo is selected, the update to state will render the image preview and 
 
 ![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/modal-detail.png "Modal after photo selected")
  
+ Below is a snippet of the code that enables the drag and drop on the modal initially and the function calls that manage the form display post attachment
 
 ```javascript
  render(){
