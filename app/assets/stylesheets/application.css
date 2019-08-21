@@ -342,6 +342,7 @@ sup {
   width: 60%;
   min-width: 700px;
   height: 60%;
+  min-height: 450px;
   padding: 10px;
   border-radius: 30px;
   margin-left: 20%;
