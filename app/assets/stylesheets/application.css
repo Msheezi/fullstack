@@ -226,7 +226,7 @@ sup {
 
 /*photo index*/
 
-.photo-index-container + span {
+.photo-index-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -236,11 +236,19 @@ sup {
   max-width: 1200px;
   margin: 10px 10px 10px 0px;
   box-sizing: border-box;
+  justify-content: flex-start;
+  align-content: flex-start;
 }
+
+/* .photo-index-container a {
+  box-sizing: border-box;
+  width:33%;
+
+} */
 
 .photo-post-index-photo {
   
-  
+ 
   width: 33%;
   overflow: hidden;
   margin: 10px 5px 0px 5px;
