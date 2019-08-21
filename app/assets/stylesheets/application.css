@@ -226,21 +226,22 @@ sup {
 
 /*photo index*/
 
-.photo-index-container {
+.photo-index-container + span {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   list-style-type: none;
   background-color: white;
-  /* width: 95%; */
+  height: 100vw;
+  max-width: 1200px;
   margin: 10px 10px 10px 0px;
   box-sizing: border-box;
 }
 
 .photo-post-index-photo {
-  display: flex;
-  height: 300px;
-  width: 300px;
+  
+  
+  width: 33%;
   overflow: hidden;
   margin: 10px 5px 0px 5px;
   border: 1px solid black;
@@ -251,6 +252,7 @@ sup {
 }
 
 .photo-index-title {
+  justify-content: space-around;
   margin-left: 10px;
   text-align: left;
   text-decoration: none;
