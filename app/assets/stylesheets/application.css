@@ -257,6 +257,7 @@ sup {
 }
 
 .photo-post-index-photo:hover {
+  cursor:pointer;
 }
 
 .photo-index-title {
