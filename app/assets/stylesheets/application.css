@@ -233,11 +233,11 @@ sup {
   list-style-type: none;
   background-color: white;
   height: 100vw;
-  max-width: 1200px;
+  width: 100vh;
   margin: 10px 10px 10px 0px;
   box-sizing: border-box;
-  justify-content: flex-start;
-  align-content: flex-start;
+  /* justify-content: flex-start;
+  align-content: flex-start; */
 }
 
 /* .photo-index-container a {
@@ -247,8 +247,6 @@ sup {
 } */
 
 .photo-post-index-photo {
-  
- 
   width: 33%;
   overflow: hidden;
   margin: 10px 5px 0px 5px;
@@ -257,7 +255,7 @@ sup {
 }
 
 .photo-post-index-photo:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .photo-index-title {
@@ -290,6 +288,12 @@ sup {
   background-color: white;
   margin-top: 80px;
   margin-left: 20px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  margin-left: -100px;
 }
 
 /* Modal */
