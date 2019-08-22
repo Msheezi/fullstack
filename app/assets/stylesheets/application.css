@@ -293,7 +293,6 @@ sup {
 .content-container {
   display: flex;
   justify-content: center;
-  margin-left: -100px;
 }
 
 /* Modal */
