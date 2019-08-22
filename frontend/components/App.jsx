@@ -10,6 +10,7 @@ import NavBar from "./navbar";
 import PostFormContainer from "./posts/post_form_container";
 import HomeFeed from "./homefeed/homefeed";
 import PostShowContainer from "./posts/post_show_container";
+import UserProfileContainer from './profile/user_profile_container'
 
 const App = () => (
   <div>
@@ -37,6 +38,10 @@ const App = () => (
             path="/post/new"
             component={PostFormContainer}
           />
+          <ProtectedRoute
+          exactRoute
+          path ="/users/:userId"
+          component={UserProfileContainer}/>
           <ProtectedRoute
             exactRoute
             path="/home"
