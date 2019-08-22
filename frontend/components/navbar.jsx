@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { logout } from "../actions/session_actions";
 
 import { openModal } from "../actions/ui_actions";
 
-const NavBar = ({ currentUser, logout, openModal }) => {
+const NavBar = ({ currentUser, logout, openModal, props }) => {
   const sessionLinks = () => (
     <span className="login-buttons">
       <Link to="/login" id="login-btn">
@@ -25,7 +25,8 @@ const NavBar = ({ currentUser, logout, openModal }) => {
         +
       </button>
 
-      <h3 className="header-name">Hi, {currentUser.username}!</h3>
+      <h3 className="header-name" >Hi, {currentUser.username}!</h3>
+      {/* <h3 className="header-name" onClick={(e,currentUserId) => props.history.push(`/users/${currentUserId}`)}>Hi, {currentUser.username}!</h3> */}
       <button className="login-buttons-btn" onClick={logout}>
         Log Out
       </button>
@@ -61,7 +62,8 @@ const NavBar = ({ currentUser, logout, openModal }) => {
 
 
 const mapStateToProps = ({ session, entities: { users } }) => {
-  return { currentUser: users[session.id] };
+  return { currentUser: users[session.id],
+  currentUserId: session.id };
 };
 
 const mapDispatchToProps = dispatch => ({

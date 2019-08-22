@@ -8,10 +8,12 @@ class PostShow extends React.Component {
     this.state = {
       fetchDone: false,
       comments: [],
-      postId: this.props.postId
+      postId: this.props.postId,
+      authorId: this.props.post.author_id
     };
 
     this.resetMyState = this.resetMyState.bind(this)
+    this.goToProfilePage = this.goToProfilePage.bind(this)
   }
 
   componentDidMount() {
@@ -43,9 +45,16 @@ class PostShow extends React.Component {
     }
   }
 
+  goToProfilePage() {
+    let authorId = this.props.post.author_id
+    debugger
+    this.props.history.push(`/users/${authorId}`)
+  }
+
   render() {
-    
+   
     if (this.state.fetchDone) {
+      
       return (
         <div className="post-show-container">
           <div className="post-show-img-container">
@@ -57,7 +66,8 @@ class PostShow extends React.Component {
             <div className="post-show-post-camera-details">
               <div className="post-show-author">
                 <h3 className="post-show-title">{this.props.post.title}</h3>
-                <h4 className="post-show-author">
+                <h4 className="post-show-author"
+                 onClick={this.goToProfilePage}>
                   by{" "}
                   {this.props.users[this.props.post.author_id].first_name +
                     " " +

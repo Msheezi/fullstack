@@ -15,7 +15,7 @@ class Profile extends React.Component {
         debugger
         let profPosts = this.props.posts.map(post => (
             <PostIndexItem
-                // key={post.id}
+                key={post.id}
                 post={post}
                 
                 props={this.props}
