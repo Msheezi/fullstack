@@ -7,6 +7,11 @@ end
 
 def index
   @users = User.all 
+  # hash = Hash.new([])
+  # @users.map do |user|
+  #   hash[user.id] = user.posts.ids
+  # end
+  # hash  this should return object with key user.id and value array of postIds
     render :index
 end
 
