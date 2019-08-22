@@ -47,7 +47,7 @@ class PostShow extends React.Component {
 
   goToProfilePage() {
     let authorId = this.props.post.author_id
-    debugger
+    
     this.props.history.push(`/users/${authorId}`)
   }
 

@@ -12,7 +12,7 @@ class Profile extends React.Component {
     }
 
     render() {
-        debugger
+        
         let profPosts = this.props.posts.map(post => (
             <PostIndexItem
                 key={post.id}

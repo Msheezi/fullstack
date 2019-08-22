@@ -5,7 +5,7 @@ import Profile from './user_profile'
 const mapStateToProps = (state, ownProps) => {
 //    let userId = ownProps.match.params.userId
 //     let postIds = state.entities.users[userId].post_ids
-debugger
+
     let postIds = state.entities.users[ownProps.match.params.userId].post_ids
    return {
        
