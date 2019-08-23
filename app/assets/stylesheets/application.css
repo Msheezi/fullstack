@@ -227,7 +227,7 @@ sup {
 /*photo index*/
 
 .photo-index-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   list-style-type: none;
@@ -235,9 +235,15 @@ sup {
   height: 100vw;
   width: 100vh;
   margin: 10px 10px 10px 0px;
-  box-sizing: border-box;
-  /* justify-content: flex-start; */
-  align-content: flex-start;
+  box-sizing: border-box; */
+  /* justify-content: flex-start;
+  align-content: flex-start; */
+
+  display: grid;
+  grid-gap: 10px; /* [1] Add some gap between rows and columns */
+  grid-template-columns: repeat( auto-fill, minmax( 200px, 1fr ) ); /* [2] Make columns adjust according to the available viewport */
+  grid-auto-rows: 200px; /* [3] Set the height for implicitly-created row track */
+
 }
 
 /* .photo-index-container a {
@@ -246,12 +252,17 @@ sup {
 
 } */
 
+
+
 .photo-post-index-photo {
-  width: 33%;
-  overflow: hidden;
-  margin: 10px 5px 0px 5px;
+  width: 100%;
+  /* overflow: hidden; */
+  /* margin: 10px 5px 0px 5px; */
   border: 1px solid black;
-  object-fit: cover;
+  /* object-fit: cover; */
+  overflow: hidden;
+  /* grid-row-end: span 2; */
+  
 }
 
 .photo-post-index-photo:hover {

@@ -10,8 +10,10 @@ const PostIndexItem = ({ post,  props }) => {
   
   return (
     
-       
-    <img className="photo-post-index-photo" src={post.photoUrl} onClick={(e,postId) => props.history.push(`/posts/${post.id}`)}/>
+      
+        <img className="photo-post-index-photo" src={post.photoUrl} onClick={(e,postId) => props.history.push(`/posts/${post.id}`)}/>
+     
+    
     
    
   );
