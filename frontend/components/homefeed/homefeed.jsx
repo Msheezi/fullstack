@@ -86,12 +86,13 @@ class Home extends React.Component {
           />
         ))
         .reverse();
-      console.log(this.props.posts);
+      // console.log(this.props.posts);
       // debugger
       return (
-        <div className="index-title">
-          <h2>Discover</h2>
-
+        <div className="index-container">
+          <div className="index-title">
+            <h2>Discover</h2>
+          </div>
           <div className="photo-index-container">{posts}</div>
         </div>
       );
