@@ -9,51 +9,63 @@ import { fetchAllUsers } from "../../actions/user_actions";
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state ={
+    this.state = {
       loaded: false
-    }
-    this.resizeGridItem = this.resizeGridItem.bind(this)
-    this.resizeAllGridItems = this.resizeAllGridItems.bind(this)
-    this.resizeInstance = this.resizeInstance.bind(this)
+    };
+    this.resizeGridItem = this.resizeGridItem.bind(this);
+    this.resizeAllGridItems = this.resizeAllGridItems.bind(this);
+    this.resizeInstance = this.resizeInstance.bind(this);
   }
 
   componentDidMount() {
-    window.onload = this.resizeAllGridItems()
-    
+    window.onload = this.resizeAllGridItems();
+
     window.addEventListener("resize", this.resizeAllGridItems);
-    this.props.fetchPosts().then(() => this.props.fetchUsers()).then(()=> this.setState({
-      loaded: true
-    })).then(()=> this.resizeAllGridItems());
+    this.props
+      .fetchPosts()
+      .then(() => this.props.fetchUsers())
+      .then(() =>
+        this.setState({
+          loaded: true
+        })
+      )
+      .then(() => this.resizeAllGridItems());
   }
 
-  componentWillUpdate(){
-    this.resizeAllGridItems()
+  componentWillUpdate() {
+    this.resizeAllGridItems();
   }
 
-//   resizeGridItem(item) {
-//     grid = document.getElementsByClassName("grid")[0];
-//     rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-//     rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-//     rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
-//     item.style.gridRowEnd = "span " + rowSpan;
-// }
+  //   resizeGridItem(item) {
+  //     grid = document.getElementsByClassName("grid")[0];
+  //     rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+  //     rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+  //     rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+  //     item.style.gridRowEnd = "span " + rowSpan;
+  // }
 
-   resizeGridItem(item){
-     grid = document.getElementsByClassName("photo-index-container")[0];
-    rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-    rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-    rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+  resizeGridItem(item) {
+    grid = document.getElementsByClassName("photo-index-container")[0];
+    rowHeight = parseInt(
+      window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
+    );
+    rowGap = parseInt(
+      window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
+    );
+    rowSpan = Math.ceil(
+      (item.querySelector(".content").getBoundingClientRect().height + rowGap) /
+        (rowHeight + rowGap)
+    );
     item.style.gridRowEnd = "span " + rowSpan;
-    console.log(grid)
+    console.log(grid);
   }
 
-   resizeAllGridItems(){
-     var allItems = document.getElementsByClassName("item");
-    let x
+  resizeAllGridItems() {
+    var allItems = document.getElementsByClassName("item");
+    let x;
     for (x = 0; x < allItems.length; x++) {
       this.resizeGridItem(allItems[x]);
-      console.log(allItems[x])
-
+      console.log(allItems[x]);
     }
   }
 
@@ -62,9 +74,8 @@ class Home extends React.Component {
     this.resizeGridItem(item);
   }
 
-
-
   render() {
+<<<<<<< HEAD
     
     if (this.state.loaded){
     let posts = this.props.posts
@@ -86,8 +97,31 @@ class Home extends React.Component {
         <div className="photo-index-container">{posts}</div>
       </div>
     );
+=======
+    if (this.state.loaded) {
+      let posts = this.props.posts
+        .map(post => (
+          <PostIndexItem
+            key={post.id}
+            post={post}
+            deletePost={this.props.deletePost}
+            props={this.props}
+          />
+        ))
+        .reverse();
+      // console.log(this.props.posts);
+      // debugger
+      return (
+        <div className="index-container">
+          <div className="index-title">
+            <h2>Discover</h2>
+          </div>
+          <div className="photo-index-container">{posts}</div>
+        </div>
+      );
+>>>>>>> bb1498451784dec5720e21e24c1e18f644615bad
     } else {
-      return ""
+      return "";
     }
   }
 }

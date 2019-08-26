@@ -1,7 +1,7 @@
  json.array! @posts do |post|
  json.extract! post, :id, :title, :category_id, :author_id, :camera_name, :lens, :f_stop, :shutter_speed, :iso
     if post.photo.attached?
-        json.photoUrl url_for(post.photo)
+        json.photoUrl post.photo.service_url 
     else
         json.photoUrl ""
     end

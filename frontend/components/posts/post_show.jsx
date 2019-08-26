@@ -12,8 +12,8 @@ class PostShow extends React.Component {
       authorId: this.props.post.author_id
     };
 
-    this.resetMyState = this.resetMyState.bind(this)
-    this.goToProfilePage = this.goToProfilePage.bind(this)
+    this.resetMyState = this.resetMyState.bind(this);
+    this.goToProfilePage = this.goToProfilePage.bind(this);
   }
 
   componentDidMount() {
@@ -31,30 +31,28 @@ class PostShow extends React.Component {
   }
 
   resetMyState() {
-    this.setState({ fetchDone: false})
-    this.setState({postId: this.props.postId})
-    this.props.fetchComments(this.state.postId)
-        .then((res) => {this.setState({
-          fetchDone: true
-        })})
+    this.setState({ fetchDone: false });
+    this.setState({ postId: this.props.postId });
+    this.props.fetchComments(this.state.postId).then(res => {
+      this.setState({
+        fetchDone: true
+      });
+    });
   }
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.postId !== this.props.postId){
-      this.resetMyState()
-       
+    if (prevState.postId !== this.props.postId) {
+      this.resetMyState();
     }
   }
 
   goToProfilePage() {
-    let authorId = this.props.post.author_id
-    
-    this.props.history.push(`/users/${authorId}`)
+    let authorId = this.props.post.author_id;
+
+    this.props.history.push(`/users/${authorId}`);
   }
 
   render() {
-   
     if (this.state.fetchDone) {
-      
       return (
         <div className="post-show-container">
           <div className="post-show-img-container">
@@ -62,12 +60,11 @@ class PostShow extends React.Component {
           </div>
 
           <div className="post-show-post-details">
-            <div className="post-show-spacer"></div>
+            <div className="post-show-spacer" />
             <div className="post-show-post-camera-details">
               <div className="post-show-author">
                 <h3 className="post-show-title">{this.props.post.title}</h3>
-                <h4 className="post-show-author"
-                 onClick={this.goToProfilePage}>
+                <h4 className="post-show-author" onClick={this.goToProfilePage}>
                   by{" "}
                   {this.props.users[this.props.post.author_id].first_name +
                     " " +
@@ -75,7 +72,12 @@ class PostShow extends React.Component {
                 </h4>
               </div>
 
-              <p><span ><i className="fas fa-camera"></i> Camera Nikon D500 {this.props.post.camera_name}</span> </p>
+              <p>
+                <span>
+                  <i className="fas fa-camera" /> Camera Nikon D500{" "}
+                  {this.props.post.camera_name}
+                </span>{" "}
+              </p>
               <p>f/2.2{this.props.post.f_stop}</p>
               <p>ISO 400{this.props.post.iso}</p>
               <p>Lens M.Zuiko{this.props.post.lens}</p>
@@ -84,10 +86,12 @@ class PostShow extends React.Component {
             </div>
 
             <div className="post-show-comments">
-              <h3 className="post-comment"><span style={{ fontSize: 30, color: 'Tomato', height: 20 }}>
-
-                <i className="fas fa-comments"></i>
-              </span> Comments</h3>
+              <h3 className="post-comment">
+                <span style={{ fontSize: 30, color: "Tomato", height: 20 }}>
+                  <i className="fas fa-comments" />
+                </span>{" "}
+                Comments
+              </h3>
 
               <Comments
                 postId={this.props.postId}
@@ -95,7 +99,7 @@ class PostShow extends React.Component {
                 users={this.props.users}
               />
             </div>
-            <div className="post-show-spacer"></div>
+            <div className="post-show-spacer" />
           </div>
         </div>
       );
