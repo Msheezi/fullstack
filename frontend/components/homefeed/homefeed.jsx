@@ -65,7 +65,7 @@ class Home extends React.Component {
 
 
   render() {
-    debugger
+    
     if (this.state.loaded){
     let posts = this.props.posts
       .map(post => (
