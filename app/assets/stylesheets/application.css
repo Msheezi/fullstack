@@ -240,12 +240,12 @@ sup {
   align-content: flex-start; */
 
   display: grid;
-  grid-gap: 10px; /* [1] Add some gap between rows and columns */
+  grid-gap: 5px; /* [1] Add some gap between rows and columns */
   grid-template-columns: repeat(
     auto-fill,
     minmax(200px, 1fr)
   ); /* [2] Make columns adjust according to the available viewport */
-  grid-auto-rows: 200px; /* [3] Set the height for implicitly-created row track */
+  grid-auto-rows: 175px; /* [3] Set the height for implicitly-created row track */
   width: 80%;
   margin-left: 10%;
 }
@@ -261,7 +261,7 @@ sup {
   /* overflow: hidden; */
   /* margin: 10px 5px 0px 5px; */
   border: 1px solid black;
-  /* object-fit: cover; */
+  object-fit: cover;
   overflow: hidden;
   /* grid-row-end: span 2; */
 }

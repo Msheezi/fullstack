@@ -12,15 +12,13 @@ class Home extends React.Component {
     this.state = {
       loaded: false
     };
-    this.resizeGridItem = this.resizeGridItem.bind(this);
-    this.resizeAllGridItems = this.resizeAllGridItems.bind(this);
-    this.resizeInstance = this.resizeInstance.bind(this);
+   
   }
 
   componentDidMount() {
-    window.onload = this.resizeAllGridItems();
+   
 
-    window.addEventListener("resize", this.resizeAllGridItems);
+    
     this.props
       .fetchPosts()
       .then(() => this.props.fetchUsers())
@@ -29,52 +27,12 @@ class Home extends React.Component {
           loaded: true
         })
       )
-      .then(() => this.resizeAllGridItems());
+     
   }
 
-  componentWillUpdate() {
-    this.resizeAllGridItems();
-  }
-
-  //   resizeGridItem(item) {
-  //     grid = document.getElementsByClassName("grid")[0];
-  //     rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-  //     rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-  //     rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
-  //     item.style.gridRowEnd = "span " + rowSpan;
-  // }
-
-  resizeGridItem(item) {
-    grid = document.getElementsByClassName("photo-index-container")[0];
-    rowHeight = parseInt(
-      window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
-    );
-    rowGap = parseInt(
-      window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
-    );
-    rowSpan = Math.ceil(
-      (item.querySelector(".content").getBoundingClientRect().height + rowGap) /
-        (rowHeight + rowGap)
-    );
-    item.style.gridRowEnd = "span " + rowSpan;
-    console.log(grid);
-  }
-
-  resizeAllGridItems() {
-    var allItems = document.getElementsByClassName("item");
-    let x;
-    for (x = 0; x < allItems.length; x++) {
-      this.resizeGridItem(allItems[x]);
-      console.log(allItems[x]);
-    }
-  }
-
-  resizeInstance(instance) {
-    item = instance.elements[0];
-    this.resizeGridItem(item);
-  }
-
+  
   render() {
+    
     if (this.state.loaded) {
       let posts = this.props.posts
         .map(post => (
