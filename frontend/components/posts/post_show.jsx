@@ -62,7 +62,7 @@ class PostShow extends React.Component {
           <div className="post-show-post-details">
             <div className="post-show-spacer" />
             <div className="post-show-post-camera-details">
-              <div className="post-show-author">
+              <div className="post-show-author-container">
                 <h3 className="post-show-title">{this.props.post.title}</h3>
                 <h4 className="post-show-author" onClick={this.goToProfilePage}>
                   by{" "}
