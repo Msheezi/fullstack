@@ -10,15 +10,12 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loaded: false
+      loaded: false,
+      test: [["1"], ["2", "3"], ["4"]]
     };
-   
   }
 
   componentDidMount() {
-   
-
-    
     this.props
       .fetchPosts()
       .then(() => this.props.fetchUsers())
@@ -26,13 +23,38 @@ class Home extends React.Component {
         this.setState({
           loaded: true
         })
-      )
-     
+      );
   }
 
-  
   render() {
-    
+    debugger;
+    // return (
+    //   <div>
+    //     {this.state.test.map(col => (
+    //       <div>
+    //         {col.map(string => (
+    //           <p>{string}</p>
+    //         ))}
+    //       </div>
+    //     ))}
+    //   </div>
+    // );
+
+    // this.props.posts.map(post => { return new Promise((resolve, reject) => { post.addEventListner("load", e => { resolve(post) }) }) })
+
+    // this.props.posts.map( img,post => )
+    // this 2D array is the layout of the image used from the function you haven't written yet
+
+    // this function below is a sample of what you can use to get the image proportions
+    // let myImg = new Image()
+    // let myFunc = (img, src) => {
+    //   return new Promise((resolve, reject) => {
+    //     myImg.src = src
+    //     myImg.addEventListener("load", e => {
+    //       resolve(img)
+    //     })
+    //   })
+    // }
     if (this.state.loaded) {
       let posts = this.props.posts
         .map(post => (
