@@ -10,7 +10,7 @@ const PostIndexItem = ({ post, props }) => {
     <img
       ref={imgRef => console.log(imgRef && imgRef.naturalWidth)}
       className="photo-post-index-photo"
-      src={`https://res.cloudinary.com/ddtykf72z/image/fetch/h_300,w_400,c_fill/${betterUrl}`}
+      src={`https://res.cloudinary.com/ddtykf72z/image/fetch/w_500/${betterUrl}`}
       onClick={e => props.history.push(`/posts/${post.id}`)}
     />
   );
