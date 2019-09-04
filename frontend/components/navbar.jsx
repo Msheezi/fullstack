@@ -21,9 +21,9 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
   const personalGreeting = () => (
     <span className="login-buttons">
       
-      <button type="button" className="modal-button" onClick={openModal}>
+      <Link to ='/post/manager'><button type="button" className="modal-button" onClick={openModal}>
         +
-      </button>
+      </button></Link>
 
       <h3 className="header-name" >Hi, {currentUser.username}!</h3>
       {/* <h3 className="header-name" onClick={(e,currentUserId) => props.history.push(`/users/${currentUserId}`)}>Hi, {currentUser.username}!</h3> */}
@@ -59,6 +59,8 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
     </div>
   );
 };
+
+
 
 
 const mapStateToProps = ({ session, entities: { users } }) => {

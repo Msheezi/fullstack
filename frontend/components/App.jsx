@@ -11,6 +11,7 @@ import PostFormContainer from "./posts/post_form_container";
 import HomeFeed from "./homefeed/homefeed";
 import PostShowContainer from "./posts/post_show_container";
 import UserProfileContainer from './profile/user_profile_container'
+import PhotoManager from './posts/photo_manager'
 
 const App = () => (
   <div>
@@ -33,6 +34,11 @@ const App = () => (
             path="/posts/:postId"
             component={PostShowContainer}
           />
+            <ProtectedRoute
+            exactRoute
+            path="/post/manager"
+            component={PhotoManager}
+            />
           <ProtectedRoute
             exactRoute
             path="/post/new"

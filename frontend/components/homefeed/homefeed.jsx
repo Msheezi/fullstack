@@ -14,39 +14,40 @@ class Home extends React.Component {
       test: [["1"], ["2", "3"], ["4"]]
     };
 
-    this.getImgValues = this.getImgValues.bind(this)
+    // this.getImgValues = this.getImgValues.bind(this)
   }
 
   componentDidMount() {
     this.props
       .fetchPosts()
-      .then(() => this.props.fetchUsers()).then(() => this.props.posts.map(post => this.getImgValues(img, post.photoUrl)))
+      .then(() => this.props.fetchUsers())
+      // .then(() => this.props.posts.map(post => this.getImgValues(img, post.photoUrl)))
       .then(() =>
         this.setState({
           loaded: true
         })
       );
 
-
-      
+        // let myImg = new Image()
+        // this.getImgValues(myImg, )
   }
 
 
-  getImgValues(img, src) {
-    let myImg = new Image()
-    debugger
-    return new Promise((resolve, reject) => {
-      myImg.src = src
-      myImg.addEventListener("load", e => {
-        resolve(img)
+  // getImgValues(img, src) {
+  //   let myImg = new Image()
+    
+  //   return new Promise((resolve, reject) => {
+  //     myImg.src = src
+  //     myImg.addEventListener("load", e => {
+  //       resolve(img)
         
-                console.log(img)
-      })
-    })
-  }
+  //               console.log(img)
+  //     })
+  //   })
+  // }
 
   render() {
-    debugger;
+    // debugger;
     // return (
     //   <div>
     //     {this.state.test.map(col => (
