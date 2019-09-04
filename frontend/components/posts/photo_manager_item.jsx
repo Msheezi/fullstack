@@ -9,7 +9,7 @@ const PhotoManagerItem = ({ post, props }) => {
   return (
     <img
       ref={imgRef => console.log(imgRef && imgRef.naturalWidth)}
-      className="photo-post-index-photo"
+      className="manager-photo-item"
       src={`https://res.cloudinary.com/ddtykf72z/image/fetch/w_160/${betterUrl}`}
       // onClick={e => props.history.push(`/posts/${post.id}`)}
     />

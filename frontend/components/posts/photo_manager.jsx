@@ -26,6 +26,9 @@ class PhotoManager extends React.Component{
 
         if (this.state.loaded){
 
+
+
+
             let posts = this.props.posts.map(post => (
                 <PhotoManagerItem
                 key={post.id}
@@ -33,12 +36,16 @@ class PhotoManager extends React.Component{
                 deletePost={this.props.deletePost}
                 props ={this.props}/>
                 )).reverse();
-                return (<div className="index-container">
-            <div className="index-title">
-                <h2>Discover</h2>
-            </div>
-            <div className="photo-index-container">{posts}</div>
-        </div>)
+                return (
+                   <div className="manager-page">
+                        <div className="manager-title"><span className="manager-button"><button >Upload Photo</button></span> <span className="manager-title-title">Photo Library</span></div>
+                            <div className="manager-container">
+                            <div className="manager-left">left sidebar</div>
+                            <div className="manager-middle">{posts}</div>
+                            <div className="manager-right">right sidebar edit form</div>
+                        </div>
+                    </div> 
+        )
             } else {
                 return ""
             }

@@ -1,0 +1,67 @@
+/* photomanager */
+
+
+.manager-page{
+    margin-left: 10px;
+}
+
+.manager-container {
+display: flex;
+flex-direction: row;
+border: 1px solid #EEEFF2;
+}
+.manager-title {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 100vw;
+    height: 50px;
+    
+    font-size: 24pt;
+
+
+}
+
+.manager-button {
+    width: 15%;
+    border-style: solid ;
+    border-width: 1px 1px 0px 1px ;
+    border-color: #EEEFF2;
+    min-width: 180px;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.manager-title-title {
+    width:85%;
+    border-style: solid ;
+    border-width: 1px 1px 0px 1px ;
+    border-color: #EEEFF2;
+    height: 50px;
+    min-width: 180px;
+}
+
+.manager-left {
+width: 15%;
+height: 100vh;
+border: 1px solid #EEEFF2;
+min-width: 180px;
+}
+
+.manager-middle{
+width: 70%;
+height: 100vh;
+background-color: #F7F8FA;
+border: 1px solid #EEEFF2;
+}
+
+.manager-right{
+width: 15%;
+height: 100vh;
+border: 1px solid #EEEFF2;
+min-width: 180px;
+}
+
+.manager-photo-item {
+
+}
