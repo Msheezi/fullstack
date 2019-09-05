@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import PhotoManagerItem from './photo_manager_item'
-import { fetchAllPosts, deletePost } from "../../actions/posts_actions";
+import { fetchAllPosts, deletePost, updatePost } from "../../actions/posts_actions";
 import { openModal } from "../../actions/ui_actions";
 import PostFormEdit from './photo_manager_edit'
 
@@ -43,9 +43,9 @@ class PhotoManager extends React.Component{
 
     renderUpdateForm() {
         if (this.state.photoSelected) {
-            return <PostFormEdit post={this.state.post} />;
+            return <PostFormEdit post={this.state.post} updatePost={this.props.updatePost} deletePost={this.props.deletePost} />;
         } else {
-            return <PostFormEdit post={{ id: null, title: '', category: 'Uncategorized', description: '', keywords: '' }} />;
+            return <PostFormEdit post={{  title: '' }} />;
         }
     }
 
@@ -148,7 +148,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     deletePost: postId => dispatch(deletePost(postId)),
     fetchPosts: () => dispatch(fetchAllPosts()),
-    openModal: () => dispatch(openModal())
+    openModal: () => dispatch(openModal()),
+    updatePost: post => dispatch(updatePost(post))
 
 })
 

@@ -52,6 +52,7 @@ class PostShow extends React.Component {
   }
 
   render() {
+    
     if (this.state.fetchDone) {
       return (
         <div className="post-show-container">

@@ -45,10 +45,28 @@ class Api::PostsController < ApplicationController
     end
 
 
+    def update 
+        @post = Post.find_by(id: params[:id])
+        if @post && logged_in && (current_user.id == @post.author_id)
+            if @post.update(update_params)
+                render :show
+            else
+                render json: @post.errors.full_messages, status: 500
+            end
+        else
+            render json: ["This aint your photo bro"], status: 404
+        end
+
+    end
+
     private
 
     def post_params
         params.require(:post).permit(:title, :photo, :category_id, :author_id, :camera_name, :lens, :f_stop, :shutter_speed, :iso)
+    end
+
+    def update_params
+        params.require(:post).permit(:title,  :category_id, :author_id, :camera_name, :lens, :f_stop, :shutter_speed, :iso)
     end
 
 

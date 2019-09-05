@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :index, :show]
       
     resource :session, only: [:create, :destroy]
-    resources :posts, only: [:create, :destroy, :show, :index]
+    resources :posts, only: [:create, :destroy, :show, :index, :update]
     resources :comments, only: [:create, :index, :destroy]
     get 'posts/:post_id/comments', to: 'posts#comments'
     

@@ -18,7 +18,7 @@ class PostFormEdit extends React.Component {
         this.state = this.props.post
         // this.handleFile = this.handleFile.bind(this);
         // this.handleInput = this.handleInput.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         // this.renderFileUpload = this.renderFileUpload.bind(this);
         // this.renderUpload = this.renderUpload.bind(this);
         // this.modalClose = this.modalClose.bind(this);
@@ -40,6 +40,12 @@ class PostFormEdit extends React.Component {
             });
     }
 
+    handleSubmit(e){
+        
+        e.preventDefault()
+        this.props.updatePost(this.state)
+
+    }
     // componentWillUnmount() {
     //     this.props.clearErrors();
     // }
@@ -184,7 +190,7 @@ class PostFormEdit extends React.Component {
         // debugger
         return (
         <div>
-            <form >
+                <form onSubmit={this.handleSubmit} >
                     <label > Title
                         <input
                             className="post-form-input"
@@ -225,35 +231,7 @@ class PostFormEdit extends React.Component {
         </div>)
     }
 
-    // render() {
-    //     if (this.props.postModalOpen) {
-    //         if (!this.state.photoFile) {
-    //             return (
-    //                 <div className="modal-background" onClick={this.modalClose}>
-    //                     <div
-    //                         className="modal-box"
-    //                         onClick={e => e.stopPropagation()}
-    //                         onDragOver={e => e.preventDefault()}
-    //                         onDragLeave={this.handleDragLeave}
-    //                         onDrop={this.handleDrop}
-    //                     >
-    //                         {this.renderFileUpload()}
-    //                     </div>
-    //                 </div>
-    //             );
-    //         } else {
-    //             return (
-    //                 <div className="modal-background" onClick={this.modalClose}>
-    //                     <div className="modal-box" onClick={e => e.stopPropagation()}>
-    //                         {this.renderUpload()}
-    //                     </div>
-    //                 </div>
-    //             );
-    //         }
-    //     } else {
-    //         return null;
-    //     }
-    // }
+    
 }
 
 export default withRouter(PostFormEdit);
