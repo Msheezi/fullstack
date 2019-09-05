@@ -110,7 +110,7 @@ class PostFormEdit extends React.Component {
                     <br />
 
                     <label> Camera </label>
-                        <br />
+                        
                         <input
                             className="phm-camera-input"
                             type="text"

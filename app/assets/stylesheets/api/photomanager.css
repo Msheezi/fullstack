@@ -112,7 +112,14 @@ overflow-y: auto;
 .photo-manager-form-container{
     display: flex;
     flex-direction: column;
-    padding:10px;
+    padding:20px;
+}
+
+.photo-manager-form-container label {
+    color: #0099e5;
+    margin-bottom:10px;
+    font-size: 18px;
+    font-weight: normal;
 }
 
 .phm-category-input{
@@ -154,9 +161,9 @@ overflow-y: auto;
 }
 
 .phm-edit-title{
-    padding: 20px 0px 18px 10px;
+    padding: 20px 0px 18px 20px;
     color: #222;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .phm-delete-btn{

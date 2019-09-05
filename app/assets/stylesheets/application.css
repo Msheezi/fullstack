@@ -18,6 +18,7 @@ body {
   /* remove the white space on the sides of pages */
   margin: 0;
   padding: 0;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
 }
 
 /* Nav bar */
