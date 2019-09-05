@@ -14,9 +14,7 @@ class PhotoManager extends React.Component{
             loaded: false,
             post: null
             
-            
-
-        }
+            }
     }
 
     componentDidMount() {

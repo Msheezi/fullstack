@@ -19,6 +19,7 @@ class PostFormEdit extends React.Component {
         // this.handleFile = this.handleFile.bind(this);
         // this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         // this.renderFileUpload = this.renderFileUpload.bind(this);
         // this.renderUpload = this.renderUpload.bind(this);
         // this.modalClose = this.modalClose.bind(this);
@@ -40,6 +41,12 @@ class PostFormEdit extends React.Component {
             });
     }
 
+    handleDelete(e){
+        e.preventDefault()
+        this.props.deletePost(this.state.id)
+        this.setState({id: ""})
+    }
+
     handleSubmit(e){
         
         e.preventDefault()
@@ -50,183 +57,80 @@ class PostFormEdit extends React.Component {
     //     this.props.clearErrors();
     // }
 
-    // handleFile(e) {
-    //     const file = e.currentTarget.files[0];
-    //     const fileReader = new FileReader();
-    //     fileReader.onloadend = () => {
-    //         this.setState({ photoFile: file, photoUrl: fileReader.result });
-    //     };
-    //     if (file) {
-    //         fileReader.readAsDataURL(file);
-    //     }
-    // }
+    
 
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     this.setState({ author_id: this.props.currentUser });
-    //     const formData = new FormData();
-    //     formData.append("post[title]", this.state.title);
-    //     formData.append("post[category_id]", this.state.category_id);
-    //     formData.append("post[author_id]", this.state.author_id);
-    //     formData.append("post[camera_name]", this.state.camera_name);
-    //     if (this.state.photoFile) {
-    //         formData.append("post[photo]", this.state.photoFile);
-    //     }
-    //     this.props
-    //         .submitPost(formData)
-            
-    //         .then(
-    //             () => {
-                    
-    //                 this.props.clearErrors();
-    //                 this.setState({
-    //                     title: "",
-    //                     category_id: "",
-    //                     author_id: this.props.currentUser,
-    //                     camera_name: "",
-    //                     photoFile: undefined,
-    //                     photoUrl: ""
-    //                 });
-    //             },
-    //             () => this.renderErrors()
-    //         );
-    // }
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {this.props.errors.map((error, i) => (
-    //                 <li key={`error-${i}`}>{error}</li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
-
-   
-    // renderFileUpload() {
-    //     return (
-    //         <form className="form-flex">
-    //             <input
-    //                 type="file"
-    //                 name="file"
-    //                 id="file"
-    //                 className="input-file"
-    //                 onChange={this.handleFile}
-    //             />
-    //             <label className="post-show-label" htmlFor="file">
-    //                 {" "}
-    //                 Select a File{" "}
-    //             </label>
-    //             <p>Or drag & drop photos anywhere on this page</p>
-    //         </form>
-    //     );
-    // }
-
-    // renderUpload() {
-    //     const preview = this.state.photoUrl ? (
-    //         <img className="img-preview" src={this.state.photoUrl} />
-    //     ) : null;
-
-    //     return (
-    //         <div className="form-container">
-    //             <div className="modal-image-preview">
-    //                 <h3>Image preview </h3>
-    //                 {preview}
-    //             </div>
-    //             <div className="form-itself">
-    //                 <form className="upload-data">
-    //                     <label htmlFor="title">
-    //                         <input
-    //                             className="post-form-input"
-    //                             type="text"
-    //                             id="title"
-    //                             value={this.state.title}
-    //                             onChange={this.handleInput("title")}
-    //                             placeholder="Required: Enter Post Title"
-    //                         />
-    //                     </label>
-
-    //                     <label>
-    //                         <input
-    //                             className="post-form-input"
-    //                             type="text"
-    //                             value={this.state.category_id}
-    //                             onChange={this.handleInput("category_id")}
-    //                             placeholder="Enter A Category"
-    //                         />
-    //                     </label>
-    //                     <label>
-    //                         <input
-    //                             className="post-form-input"
-    //                             type="text"
-    //                             value={this.state.camera_name}
-    //                             onChange={this.handleInput("camera_name")}
-    //                             placeholder="Enter Camera Name"
-    //                         />
-    //                     </label>
-
-    //                     {this.renderErrors()}
-    //                     <br />
-    //                     <button className="post-submit-btn" onClick={this.handleSubmit}>
-    //                         {" "}
-    //                         Submit
-    //         </button>
-    //                     <button
-    //                         className="close-modal"
-    //                         onClick={() => {
-    //                             this.props.closeModal();
-    //                             this.props.clearErrors();
-    //                             this.setState({ photoFile: undefined });
-    //                         }}
-    //                     >
-    //                         Cancel
-    //         </button>
-    //                 </form>
-    //             </div>
-    //         </div>
-    //     );
-    // }
+    renderEdit(){
+        if (this.state.id){
+            return  (
+                <h2 className="phm-edit-title">Editing 1 Photo</h2>
+                )
+        } else {
+            return <h2 className="phm-edit-title">Edit</h2>
+        }
+    }
 
     render() {
         // debugger
         return (
         <div>
-                <form onSubmit={this.handleSubmit} >
-                    <label > Title
+            {this.renderEdit()}
+                <form onSubmit={this.handleSubmit} className="photo-manager-form-container" >
+                    
+                    <label> Category</label>
+                        
                         <input
-                            className="post-form-input"
+                            className="phm-category-input"
+                            type="text"
+                            value={this.state.category_id || "Uncategorized"}
+                            onChange={this.handleInput("category_id")}
+                            // placeholder="Enter A Category"
+                        />
+                    
+                    <br />
+                    <label> Title </label> 
+                        
+                        <input
+                            className="phm-title-input"
                             type="text"
                             id="title"
                             value={this.state.title}
                             onChange={this.handleInput("title")}
                             // placeholder={}
                         />
-                    </label>
+                    
+                    <br />
+                    <label>Description </label>
+                        <textarea 
+                            className="phm-desc-input"
+                            value={this.state.desc}
+                            onChange={this.handleInput("desc")}
+                            id="desc"
+                            placeholder="Tell us more about your beautiful photo"
+                            />
+                    <br />
 
-                    <label> Category
+                    <label> Camera </label>
+                        <br />
                         <input
-                            className="post-form-input"
-                            type="text"
-                            value={this.state.category_id || ""}
-                            onChange={this.handleInput("category_id")}
-                            // placeholder="Enter A Category"
-                        />
-                    </label>
-                    <label> Camera
-                        <input
-                            className="post-form-input"
+                            className="phm-camera-input"
                             type="text"
                             value={this.state.cameraName}
                             onChange={this.handleInput("camera_name")}
                             // placeholder="Enter Camera Name"
                         />
-                    </label>
+                    
 
                     {/* {this.renderErrors()} */}
                     <br />
-                    <button className="post-submit-btn" onClick={this.handleSubmit}>
-                        {" "}
-                        Submit
-            </button>
+                    
+                        <button className="phm-delete-btn" onClick={this.handleDelete}>
+                            Delete Photo
+                        </button>
+                        <button className="phm-submit-btn" onClick={this.handleSubmit}>
+                       
+                            Save
+                        </button>
+            
             </form>
         </div>)
     }

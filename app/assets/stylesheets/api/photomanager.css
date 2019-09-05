@@ -81,7 +81,7 @@ width: 20%;
 height: 100vh;
 border: 1px solid #EEEFF2;
 min-width: 180px;
-
+overflow-y: auto;
 }
 
 .manager-photo-item {
@@ -105,4 +105,84 @@ min-width: 180px;
     
     
     margin-left: 10%;
+}
+
+/* photo manager form */
+
+.photo-manager-form-container{
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+}
+
+.phm-category-input{
+    font-size: 14px;
+    padding: 8px 10px;
+    color: #525558;
+    border: 1px solid rgba(185,193,199,0.5);
+    border-radius: 3px;
+    line-height: 1.4em;
+}
+
+.phm-title-input{
+    font-size: 14px;
+    padding: 8px 10px;
+    color: #525558;
+    border: 1px solid rgba(185,193,199,0.5);
+    border-radius: 3px;
+    line-height: 1.4em;
+}
+
+.phm-desc-input {
+    font-size: 14px;
+    padding: 8px 10px;
+    color: #525558;
+    border: 1px solid rgba(185,193,199,0.5);
+    border-radius: 3px;
+    line-height: 1.4em;
+    height:150px;
+    transition: border-color 0.2s;
+}
+
+.phm-camera-input{
+    font-size: 14px;
+    padding: 8px 10px;
+    color: #525558;
+    border: 1px solid rgba(185,193,199,0.5);
+    border-radius: 3px;
+    line-height: 1.4em;
+}
+
+.phm-edit-title{
+    padding: 20px 0px 18px 10px;
+    color: #222;
+    font-size: 18px;
+}
+
+.phm-delete-btn{
+    cursor:pointer;
+    background-color: #71767a;
+    border-color: #71767a;
+    height: 30px;
+    line-height: 28px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid #0099e5;
+    margin-bottom: 50px;
+}
+
+.phm-submit-btn{
+    height: 40px;
+    cursor: pointer;
+    background-color: #34bf49;
+    border-color: #34bf49;
+    line-height: 28px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid #0099e5;
+
+
+
 }
