@@ -10,6 +10,7 @@ display: flex;
 flex-direction: row;
 border: 1px solid #EEEFF2;
 }
+
 .manager-title {
     display: flex;
     flex-direction: row;
@@ -18,6 +19,7 @@ border: 1px solid #EEEFF2;
     height: 50px;
     
     font-size: 24pt;
+    color:#0099e5;
 
 
 }
@@ -30,6 +32,21 @@ border: 1px solid #EEEFF2;
     min-width: 180px;
     height: 50px;
     box-sizing: border-box;
+    
+}
+
+.man-button{
+    font-size: 14px;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 80%;
+    width: 80%;
+    cursor:pointer;
+    background-color: #0099e5;
+    color: #fff;
+    border:none;
+    box-sizing: border-box;
+    
 }
 
 .manager-title-title {
@@ -39,6 +56,9 @@ border: 1px solid #EEEFF2;
     border-color: #EEEFF2;
     height: 50px;
     min-width: 180px;
+    padding-left: 15px;
+    align-items: center;
+
 }
 
 .manager-left {
@@ -49,19 +69,40 @@ min-width: 180px;
 }
 
 .manager-middle{
-width: 70%;
+width: 65%;
 height: 100vh;
 background-color: #F7F8FA;
 border: 1px solid #EEEFF2;
+overflow-y: auto;
 }
 
 .manager-right{
-width: 15%;
+width: 20%;
 height: 100vh;
 border: 1px solid #EEEFF2;
 min-width: 180px;
+
 }
 
 .manager-photo-item {
+    margin: 10px;
+    cursor:pointer;
 
+}
+
+#left-bar-title{
+    color:#0099e5;
+    font-size: 14pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 10%;
+    margin-bottom: 20px;
+}
+
+#left-bar-detail {
+    color:#0099e5;
+    font-size: 12pt;
+    
+    
+    margin-left: 10%;
 }

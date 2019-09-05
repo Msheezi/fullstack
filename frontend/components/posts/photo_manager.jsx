@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import PhotoManagerItem from './photo_manager_item'
 import { fetchAllPosts, deletePost } from "../../actions/posts_actions";
+import { openModal } from "../../actions/ui_actions";
 
 
 class PhotoManager extends React.Component{
@@ -10,7 +11,18 @@ class PhotoManager extends React.Component{
         this.state ={
             photoSelected: false,
             postId: "",
-            loaded: false
+            loaded: false,
+            title: "",
+            category_id: "", 
+            cameraName: "",
+            fStop: "",
+            ISO: "",
+            lens: "",
+            shutterSpeed: "",
+            post: null
+            
+            
+
         }
     }
 
@@ -22,27 +34,101 @@ class PhotoManager extends React.Component{
         )
     }
 
+    getId(){
+
+    }
+
+    handlePhotoSelect(e, post) {
+        // debugger
+        e.preventDefault();
+        e.stopPropagation()
+        this.setState({post: post, photoSelected: true})
+        // console.log(this.state.post)
+    }
+
+    dataTest(){
+        if (this.state.photoSelected){
+            return this.state.post.title
+        }
+    }
+
+    photoSelected(post) {
+        // debugger
+        this.setState({
+            title: post.title ,
+            category_id: post.category_id ,
+            cameraName: post.camera_name, 
+            fStop: post.f_stop,
+            ISO: post.iso,
+            lens: post.lens,
+            shutterSpeed: post.shutter_speed,
+            postId: post.id,
+            photoSelected: true
+            
+        })
+
+        console.log("this.state")
+    }
+
     render() {
-
+        debugger
         if (this.state.loaded){
-
-
-
-
             let posts = this.props.posts.map(post => (
                 <PhotoManagerItem
                 key={post.id}
                 post={post}
                 deletePost={this.props.deletePost}
-                props ={this.props}/>
+                props ={this.props}
+                handlePhotoSelect={ e => this.handlePhotoSelect(e,post)}
+                // onClick={(e, post) =>  this.photoSelected.bind(this,post)}
+                />
                 )).reverse();
+
+            // let posts = this.props.posts.map(post => {
+            //     let betterUrl = post.photoUrl.split("?")[0]
+            //     return (
+            //         <img 
+            //             key={post.id}
+            //             className="manager-photo-item"
+            //             src={`https://res.cloudinary.com/ddtykf72z/image/fetch/w_160/${betterUrl}`}
+            //             onClick={(e, post) => this.handlePhotoSelect(e, post) }/>
+            //     )
+            // } )
+
+            // { this.props.userPhotos.map(el => 
+            // <PhotoManagerItem key={el.id} 
+            // selected={this.state.selectedPhoto === el}
+            //  photo={el}
+            //   handlePhotoSelect={e => this.handlePhotoSelect(e, el)} />) }
+                // let data = this.state.photoSelected
+
+
                 return (
                    <div className="manager-page">
-                        <div className="manager-title"><span className="manager-button"><button >Upload Photo</button></span> <span className="manager-title-title">Photo Library</span></div>
+                        <div className="manager-title">
+                            <span className="manager-button">
+                                <button type="button" className="man-button" onClick={this.props.openModal}>
+                                    Upload Photo
+                                </button>
+                            </span> 
+                            <span className="manager-title-title">
+                                Photo Library
+                            </span>
+                        </div>
                             <div className="manager-container">
-                            <div className="manager-left">left sidebar</div>
+                            <div className="manager-left">
+                                <br />
+                                <span id="left-bar-title">Photos</span>
+                                <br/>
+                                
+                                <br />
+                                <span id="left-bar-detail">Library {this.props.posts.length}</span>
+                            </div>
                             <div className="manager-middle">{posts}</div>
-                            <div className="manager-right">right sidebar edit form</div>
+                            <div className="manager-right"> 
+                                {this.dataTest()}
+                               
+                            </div>
                         </div>
                     </div> 
         )
@@ -64,7 +150,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     deletePost: postId => dispatch(deletePost(postId)),
-    fetchPosts: () => dispatch(fetchAllPosts())
+    fetchPosts: () => dispatch(fetchAllPosts()),
+    openModal: () => dispatch(openModal())
 
 })
 
