@@ -49,23 +49,7 @@ class PhotoManager extends React.Component{
         }
     }
 
-    photoSelected(post) {
-        // debugger
-        this.setState({
-            title: post.title ,
-            category_id: post.category_id ,
-            cameraName: post.camera_name, 
-            fStop: post.f_stop,
-            ISO: post.iso,
-            lens: post.lens,
-            shutterSpeed: post.shutter_speed,
-            postId: post.id,
-            photoSelected: true
-            
-        })
-
-        console.log("this.state")
-    }
+   
 
     render() {
         // debugger

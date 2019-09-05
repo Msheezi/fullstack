@@ -50,6 +50,17 @@ body {
   /* box-shadow: 2px 2px lightgrey; */
   height: 50px;
   box-sizing: border-box;
+  text-decoration: none;
+}
+
+.nav-logged a  {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-logged a:hover {
+  color: lightgrey;
+  cursor: pointer;
 }
 sup {
   line-height: 0;
@@ -139,6 +150,8 @@ sup {
 .header-button {
   margin-left: 10px;
 }
+
+
 
 /* splash page */
 
