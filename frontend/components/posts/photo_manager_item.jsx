@@ -8,7 +8,7 @@ const PhotoManagerItem = ({ post, props, handlePhotoSelect }) => {
   // console.log(imgRef);
   return (
     <img
-      ref={imgRef => console.log(imgRef && imgRef.naturalWidth)}
+      // ref={imgRef => console.log(imgRef && imgRef.naturalWidth)}
       className="manager-photo-item"
       src={`https://res.cloudinary.com/ddtykf72z/image/fetch/w_160/${betterUrl}`}
       onClick={handlePhotoSelect}

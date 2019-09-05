@@ -77,12 +77,13 @@ class PostForm extends React.Component {
       formData.append("post[photo]", this.state.photoFile);
     }
     this.props
+
       .submitPost(formData)
       .then(res => this.props.history.push(`/posts/${res.post.id}`))
       .then(
         () => {
           this.props.closeModal();
-          this.props.clearErrors();
+          // this.props.clearErrors();
           this.setState({
             title: "",
             category_id: "",

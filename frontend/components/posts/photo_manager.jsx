@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PhotoManagerItem from './photo_manager_item'
 import { fetchAllPosts, deletePost } from "../../actions/posts_actions";
 import { openModal } from "../../actions/ui_actions";
+import PostFormEdit from './photo_manager_edit'
 
 
 class PhotoManager extends React.Component{
@@ -10,15 +11,7 @@ class PhotoManager extends React.Component{
         super(props);
         this.state ={
             photoSelected: false,
-            postId: "",
             loaded: false,
-            title: "",
-            category_id: "", 
-            cameraName: "",
-            fStop: "",
-            ISO: "",
-            lens: "",
-            shutterSpeed: "",
             post: null
             
             
@@ -34,10 +27,6 @@ class PhotoManager extends React.Component{
         )
     }
 
-    getId(){
-
-    }
-
     handlePhotoSelect(e, post) {
         // debugger
         e.preventDefault();
@@ -46,9 +35,17 @@ class PhotoManager extends React.Component{
         // console.log(this.state.post)
     }
 
-    dataTest(){
-        if (this.state.photoSelected){
-            return this.state.post.title
+    // dataTest(){
+    //     if (this.state.photoSelected){
+    //         return this.state.post.title
+    //     }
+    // }
+
+    renderUpdateForm() {
+        if (this.state.photoSelected) {
+            return <PostFormEdit post={this.state.post} />;
+        } else {
+            return <PostFormEdit post={{ id: null, title: '', category: 'Uncategorized', description: '', keywords: '' }} />;
         }
     }
 
@@ -71,7 +68,7 @@ class PhotoManager extends React.Component{
     }
 
     render() {
-        debugger
+        // debugger
         if (this.state.loaded){
             let posts = this.props.posts.map(post => (
                 <PhotoManagerItem
@@ -126,8 +123,8 @@ class PhotoManager extends React.Component{
                             </div>
                             <div className="manager-middle">{posts}</div>
                             <div className="manager-right"> 
-                                {this.dataTest()}
-                               
+                                
+                                {this.renderUpdateForm()}
                             </div>
                         </div>
                     </div> 

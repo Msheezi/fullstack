@@ -12,7 +12,7 @@ class PostShow extends React.Component {
       authorId: this.props.post.author_id
     };
 
-    this.resetMyState = this.resetMyState.bind(this);
+    // this.resetMyState = this.resetMyState.bind(this);
     this.goToProfilePage = this.goToProfilePage.bind(this);
   }
 
@@ -30,20 +30,20 @@ class PostShow extends React.Component {
       });
   }
 
-  resetMyState() {
-    this.setState({ fetchDone: false });
-    this.setState({ postId: this.props.postId });
-    this.props.fetchComments(this.state.postId).then(res => {
-      this.setState({
-        fetchDone: true
-      });
-    });
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.postId !== this.props.postId) {
-      this.resetMyState();
-    }
-  }
+  // resetMyState() {
+  //   this.setState({ fetchDone: false });
+  //   this.setState({ postId: this.props.postId });
+  //   this.props.fetchComments(this.state.postId).then(res => {
+  //     this.setState({
+  //       fetchDone: true
+  //     });
+  //   });
+  // }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.postId !== this.props.postId) {
+  //     this.resetMyState();
+  //   }
+  // }
 
   goToProfilePage() {
     let authorId = this.props.post.author_id;
