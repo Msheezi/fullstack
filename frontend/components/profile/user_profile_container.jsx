@@ -2,14 +2,13 @@ import {connect } from 'react-redux'
 import Profile from './user_profile'
 
 
-const mapStateToProps = (state, ownProps) => {
-//    let userId = ownProps.match.params.userId
-//     let postIds = state.entities.users[userId].post_ids
+const mapStateToProps = (state) => {
 
-    let postIds = state.entities.users[ownProps.match.params.userId].post_ids
+    let user = state.session.id
+    
    return {
        
-    posts: postIds.map(id => state.entities.posts[id] )
+    posts: Object.values(state.entities.posts).filter(post => post.author_id === user)
 
    }
     

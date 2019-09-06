@@ -25,6 +25,7 @@ class PostFormEdit extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
+    this.setState({})
     this.props.handlePhotoDelete(this.state.id);
   }
 

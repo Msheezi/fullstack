@@ -31,7 +31,7 @@ class PhotoManager extends React.Component {
   }
 
   handlePhotoSelect(e, post) {
-    // debugger
+    debugger
     e.preventDefault();
     e.stopPropagation();
     if (this.state.post === null) {
@@ -46,7 +46,7 @@ class PhotoManager extends React.Component {
 
   handlePhotoDelete(postId) {
     
-    this.setState({ post: "", photoSelected: false }, () =>
+    this.setState({ post: null, photoSelected: false }, () =>
       this.props
         .deletePost(postId));
   }
