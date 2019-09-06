@@ -92,7 +92,7 @@ class PhotoManager extends React.Component {
                 className="man-button"
                 onClick={this.props.openModal}
               >
-                Upload Photo
+                Upload to Library
               </button>
             </span>
             <span className="manager-title-title">Photo Library</span>

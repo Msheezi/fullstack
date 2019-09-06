@@ -380,17 +380,18 @@ sup {
 }
 
 .modal-box {
-  width: 60%;
+  width: 90%;
   min-width: 700px;
-  height: 60%;
+  height: 90%;
   min-height: 450px;
   padding: 10px;
-  border-radius: 30px;
-  margin-left: 20%;
-  margin-top: 5%;
+  border-radius: 3px;
+  margin-left: 5%;
+  margin-top: 40px;
   background-color: #ffffff;
   box-sizing: border-box;
   border: 1px solid black;
+  overflow-y: auto;
 }
 
 .form-container {
@@ -415,6 +416,7 @@ sup {
 .modal-image-preview {
   margin-left: 30px;
   width: 60%;
+  
 }
 
 .form-flex {
