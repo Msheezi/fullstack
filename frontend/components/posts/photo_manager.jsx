@@ -65,6 +65,7 @@ class PhotoManager extends React.Component {
   }
 
   render() {
+
     // debugger;
     if (this.state.loaded) {
       console.log(this.props.posts);
@@ -117,10 +118,13 @@ class PhotoManager extends React.Component {
 }
 
 const mapStateToProps = state => {
-  let postIds = state.entities.users[state.session.id].post_ids;
+  
+  let user = state.session.id
+  let posts= Object.values(state.entities.posts).filter(post => post.author_id === user)
   return {
-    posts: postIds.map(id => state.entities.posts[id])
-  };
+    
+    posts: posts
+  }
 };
 
 const mapDispatchToProps = dispatch => ({
