@@ -101,6 +101,6 @@ class PostFormEdit extends React.Component {
       </div>
     );
   }
-}
+}                                                                                                                                                                                                                                                                                                        
 
 export default withRouter(PostFormEdit);

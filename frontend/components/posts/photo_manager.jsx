@@ -8,7 +8,7 @@ import {
 } from "../../actions/posts_actions";
 import { openModal } from "../../actions/ui_actions";
 import PostFormEdit from "./photo_manager_edit";
-import { fetchAllUsers } from "../../actions/user_actions";
+
 
 class PhotoManager extends React.Component {
   constructor(props) {
@@ -34,7 +34,13 @@ class PhotoManager extends React.Component {
     // debugger
     e.preventDefault();
     e.stopPropagation();
-    this.setState({ post: post, photoSelected: true });
+    if (this.state.post === null) {
+      this.setState({ post: post, photoSelected: true });
+    } else if (this.state.post.id === post.id ) {
+      this.setState({ post: null, photoSelected: false });
+    } else if (this.state.post && this.state.post.id !== post.id){
+      this.setState({ post: post, photoSelected: true });
+    }
    
   }
 
@@ -64,7 +70,7 @@ class PhotoManager extends React.Component {
 
     // debugger;
     if (this.state.loaded) {
-      console.log(this.props.posts);
+     
       let posts = this.props.posts
         .map(post => (
           <PhotoManagerItem
@@ -128,7 +134,7 @@ const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchAllPosts()),
   openModal: () => dispatch(openModal()),
   updatePost: post => dispatch(updatePost(post)),
-  fetchAllUsers: () => dispatch(fetchAllUsers())
+
 });
 
 export default connect(
