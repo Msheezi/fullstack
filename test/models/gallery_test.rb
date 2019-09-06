@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: comments
+# Table name: galleries
 #
 #  id         :bigint           not null, primary key
-#  post_id    :integer          not null
+#  name       :string           not null
 #  author_id  :integer          not null
-#  body       :string           not null
 #  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class CommentTest < ActiveSupport::TestCase
+class GalleryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

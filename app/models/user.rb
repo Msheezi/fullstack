@@ -25,6 +25,10 @@ validates :password, length: {minimum: 6, allow_nil: true}
     foreign_key: :author_id,
     class_name: :Comment
 
+    has_many :galleries,
+    foreign_key: :author_id,
+    class_name: :Gallery
+
 attr_reader :password
 
 after_initialize :ensure_session_token

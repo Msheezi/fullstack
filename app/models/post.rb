@@ -13,6 +13,8 @@
 #  iso           :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  desc          :string
+#  gallery_id    :integer
 #
 
 class Post < ApplicationRecord
@@ -27,6 +29,14 @@ class Post < ApplicationRecord
     has_many :comments,
     foreign_key: :post_id,
     class_name: :Comment
+
+    belongs_to :gallery,
+    foreign_key: :gallery_id,
+    class_name: :Gallery
+
+    belongs_to :category,
+    foreign_key: :category_id,
+    class_name: :Category
 
    
 
