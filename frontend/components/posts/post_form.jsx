@@ -131,6 +131,10 @@ class PostForm extends React.Component {
     );
   }
 
+  renderEdit(){
+    return <h2 className="phm-edit-title">Editing 1 Photo</h2>
+  }
+
   renderUpload() {
     const preview = this.state.photoUrl ? (
       <img className="img-preview" src={this.state.photoUrl} />
@@ -144,44 +148,58 @@ class PostForm extends React.Component {
         </div>
         <div className="form-itself">
           <form className="upload-data">
-            <label htmlFor="title">
+            <button className="phm-submit-btn" onClick={this.handleSubmit}>
+              {" "}
+              Submit
+            </button>
+            {this.renderEdit()}
+           <br/>
+            <label> Category</label>
+
+            <input
+              className="phm-category-input"
+              type="text"
+              value={this.state.category_id || "Uncategorized"}
+              onChange={this.handleInput("category_id")}
+            />
+
+            <br />
+            <label htmlFor="title">Title </label>
               <input
-                className="post-form-input"
+              className="phm-title-input"
                 type="text"
                 id="title"
                 value={this.state.title}
                 onChange={this.handleInput("title")}
                 placeholder="Required: Enter Post Title"
               />
-            </label>
+            <br/>
+            <label>Description </label>
+            <textarea
+              className="phm-desc-input"
+              value={this.state.desc}
+              onChange={this.handleInput("desc")}
+              id="desc"
+              placeholder="Tell us more about your beautiful photo"
+            />
+            <br />
 
-            <label>
+             
+            <label> Camera Type</label>
               <input
-                className="post-form-input"
-                type="text"
-                value={this.state.category_id}
-                onChange={this.handleInput("category_id")}
-                placeholder="Enter A Category"
-              />
-            </label>
-            <label>
-              <input
-                className="post-form-input"
+                className="phm-camera-input"
                 type="text"
                 value={this.state.camera_name}
                 onChange={this.handleInput("camera_name")}
                 placeholder="Enter Camera Name"
               />
-            </label>
+           
 
             {this.renderErrors()}
             <br />
-            <button className="post-submit-btn" onClick={this.handleSubmit}>
-              {" "}
-              Submit
-            </button>
+            
             <button
-              className="close-modal"
+              className="close-modal1"
               onClick={() => {
                 this.props.closeModal();
                 this.props.clearErrors();
