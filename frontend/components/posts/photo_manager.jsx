@@ -35,18 +35,14 @@ class PhotoManager extends React.Component {
     e.preventDefault();
     e.stopPropagation();
     this.setState({ post: post, photoSelected: true });
-    // console.log(this.state.post)
+   
   }
 
   handlePhotoDelete(postId) {
-    // e.preventDefault();
-    // e.stopPropagation();
-    this.setState({ post: "", photoSelected: false, loaded: false }, () =>
+    
+    this.setState({ post: "", photoSelected: false }, () =>
       this.props
-        .deletePost(postId)
-        .then(() => this.props.fetchAllUsers())
-        .then(() => this.setState({ loaded: true }))
-    );
+        .deletePost(postId));
   }
 
   renderUpdateForm() {

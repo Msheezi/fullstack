@@ -4,30 +4,14 @@ import { withRouter } from "react-router-dom";
 class PostFormEdit extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //     title: this.props.post.title,
-    //     category_id: "",
-    //     authorId: this.props.post.author_id,
-    //     cameraName: this.props.camera_name
-
-    // };
 
     this.state = this.props.post;
-    // this.handleFile = this.handleFile.bind(this);
-    // this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    // this.renderFileUpload = this.renderFileUpload.bind(this);
-    // this.renderUpload = this.renderUpload.bind(this);
-    // this.modalClose = this.modalClose.bind(this);
-    // this.handleDragEnter = this.handleDragEnter.bind(this);
-    // this.handleDragLeave = this.handleDragLeave.bind(this);
-    // this.handleDrop = this.handleDrop.bind(this);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.post !== this.props.post) {
-      console.log(this.props.post);
       this.setState(this.props.post);
     }
   }
@@ -41,8 +25,6 @@ class PostFormEdit extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
-    // this.props.deletePost(this.state.id);
-    // this.setState({ id: "" });
     this.props.handlePhotoDelete(this.state.id);
   }
 
@@ -50,12 +32,8 @@ class PostFormEdit extends React.Component {
     e.preventDefault();
     this.props.updatePost(this.state);
   }
-  // componentWillUnmount() {
-  //     this.props.clearErrors();
-  // }
 
   renderEdit() {
-    // debugger;
     if (this.state.id) {
       return <h2 className="phm-edit-title">Editing 1 Photo</h2>;
     } else {
@@ -64,7 +42,6 @@ class PostFormEdit extends React.Component {
   }
 
   render() {
-    // debugger;
     return (
       <div>
         {this.renderEdit()}
@@ -79,7 +56,6 @@ class PostFormEdit extends React.Component {
             type="text"
             value={this.state.category_id || "Uncategorized"}
             onChange={this.handleInput("category_id")}
-            // placeholder="Enter A Category"
           />
 
           <br />
@@ -91,7 +67,6 @@ class PostFormEdit extends React.Component {
             id="title"
             value={this.state.title}
             onChange={this.handleInput("title")}
-            // placeholder={}
           />
 
           <br />
@@ -112,10 +87,8 @@ class PostFormEdit extends React.Component {
             type="text"
             value={this.state.cameraName}
             onChange={this.handleInput("camera_name")}
-            // placeholder="Enter Camera Name"
           />
 
-          {/* {this.renderErrors()} */}
           <br />
 
           <button className="phm-delete-btn" onClick={this.handleDelete}>
