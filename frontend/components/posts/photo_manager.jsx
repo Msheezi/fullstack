@@ -75,7 +75,7 @@ class PhotoManager extends React.Component {
       );
     } else {
       return <PostFormEdit 
-      post={{ title: "", category_id: "Uncategorized", desc: "", camera_name: "" }} 
+      post={{ id: "",title: "", category_id: "Uncategorized", desc: "", camera_name: "" }} 
       categories={this.props.categories}
       />;
     }
