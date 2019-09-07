@@ -12,8 +12,9 @@
 }
 .post-show-img {
   display: flex;
-  width: 800px;
-  height: auto;
+  /* max-width: 600px; */
+  max-height: 800px;
+  /* height: auto; */
   margin: 0 auto;
 }
 
