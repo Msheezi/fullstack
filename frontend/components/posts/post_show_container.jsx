@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     postId: postId,
     post: state.entities.posts[postId] || {},
     users: state.entities.users,
-    categories: Object.values(state.entities.categories)
+    categories: state.entities.categories
     // authorId: state.entities.posts[postId].author_id
   };
 };

@@ -79,15 +79,15 @@ class PostShow extends React.Component {
 
               <p>
                 <span>
-                  <i className="fas fa-camera" /> Camera Nikon D500{" "}
-                  {this.props.post.camera_name}
+                  <i className="fas fa-camera" /> Camera {" "}
+                  {this.props.post.camera_name || "Not Specified"}
                 </span>{" "}
               </p>
-              <p>f/2.2{this.props.post.f_stop}</p>
-              <p>ISO 400{this.props.post.iso}</p>
-              <p>Lens M.Zuiko{this.props.post.lens}</p>
+              <p>f/ {this.props.post.f_stop || "Not Specified"}</p>
+              <p>ISO {this.props.post.iso || "Not Specified"}</p>
+              <p>Lens {this.props.post.lens || "Not Specified" }</p>
               <p className="post-create-time">Date Added August 26, 2019</p>
-              <p className="post-category">Category Architecture</p>
+              <p className="post-category">Category {this.props.post.category_id ? this.props.categories[this.props.post.category_id].title : "Uncategorized"}</p>
             </div>
 
             <div className="post-show-comments">

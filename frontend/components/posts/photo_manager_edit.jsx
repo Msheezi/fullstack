@@ -43,7 +43,17 @@ class PostFormEdit extends React.Component {
     }
   }
 
+  // renderCategory(){
+  //   if (this.state.category_id === null){
+      
+  //     this.props.categories.map(category =>
+  //       return (<option key={category.id} value={categoryValue} selected >{categoryTitle}</option>)
+  //       )
+  //   }
+  // }
+
   render() {
+    
     return (
       <div>
         {this.renderEdit()}
@@ -51,14 +61,26 @@ class PostFormEdit extends React.Component {
           onSubmit={this.handleSubmit}
           className="photo-manager-form-container"
         >
-          <label> Category</label>
+          {/* <label> Category</label> */}
 
-          <input
+
+          <label> Category</label>
+          <select 
+            value={this.state.category_id || ""}
+            onChange={this.handleInput("category_id")}>
+              <option value="" >Uncategorized</option>
+            {this.props.categories.map(category => {
+             return (<option key={category.id} value={category.id||""}  >{category.title}</option>)
+              
+            }
+            )}
+          </select>
+          {/* <input
             className="phm-category-input"
             type="text"
-            value={this.state.category_id || "Uncategorized"}
+            value={this.props.categories[this.state.category_id].title || "Uncategorized"}
             onChange={this.handleInput("category_id")}
-          />
+          /> */}
 
           <br />
           <label> Title </label>
@@ -87,7 +109,7 @@ class PostFormEdit extends React.Component {
           <input
             className="phm-camera-input"
             type="text"
-            value={this.state.cameraName}
+            value={this.state.camera_name || ""}
             onChange={this.handleInput("camera_name")}
           />
 
