@@ -1,11 +1,11 @@
-export const fetchCategory = () => (
+export const fetchCategories = () => (
     $.ajax({
         method: 'get',
         url: 'api/categories'
     })
 )
 
-export const fetchCategories = (id) => (
+export const fetchCategory = (id) => (
     $.ajax({
         method: 'get',
         url: `api/categories/${id}`

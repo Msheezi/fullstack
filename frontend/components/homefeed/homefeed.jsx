@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { fetchAllPosts, deletePost } from "../../actions/posts_actions";
 import { fetchComments } from "../../actions/comment_actions";
 import { fetchAllUsers } from "../../actions/user_actions";
+import {fetchAllCategories} from '../../actions/category_actions'
 
 class Home extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Home extends React.Component {
     this.props
       .fetchPosts()
       .then(() => this.props.fetchUsers())
+      .then(()=> this.props.fetchAllCategories())
       // .then(() => this.props.posts.map(post => this.getImgValues(img, post.photoUrl)))
       .then(() =>
         this.setState({
@@ -113,7 +115,9 @@ const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchAllPosts()),
   deletePost: postId => dispatch(deletePost(postId)),
   fetchComments: () => dispatch(fetchComments()),
-  fetchUsers: () => dispatch(fetchAllUsers())
+  fetchUsers: () => dispatch(fetchAllUsers()),
+  fetchAllCategories: () => dispatch(fetchAllCategories())
+
 });
 
 export default connect(
