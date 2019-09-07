@@ -174,7 +174,7 @@ class PostForm extends React.Component {
                 onChange={this.handleInput("category_id")}>
               {this.props.categories.map(category =>
 
-                (<option value={category.id}>{category.title}</option>)
+                (<option key={category.id} value={category.id}>{category.title}</option>)
 
               )}
               </select>
