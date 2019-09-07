@@ -21,6 +21,7 @@ class PhotoManager extends React.Component {
     };
 
     this.handlePhotoDelete = this.handlePhotoDelete.bind(this);
+    this.handlePhotoUpdate = this.handlePhotoUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -47,6 +48,12 @@ class PhotoManager extends React.Component {
    
   }
 
+  handlePhotoUpdate(post){
+    this.setState({ post: null, photoSelected: false}, () => 
+    this.props.updatePost(post)
+    )
+  }
+
   handlePhotoDelete(postId) {
     
     this.setState({ post: null, photoSelected: false }, () =>
@@ -63,11 +70,12 @@ class PhotoManager extends React.Component {
           deletePost={this.props.deletePost}
           categories={this.props.categories}
           handlePhotoDelete={this.handlePhotoDelete}
+          handlePhotoUpdate={this.handlePhotoUpdate}
         />
       );
     } else {
       return <PostFormEdit 
-      post={{ title: "" }} 
+      post={{ title: "", category_id: "Uncategorized", desc: "", camera_name: "" }} 
       categories={this.props.categories}
       />;
     }

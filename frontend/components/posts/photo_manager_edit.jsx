@@ -32,7 +32,9 @@ class PostFormEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updatePost(this.state);
+    this.props.handlePhotoUpdate(this.state)
+    // this.props.updatePost(this.state);
+    // this.setState({ title: "", category_id: "Uncategorized", desc: "", camera_name: ""})
   }
 
   renderEdit() {
