@@ -8,7 +8,8 @@ const mapStateToProps = state => {
   return {
     currentUser: state.session.id,
     errors: state.errors.posts,
-    postModalOpen: state.ui.postModalOpen
+    postModalOpen: state.ui.postModalOpen,
+    categories: Object.keys(state.entities.categories).map(id => state.entities.categories[id])
   };
 };
 

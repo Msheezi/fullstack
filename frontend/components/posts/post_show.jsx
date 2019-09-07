@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import Comments from "./post_comments_container";
 
+
 class PostShow extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +22,7 @@ class PostShow extends React.Component {
       .fetchPost(this.props.match.params.postId)
       .then(() => this.props.fetchAllUsers())
       .then(() => this.props.fetchComments(this.props.match.params.postId))
+      .then(() => this.props.fetchAllCategories())
       .then(res => {
         this.setState(
           { fetchDone: true }
@@ -44,6 +46,8 @@ class PostShow extends React.Component {
   //     this.resetMyState();
   //   }
   // }
+
+  
 
   goToProfilePage() {
     let authorId = this.props.post.author_id;

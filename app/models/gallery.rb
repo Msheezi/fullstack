@@ -16,7 +16,7 @@ class Gallery < ApplicationRecord
     foreign_key: :gallery_id,
     class_name: :Post
 
-    belongs_to :user, optional: true
+    belongs_to :user, optional: true,
     foreign_key: :author_id,
     class_name: :User
 

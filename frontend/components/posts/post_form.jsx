@@ -8,7 +8,9 @@ class PostForm extends React.Component {
       title: "",
       category_id: "",
       author_id: this.props.currentUser,
-      camera_name: ""
+      camera_name: "",
+      desc: ""
+
     };
     this.handleFile = this.handleFile.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -19,6 +21,7 @@ class PostForm extends React.Component {
     this.handleDragEnter = this.handleDragEnter.bind(this);
     this.handleDragLeave = this.handleDragLeave.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
+    this.renderCategories = this.renderCategories.bind(this)
   }
 
   handleDragEnter(e) {
@@ -72,6 +75,7 @@ class PostForm extends React.Component {
     formData.append("post[title]", this.state.title);
     formData.append("post[category_id]", this.state.category_id);
     formData.append("post[author_id]", this.state.author_id);
+    formData.append("post[desc]", this.state.desc);
     formData.append("post[camera_name]", this.state.camera_name);
     if (this.state.photoFile) {
       formData.append("post[photo]", this.state.photoFile);
@@ -104,6 +108,15 @@ class PostForm extends React.Component {
         ))}
       </ul>
     );
+  }
+
+  renderCategories() {
+    debugger
+    this.props.categories.map(category =>
+
+      <option value={category.id}>{category.title}</option>
+
+    )
   }
 
   modalClose() {
@@ -154,14 +167,23 @@ class PostForm extends React.Component {
             </button>
             {this.renderEdit()}
            <br/>
-            <label> Category</label>
 
-            <input
+            <label> Category</label>
+              <select 
+                value={this.state.category_id}
+                onChange={this.handleInput("category_id")}>
+              {this.props.categories.map(category =>
+
+                (<option value={category.id}>{category.title}</option>)
+
+              )}
+              </select>
+            {/* <input
               className="phm-category-input"
               type="text"
               value={this.state.category_id || "Uncategorized"}
               onChange={this.handleInput("category_id")}
-            />
+            /> */}
 
             <br />
             <label htmlFor="title">Title </label>
@@ -215,6 +237,8 @@ class PostForm extends React.Component {
   }
 
   render() {
+
+
     if (this.props.postModalOpen) {
       if (!this.state.photoFile) {
         return (
