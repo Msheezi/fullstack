@@ -8,6 +8,7 @@ class PostFormEdit extends React.Component {
     this.state = this.props.post;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    // this.updatePost = this.updatePost.bind(this)
   }
 
   componentDidUpdate(prevProps) {
@@ -74,7 +75,7 @@ class PostFormEdit extends React.Component {
           <label>Description </label>
           <textarea
             className="phm-desc-input"
-            value={this.state.desc}
+            value={this.state.desc || ""}
             onChange={this.handleInput("desc")}
             id="desc"
             placeholder="Tell us more about your beautiful photo"

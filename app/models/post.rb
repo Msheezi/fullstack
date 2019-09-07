@@ -30,11 +30,11 @@ class Post < ApplicationRecord
     foreign_key: :post_id,
     class_name: :Comment
 
-    belongs_to :gallery,
+    belongs_to :gallery, optional: true,
     foreign_key: :gallery_id,
     class_name: :Gallery
 
-    belongs_to :category,
+    belongs_to :category, optional: true,
     foreign_key: :category_id,
     class_name: :Category
 

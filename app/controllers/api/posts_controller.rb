@@ -51,7 +51,7 @@ class Api::PostsController < ApplicationController
             if @post.update(update_params)
                 render :show
             else
-                render json: @post.errors.full_messages, status: 500
+                render json: @post.errors.full_messages, status: 404
             end
         else
             render json: ["This aint your photo bro"], status: 404
