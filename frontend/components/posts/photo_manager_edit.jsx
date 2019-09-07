@@ -8,7 +8,8 @@ class PostFormEdit extends React.Component {
     this.state = this.props.post;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    // this.updatePost = this.updatePost.bind(this)
+    this.handlePhotoUpdate = this.handlePhotoUpdate.bind(this);
+    
   }
 
   componentDidUpdate(prevProps) {
@@ -45,14 +46,6 @@ class PostFormEdit extends React.Component {
     }
   }
 
-  // renderCategory(){
-  //   if (this.state.category_id === null){
-      
-  //     this.props.categories.map(category =>
-  //       return (<option key={category.id} value={categoryValue} selected >{categoryTitle}</option>)
-  //       )
-  //   }
-  // }
 
   render() {
     
@@ -63,9 +56,7 @@ class PostFormEdit extends React.Component {
           onSubmit={this.handleSubmit}
           className="photo-manager-form-container"
         >
-          {/* <label> Category</label> */}
-
-
+         
           <label> Category</label>
           <select 
             value={this.state.category_id || ""}
@@ -77,13 +68,7 @@ class PostFormEdit extends React.Component {
             }
             )}
           </select>
-          {/* <input
-            className="phm-category-input"
-            type="text"
-            value={this.props.categories[this.state.category_id].title || "Uncategorized"}
-            onChange={this.handleInput("category_id")}
-          /> */}
-
+          
           <br />
           <label> Title </label>
 
