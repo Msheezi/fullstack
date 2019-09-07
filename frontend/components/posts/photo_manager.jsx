@@ -31,7 +31,7 @@ class PhotoManager extends React.Component {
   }
 
   handlePhotoSelect(e, post) {
-    debugger
+    
     e.preventDefault();
     e.stopPropagation();
     if (this.state.post === null) {
