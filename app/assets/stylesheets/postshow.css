@@ -9,6 +9,8 @@
 
 .post-show-img-container {
   background-color: #222222;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .post-show-img {
   display: flex;
@@ -21,7 +23,9 @@
 .post-show-post-details {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .post-show-post-camera-details {
@@ -30,6 +34,8 @@
   width: 60%;
   height: auto;
   margin-left: 10%;
+  box-sizing: border-box;
+  min-width: 400px;
 }
 
 .post-show-post-camera-details {
@@ -67,7 +73,9 @@
 
 .post-show-comments {
   width: 40%;
-  margin-right: 10%;
+  /* margin-right: 10%; */
+  min-width: 300px;
+  box-sizing: border-box;
 }
 
 .post-show-title {
@@ -112,6 +120,7 @@
   overflow-y: hidden;
   font-size: 16pt;
   max-width: 280px;
+  border-radius: 3px;
 }
 
 .comment-body {

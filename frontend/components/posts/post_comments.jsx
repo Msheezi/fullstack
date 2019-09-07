@@ -71,10 +71,10 @@ export default class Comments extends React.Component {
             />
           </label>
           <br />
-        </form>
         <button className="comment-submit-btn" onClick={this.handleSubmit}>
           Post a Comment
         </button> 
+        </form>
         
         {/* <input type="submit" value="post comment" /> */}
         {coms}
