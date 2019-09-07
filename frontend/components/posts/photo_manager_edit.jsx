@@ -8,7 +8,7 @@ class PostFormEdit extends React.Component {
     this.state = this.props.post;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.handlePhotoUpdate = this.handlePhotoUpdate.bind(this);
+    // this.handlePhotoUpdate = this.handlePhotoUpdate.bind(this);
     
   }
 

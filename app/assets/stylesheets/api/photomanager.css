@@ -87,6 +87,14 @@ overflow-y: auto;
 .manager-photo-item {
     margin: 10px;
     cursor:pointer;
+    box-sizing: border-box;
+
+}
+.manager-photo-item-selected {
+    margin: 10px;
+    cursor:pointer;
+    border: 3px solid #0099e5;
+    box-sizing: border-box;
 
 }
 
