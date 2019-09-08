@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import Comments from "./post_comments_container";
+import Comments from "./post_comments";
 
 
 class PostShow extends React.Component {
