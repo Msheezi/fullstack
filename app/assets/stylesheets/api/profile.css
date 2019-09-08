@@ -1,0 +1,37 @@
+.profile-page {
+
+}
+
+.profile-index-title{
+    text-align: center;
+}
+
+.layout-container{
+  background-color: #F7F8FA;
+  height: 100vh;
+
+
+}
+
+.parallax-bg {
+  /* background-image:
+    
+    url('images/bridgesmaller.jpg'); */
+    display: block;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center center;
+  position: relative;
+  top:0;
+  bottom:0;
+  right: 0;
+  left: 0;
+  height:400px;
+  width: auto;
+  background-blend-mode: saturation;
+  transform: translate3d(0px, 0px, 0px)
+
+  
+}

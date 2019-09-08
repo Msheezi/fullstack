@@ -252,7 +252,6 @@ sup {
   box-sizing: border-box; */
   /* justify-content: flex-start;
   align-content: flex-start; */
-  background-color: #F7F8FA;
   display: grid;
   grid-gap: 5px; /* [1] Add some gap between rows and columns */
   grid-template-columns: repeat(
@@ -264,6 +263,8 @@ sup {
   margin-left: 10%;
   
 }
+
+
 
 /* .photo-index-container a {
   box-sizing: border-box;
