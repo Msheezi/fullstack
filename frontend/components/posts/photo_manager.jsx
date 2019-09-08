@@ -91,7 +91,7 @@ class PhotoManager extends React.Component {
           <PhotoManagerItem
             key={post.id}
             post={post}
-            deletePost={this.props.deletePost}
+            // deletePost={this.props.deletePost}
             props={this.props}
             handlePhotoSelect={e => this.handlePhotoSelect(e, post)}
             cssClass={this.state.post === post} 
