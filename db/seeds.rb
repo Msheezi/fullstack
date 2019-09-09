@@ -12,7 +12,7 @@ ActiveRecord::Base.transaction do
 
 # Demo Account User
 User.destroy_all
-user1 = User.create!(username:"demo", password:"password",email:"demo@demo.com",first_name:"demo",last_name:"demo")
+user1 = User.create!(username:"demo", password:"password",email:"demo@demo.com",first_name:"Mike",last_name:"Roscopic", bgphoto:)
 
 Category.destroy_all
 cat1 = Category.create!(title:"Nature")
@@ -23,6 +23,12 @@ cat5 = Category.create!(title:"Food")
 cat6 = Category.create!(title:"Black and White")
 
 Post.destroy_all
+
+file0 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/Manhattan+Ellis+Island.jpg')
+post0 = Post.create(title:"Manhattan", author_id: user1.id)
+post0.photo.attach(io: file0, filename: "Manhattan+Ellis+Island.jpg")
+post0.save
+
 file1 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/bridge.jpg')
 post1 = Post.create(title:"Bridge",  author_id: user1.id)
 post1.photo.attach(io: file1, filename: "bridge.jpg")
