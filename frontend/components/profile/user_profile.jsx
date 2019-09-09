@@ -37,9 +37,11 @@ class Profile extends React.Component {
 
     bgStyle() {
         let urlMe = this.props.posts[1].photoUrl
+        let betterUrl = urlMe.split("?")[0]
+        let finalUrl = `https://res.cloudinary.com/ddtykf72z/image/fetch/c_scale,f_auto,w_2000,q_auto:best/${betterUrl}`
         return ({
             backgroundPositionY: this.state.offset,
-            backgroundImage: `url(${urlMe})` 
+            backgroundImage: `url(${finalUrl})` 
         })
     }
 
@@ -88,6 +90,9 @@ class Profile extends React.Component {
                 <div className="profile-index-title"
                     style={{bottom: this.state.offset / 2}}>
                     <h2>{this.props.user.first_name} {this.props.user.last_name}</h2>
+                </div>
+                <div className="photo-gallery-pane-selector">
+                    Photos
                 </div>
 
                 {this.renderPhotos()}
