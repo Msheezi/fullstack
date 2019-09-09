@@ -37,7 +37,7 @@ class Profile extends React.Component {
 
     bgStyle() {
         let width = window.innerWidth
-        let urlMe = this.props.posts[15].photoUrl
+        let urlMe = this.props.posts[3].photoUrl
         let betterUrl = urlMe.split("?")[0]
         let finalUrl = `https://res.cloudinary.com/ddtykf72z/image/fetch/c_fill,g_center,f_auto,h_500,w_${width},q_auto:best/${betterUrl}`
         return ({
@@ -93,7 +93,9 @@ class Profile extends React.Component {
                     <h2>{this.props.user.first_name} {this.props.user.last_name}</h2>
                 </div>
                 <div className="photo-gallery-pane-selector">
-                    Photos
+                   <span className="selector-photos">Photos</span>
+                   <span className="selector-spacer"></span> 
+                   <span className="select-galleries">Galleries</span>
                 </div>
 
                 {this.renderPhotos()}

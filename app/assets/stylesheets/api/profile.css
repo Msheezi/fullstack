@@ -6,9 +6,19 @@
     text-align: center;
 }
 
+.profile-index-title h2 {
+  font-size: 30px;
+  margin: 10px 0 10px 0;
+  text-align: center;
+  color: #525558;
+  font-weight: normal;
+}
+
+
 .layout-container{
   background-color: #F7F8FA;
   height: 100vh;
+  padding-top: 10px;
 
 
 }
@@ -34,4 +44,33 @@
   /* transform: translate3d(0px, 50px, 0px) */
 
   
+}
+
+.photo-gallery-pane-selector {
+  text-align: center;
+  border-top: 1px solid #eeeff2;
+  border-bottom: 1px solid #eeeff2;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.selector-photos {
+  margin: 0 10px;
+  text-transform: uppercase;
+  color: #0099e5;
+
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
+}
+
+.selector-spacer {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.select-galleries {
+  margin: 0 10px;
+  text-transform: uppercase;
+  color: #0099e5;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
 }
