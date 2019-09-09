@@ -8,11 +8,13 @@ class Profile extends React.Component {
 
         this.state= ({
             loaded: false,
-            offset: 50
+            offset: 50,
+            selectedTab: ""
         })
 
         this.parallaxShift = this.parallaxShift.bind(this)
         this.bgStyle = this.bgStyle.bind(this)
+        this.renderPhotos = this.renderPhotos.bind(this)
     }
 
     componentDidMount() {
@@ -34,11 +36,39 @@ class Profile extends React.Component {
     }
 
     bgStyle() {
-        let urlMe = this.props.posts[0].photoUrl
+        let urlMe = this.props.posts[1].photoUrl
         return ({
             backgroundPositionY: this.state.offset,
             backgroundImage: `url(${urlMe})` 
         })
+    }
+
+
+    renderPhotos() {
+        let profPosts = this.props.posts.map(post =>
+            (
+                <PostIndexItem
+                    key={post.id}
+                    post={post}
+
+                    props={this.props}
+                />
+            )
+
+
+        )
+            .reverse()
+        
+        return (
+
+            <div className="layout-container">
+
+                <div className="photo-index-container">
+                    {profPosts}
+                </div >
+
+            </div>
+        )
     }
 
     render() {
@@ -47,19 +77,7 @@ class Profile extends React.Component {
 
         
         // let user = this.props.match.params.userId
-        let profPosts = this.props.posts.map(post => 
-              (
-                    <PostIndexItem
-                        key={post.id}
-                        post={post}
-                        
-                        props={this.props}
-                    />
-                )
-            
-            
-        )
-        .reverse()
+        
         if (this.state.loaded) {
         return (
             <div className="profile-page">
@@ -72,13 +90,7 @@ class Profile extends React.Component {
                     <h2>{this.props.user.first_name} {this.props.user.last_name}</h2>
                 </div>
 
-                <div className="layout-container">
-
-                    <div className="photo-index-container">
-                        {profPosts}
-                    </div >
-
-                </div>
+                {this.renderPhotos()}
 
                        
             </div>

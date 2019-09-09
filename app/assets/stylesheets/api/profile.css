@@ -19,19 +19,19 @@
     url('images/bridgesmaller.jpg'); */
     display: block;
 
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */
+  /* background-attachment: scroll; */
   background-position: center center;
   position: relative;
   top:0;
   bottom:0;
   right: 0;
   left: 0;
-  height:400px;
+  height:500px;
   width: auto;
-  background-blend-mode: saturation;
-  transform: translate3d(0px, 0px, 0px)
+  /* background-blend-mode: saturation; */
+  /* transform: translate3d(0px, 50px, 0px) */
 
   
 }
