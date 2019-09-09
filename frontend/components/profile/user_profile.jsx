@@ -36,9 +36,10 @@ class Profile extends React.Component {
     }
 
     bgStyle() {
-        let urlMe = this.props.posts[1].photoUrl
+        let width = window.innerWidth
+        let urlMe = this.props.posts[15].photoUrl
         let betterUrl = urlMe.split("?")[0]
-        let finalUrl = `https://res.cloudinary.com/ddtykf72z/image/fetch/c_scale,f_auto,w_2000,q_auto:best/${betterUrl}`
+        let finalUrl = `https://res.cloudinary.com/ddtykf72z/image/fetch/c_fill,g_center,f_auto,h_500,w_${width},q_auto:best/${betterUrl}`
         return ({
             backgroundPositionY: this.state.offset,
             backgroundImage: `url(${finalUrl})` 
