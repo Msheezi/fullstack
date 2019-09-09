@@ -8,7 +8,7 @@ class Profile extends React.Component {
 
         this.state= ({
             loaded: false,
-            offset: 50,
+            offset: 0,
             selectedTab: ""
         })
 
