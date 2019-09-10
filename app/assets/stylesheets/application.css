@@ -241,6 +241,10 @@ sup {
 
 /*photo index*/
 
+.index-container {
+  padding-bottom: 10px;
+}
+
 .photo-gallery-pane-selector1 {
   /* text-align: center; */
   /* border-top: 1px solid #eeeff2; */
@@ -276,6 +280,8 @@ sup {
   width: 100%;
   background-color: #f7f8fa;
   /* margin-top: 10px; */
+  padding-bottom: 50px;
+  /* margin-bottom: 20px; */
 }
 .photo-index-container {
   display: flex;
@@ -303,6 +309,8 @@ sup {
 
   margin-left: 5%;
   padding-top: 10px;
+  /* padding-bottom: 50px; */
+  margin-bottom: 10px;
 }
 
 /* .photo-index-container a {
