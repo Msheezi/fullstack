@@ -96,9 +96,17 @@ class Home extends React.Component {
       return (
         <div className="index-container">
           <div className="index-title">
-            <h2>Discover</h2>
+            <h2>What's popular today</h2>
+            <p>See recently added photos and galleries below.</p>
           </div>
+          <div className="photo-gallery-pane-selector1">
+            <span className="selector-photos-index">Photos</span>
+            <span className="selector-spacer-index"></span>
+            <span className="select-galleries-index">Galleries</span>
+          </div>
+          <div className="index-photo-wrapper">
           <div className="photo-index-container">{posts}</div>
+          </div>
         </div>
       );
     } else {
