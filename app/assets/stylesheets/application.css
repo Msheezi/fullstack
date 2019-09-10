@@ -301,7 +301,7 @@ sup {
   ); */
    /* [2] Make columns adjust according to the available viewport */
   /* grid-auto-rows: 175px; /* [3] Set the height for implicitly-created row track */
-  width: 80%; 
+  width: 90%; 
   
   
   margin-left: 10%;
@@ -325,8 +325,10 @@ sup {
   margin: 10px 5px 0px 5px;
   border: 1px solid black;
   /* object-fit: cover; */
-  overflow: hidden;
+  /* overflow: hidden; */
   /* grid-row-end: span 2; */
+  /* position: relative; */
+  flex: 0 2 400px;
 }
 
 .photo-post-index-photo:hover {
