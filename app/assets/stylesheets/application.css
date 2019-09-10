@@ -18,7 +18,8 @@ body {
   /* remove the white space on the sides of pages */
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros,
+    FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
 }
 
 /* Nav bar */
@@ -56,7 +57,7 @@ body {
   z-index: 1;
 }
 
-.nav-logged a  {
+.nav-logged a {
   text-decoration: none;
   color: black;
 }
@@ -154,8 +155,6 @@ sup {
   margin-left: 10px;
 }
 
-
-
 /* splash page */
 
 .splash-main {
@@ -242,7 +241,6 @@ sup {
 
 /*photo index*/
 
-
 .photo-gallery-pane-selector1 {
   /* text-align: center; */
   /* border-top: 1px solid #eeeff2; */
@@ -250,7 +248,6 @@ sup {
   padding-top: 20px;
   padding-bottom: 20px;
   box-sizing: border-box;
- 
 }
 
 .selector-photos-index {
@@ -258,7 +255,8 @@ sup {
   text-transform: uppercase;
   color: #0099e5;
 
-  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros,
+    FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
 }
 
 .selector-spacer-index {
@@ -270,13 +268,13 @@ sup {
   margin: 0 10px;
   text-transform: uppercase;
   color: #0099e5;
-  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros,
+    FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
 }
-
 
 .index-photo-wrapper {
   width: 100%;
-  background-color: #F7F8FA;  
+  background-color: #f7f8fa;
   /* margin-top: 10px; */
 }
 .photo-index-container {
@@ -289,7 +287,7 @@ sup {
   width: 90vw;
   /* margin: 10px 10px 10px 0px; */
   box-sizing: border-box;
-  
+
   /* justify-content: flex-start;
   align-content: flex-start;
   
@@ -299,18 +297,13 @@ sup {
     auto-fill,
     minmax(200px, 1fr)
   ); */
-   /* [2] Make columns adjust according to the available viewport */
+  /* [2] Make columns adjust according to the available viewport */
   /* grid-auto-rows: 175px; /* [3] Set the height for implicitly-created row track */
-  width: 90%; 
-  
-  
+  width: 90%;
+
   margin-left: 5%;
   padding-top: 10px;
- 
-  
 }
-
-
 
 /* .photo-index-container a {
   box-sizing: border-box;
@@ -320,7 +313,7 @@ sup {
 
 .photo-post-index-photo {
   /* width: 100%; */
-  height: 400px;
+  height: 200px;
   /* overflow: hidden; */
   margin: 10px 5px 0px 5px;
   border: 1px solid black;
@@ -472,24 +465,23 @@ sup {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  height:100%;
+  height: 100%;
   /* min-width: 300px; */
   padding-top: 20px;
 }
 
 .upload-data label {
-   color: #0099e5;
-    margin-bottom:10px;
-    font-size: 18px;
-    font-weight: normal;
+  color: #0099e5;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: normal;
 }
 
 .modal-image-preview {
   padding-left: 30px;
   width: calc(100% - 340px);
   background: #f7f8fa;
-  box-sizing: border-box
-  
+  box-sizing: border-box;
 }
 
 .form-flex {
@@ -565,14 +557,14 @@ sup {
 }
 
 .close-modal1 {
-  cursor:pointer;
-    background-color: #71767a;
-    border-color: #71767a;
-    height: 30px;
-    line-height: 28px;
-    border-radius: 3px;
-    font-weight: bold;
-    color: #fff;
-    border: 1px solid #0099e5;
-    margin-bottom: 50px;
+  cursor: pointer;
+  background-color: #71767a;
+  border-color: #71767a;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #fff;
+  border: 1px solid #0099e5;
+  margin-bottom: 50px;
 }
