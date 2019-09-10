@@ -15,17 +15,18 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
       <Link to="/signup" className="login-buttons-btn">
         Sign Up
       </Link>
-     
     </span>
   );
   const personalGreeting = () => (
     <span className="login-buttons">
-      
-      <Link to ='/post/manager'><button type="button" className="modal-button" onClick={openModal}>
-        +
-      </button></Link>
+      <Link to="/post/manager">
+        <button type="button" className="modal-button" onClick={openModal}>
+          +
+        </button>
+      </Link>
 
-      <Link to='/post/manager'><h3 className="header-name" >Hi, {currentUser.first_name}!</h3>
+      <Link to="/post/manager">
+        <h3 className="header-name">Hi, {currentUser.first_name}!</h3>
       </Link>
       {/* <h3 className="header-name" onClick={(e,currentUserId) => props.history.push(`/users/${currentUserId}`)}>Hi, {currentUser.username}!</h3> */}
       <button className="login-buttons-btn" onClick={logout}>
@@ -34,7 +35,7 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
     </span>
   );
   let loginButtons = currentUser ? personalGreeting() : sessionLinks();
-    
+
   return (
     <div className={currentUser ? "nav-logged" : "nav-not-logged"}>
       <span className="logo">
@@ -56,17 +57,12 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
       </span>
 
       {loginButtons}
-     
     </div>
   );
 };
 
-
-
-
 const mapStateToProps = ({ session, entities: { users } }) => {
-  return { currentUser: users[session.id],
-  currentUserId: session.id };
+  return { currentUser: users[session.id], currentUserId: session.id };
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -78,6 +74,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NavBar);
-
-
-
