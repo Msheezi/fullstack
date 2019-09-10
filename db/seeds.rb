@@ -29,6 +29,9 @@ post0 = Post.create(title:"Manhattan", author_id: user1.id)
 post0.photo.attach(io: file0, filename: "Manhattan+Ellis+Island.jpg")
 post0.save
 
+user1.bgphoto = post0.id 
+user1.save
+
 file1 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/bridge.jpg')
 post1 = Post.create(title:"Bridge",  author_id: user1.id)
 post1.photo.attach(io: file1, filename: "bridge.jpg")
@@ -98,6 +101,8 @@ file14 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/clearlake.jpg')
 post14 = Post.create(title:"Clear Lake",  author_id: user1.id)
 post14.photo.attach(io: file14, filename: "clearlake.jpg")
 post14.save
+
+
 
 # file15 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/bridge.jpg')
 # post15 = Post.create(title:"Bridge",  author_id: user1.id)
