@@ -324,7 +324,7 @@ sup {
   /* overflow: hidden; */
   margin: 10px 5px 0px 5px;
   border: 1px solid black;
-  /* object-fit: cover; */
+  object-fit: cover;
   /* overflow: hidden; */
   /* grid-row-end: span 2; */
   /* position: relative; */
