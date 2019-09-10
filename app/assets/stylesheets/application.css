@@ -304,7 +304,7 @@ sup {
   width: 90%; 
   
   
-  margin-left: 10%;
+  margin-left: 5%;
   padding-top: 10px;
  
   
@@ -328,7 +328,7 @@ sup {
   /* overflow: hidden; */
   /* grid-row-end: span 2; */
   /* position: relative; */
-  flex: 0 2 400px;
+  /* flex: 0 2 400px; */
 }
 
 .photo-post-index-photo:hover {
