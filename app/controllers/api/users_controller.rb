@@ -34,7 +34,7 @@ def create
 private
 
 def user_params
-  params.require(:user).permit(:username, :password, :email, :first_name, :last_name)
+  params.require(:user).permit(:username, :password, :email, :first_name, :last_name, :bgphoto)
 end
 
 

@@ -12,7 +12,7 @@ ActiveRecord::Base.transaction do
 
 # Demo Account User
 User.destroy_all
-user1 = User.create!(username:"demo", password:"password",email:"demo@demo.com",first_name:"Mike",last_name:"Roscopic", bgphoto:)
+user1 = User.create!(username:"demo", password:"password",email:"demo@demo.com",first_name:"Mike",last_name:"Roscopic")
 
 Category.destroy_all
 cat1 = Category.create!(title:"Nature")
