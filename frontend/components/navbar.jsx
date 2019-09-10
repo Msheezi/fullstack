@@ -25,7 +25,7 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
         +
       </button></Link>
 
-      <Link to='/post/manager'><h3 className="header-name" >Hi, {currentUser.username}!</h3>
+      <Link to='/post/manager'><h3 className="header-name" >Hi, {currentUser.first_name}!</h3>
       </Link>
       {/* <h3 className="header-name" onClick={(e,currentUserId) => props.history.push(`/users/${currentUserId}`)}>Hi, {currentUser.username}!</h3> */}
       <button className="login-buttons-btn" onClick={logout}>
