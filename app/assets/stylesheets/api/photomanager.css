@@ -88,6 +88,17 @@ overflow-y: auto;
     margin: 10px;
     cursor:pointer;
     box-sizing: border-box;
+    border: 3px solid transparent;
+
+}
+
+.manager-photo-item:hover {
+    margin: 10px;
+    cursor:pointer;
+    box-sizing: border-box;
+    opacity: 0.5;
+    transition-duration: 100ms;
+
 
 }
 .manager-photo-item-selected {

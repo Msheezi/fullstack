@@ -324,7 +324,7 @@ sup {
   height: 200px;
   /* overflow: hidden; */
   margin: 10px 5px 0px 5px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   object-fit: cover;
   /* overflow: hidden; */
   /* grid-row-end: span 2; */
@@ -334,6 +334,8 @@ sup {
 
 .photo-post-index-photo:hover {
   cursor: pointer;
+  opacity: 0.5;
+  transition-duration: 20ms;
 }
 
 .photo-index-title {
