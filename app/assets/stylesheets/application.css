@@ -66,6 +66,10 @@ body {
   color: lightgrey;
   cursor: pointer;
 }
+
+.dropdown {
+  list-style: ;
+}
 sup {
   line-height: 0;
   font-size: 70%;
@@ -85,33 +89,7 @@ sup {
   color: black;
 }
 
-.nav-logged ul {
-  display: flex;
-  box-sizing: border-box;
 
-  /* width: 900px; */
-}
-
-.nav-logged li {
-  display: flex;
-  list-style-type: none;
-  margin-left: 20px;
-  box-sizing: border-box;
-}
-
-.nav-not-logged ul {
-  display: flex;
-  box-sizing: border-box;
-
-  /* width: 900px; */
-}
-
-.nav-not-logged li {
-  display: flex;
-  list-style-type: none;
-  margin-left: 20px;
-  box-sizing: border-box;
-}
 
 .login-buttons {
   display: flex;
@@ -153,6 +131,21 @@ sup {
 
 .header-button {
   margin-left: 10px;
+}
+
+.nav-list-ul {
+  padding: 0;
+  display: flex;
+  box-sizing: border-box;
+  list-style-type: none;
+
+}
+
+.nav-list-ul li {
+  display: flex;
+  list-style-type: none;
+  margin-left: 10px;
+  box-sizing: border-box;
 }
 
 /* splash page */

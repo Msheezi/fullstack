@@ -7,6 +7,8 @@ import { logout } from "../actions/session_actions";
 import { openModal } from "../actions/ui_actions";
 
 const NavBar = ({ currentUser, logout, openModal, props }) => {
+  
+  
   const sessionLinks = () => (
     <span className="login-buttons">
       <Link to="/login" id="login-btn">
@@ -17,6 +19,8 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
       </Link>
     </span>
   );
+  
+  
   const personalGreeting = () => (
     <span className="login-buttons">
       <Link to="/post/manager">
@@ -25,15 +29,23 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
         </button>
       </Link>
 
+
       <Link to="/post/manager">
         <h3 className="header-name">Hi, {currentUser.first_name}!</h3>
       </Link>
+      <div id="dropdown">
+         <ul className="nav-list-ul">
+          <li ><Link to ='/post/manager'>Manage Photos</Link></li> 
+          <li><Link to ={`/users/${currentUser.id}`}> View Profile </Link></li> 
+        </ul>
+      </div>
       {/* <h3 className="header-name" onClick={(e,currentUserId) => props.history.push(`/users/${currentUserId}`)}>Hi, {currentUser.username}!</h3> */}
       <button className="login-buttons-btn" onClick={logout}>
         Log Out
       </button>
     </span>
   );
+ 
   let loginButtons = currentUser ? personalGreeting() : sessionLinks();
 
   return (
