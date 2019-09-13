@@ -90,6 +90,7 @@ flex-direction: row;
 background-color: #F7F8FA;
 
 overflow-y: auto;
+height: 100%;
 }
 
 .manager-right{
