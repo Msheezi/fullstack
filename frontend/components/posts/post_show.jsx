@@ -54,26 +54,29 @@ class PostShow extends React.Component {
 
               <div className="post-show-author-container">
                 <h3 className="post-show-title">{this.props.post.title}</h3>
-                <h4 className="post-show-author" onClick={this.goToProfilePage}>
-                  by{" "}
+                <span className="author-by"> by{""} <span className="post-show-author" onClick={this.goToProfilePage}>
                   {this.props.users[this.props.post.author_id].first_name +
                     " " +
                     this.props.users[this.props.post.author_id].last_name}
-                </h4>
+                  
+                  </span></span>
+                
               </div>
 
               <p>
                 <span>
                   <i className="fas fa-camera" /> Camera {" "}
-                  {this.props.post.camera_name || "Not Specified"}
+                  {this.props.post.camera_name || "0"}
                 </span>{" "}
               </p>
-              <p>f/ {this.props.post.f_stop || "Not Specified"}</p>
-              <p>ISO {this.props.post.iso || "Not Specified"}</p>
-              <p>Lens {this.props.post.lens || "Not Specified" }</p>
+              <p>f/ {this.props.post.f_stop || "0"}</p>
+              <p>ISO {this.props.post.iso || "0"}</p>
+              <p>Lens {this.props.post.lens || "0" }</p>
               <p className="post-create-time">Date Added August 26, 2019</p>
               <p className="post-category">Category {this.props.post.category_id ? this.props.categories[this.props.post.category_id].title : "Uncategorized"}</p>
             </div>
+
+            <div className="post-show-spacer" > </div>
 
             <div className="post-show-comments">
               <h3 className="post-comment">
