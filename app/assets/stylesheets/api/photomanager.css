@@ -3,6 +3,8 @@
 
 .manager-page{
     margin-left: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .manager-container {
@@ -11,25 +13,23 @@ flex-direction: row;
 /* border: 1px solid #EEEFF2; */
 }
 
-.manager-title {
+.manager-left {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: white;
-    width: 100vw;
-    height: 50px;
+    width: 15%;
+    height: 100vh;
     
     font-size: 24pt;
     color:#0099e5;
-
+    border: 1px solid #EEEFF2;
 
 }
 
 .manager-button {
-    width: 15%;
-    border-style: solid ;
-    border-width: 1px 1px 0px 1px ;
-    border-color: #EEEFF2;
-    min-width: 180px;
+    border-bottom: 1px solid #EEEFF2;
+    
+    
     height: 50px;
     box-sizing: border-box;
     
@@ -49,31 +49,45 @@ flex-direction: row;
     
 }
 
-.manager-title-title {
-    width:85%;
-    border-style: solid ;
-    border-width: 1px 1px 0px 1px ;
-    border-color: #EEEFF2;
-    height: 50px;
-    min-width: 180px;
-    padding-left: 15px;
-    align-items: center;
 
-}
 
 .manager-left {
-width: 15%;
-height: 100vh;
-border: 1px solid #EEEFF2;
-min-width: 180px;
-box-sizing: border-box;
+    width: 15%;
+    height: 100vh;
+    border: 1px solid #EEEFF2;
+    min-width: 180px;
+    box-sizing: border-box;
 }
 
-.manager-middle{
-width: 65%;
-height: 100vh;
+.manager-middle {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    /* height: 100vh; */
+
+    border: 1px solid #EEEFF2;
+    
+}
+
+.manager-middle-title {
+    font-size: 24pt;
+    color:#0099e5;
+    min-height: 50px;
+    max-height: 50px;
+    justify-self: center;
+    padding-left: 15px;
+    align-items: center;
+    box-sizing: border-box;
+    
+    border-bottom: 1px solid #EEEFF2;
+
+}
+
+.manager-middle-posts {
+ 
+
 background-color: #F7F8FA;
-border: 1px solid #EEEFF2;
+
 overflow-y: auto;
 }
 

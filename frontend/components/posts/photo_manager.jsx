@@ -102,8 +102,10 @@ class PhotoManager extends React.Component {
 
       return (
         <div className="manager-page">
-          <div className="manager-title">
-            <span className="manager-button">
+
+
+          <div className="manager-left">
+            <div className="manager-button">
               <button
                 type="button"
                 className="man-button"
@@ -111,11 +113,8 @@ class PhotoManager extends React.Component {
               >
                 Upload to Library
               </button>
-            </span>
-            <span className="manager-title-title">Photo Library</span>
-          </div>
-          <div className="manager-container">
-            <div className="manager-left">
+            </div>
+            <div className="manager-left-bottom">
               <br />
               <span id="left-bar-title">Photos</span>
               <br />
@@ -125,9 +124,16 @@ class PhotoManager extends React.Component {
                 Library {this.props.posts.length}
               </span>
             </div>
-            <div className="manager-middle">{posts}</div>
-            <div className="manager-right">{this.renderUpdateForm()}</div>
           </div>
+
+          <div className="manager-middle">
+              <div className="manager-middle-title">Photo Library</div>
+                                            
+              <div className="manager-middle-posts">{posts}</div>
+              
+          </div>
+            <div className="manager-right">{this.renderUpdateForm()}</div>
+          
         </div>
       );
     } else {
