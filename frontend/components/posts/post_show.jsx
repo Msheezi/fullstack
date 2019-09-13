@@ -77,7 +77,7 @@ class PostShow extends React.Component {
                   {this.props.post.camera_name || "0"}
                 </span>{" "}
               </p>
-              <p> <span>{this.renderLens()}  {this.props.post.lens || "0"}</span></p>
+              <p className="lens-text"> <span>{this.renderLens()}  {this.props.post.lens || "0"}</span></p>
               <p>
                 <span>
                   <i className="fas fa-sliders-h" />    {"   "}

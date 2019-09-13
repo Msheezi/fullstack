@@ -22,8 +22,13 @@
 
 .icon-lens{
   width: 30px;
-  line-height: 30px;
+  
+  vertical-align: middle;
 
+}
+
+.lens-text {
+  vertical-align: middle;
 }
 
 .post-show-post-details {
