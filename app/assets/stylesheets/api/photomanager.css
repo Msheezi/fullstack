@@ -75,11 +75,12 @@ flex-direction: row;
     min-height: 50px;
     max-height: 50px;
     justify-self: center;
-    padding-left: 15px;
+    padding-left: 10px;
     align-items: center;
     box-sizing: border-box;
-    
+    vertical-align: middle;
     border-bottom: 1px solid #EEEFF2;
+    padding-top: 4px;
 
 }
 

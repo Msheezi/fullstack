@@ -119,7 +119,7 @@ class PhotoManager extends React.Component {
               <span id="left-bar-title">Photos</span>
               <br />
 
-              <br />
+              
               <span id="left-bar-detail">
                 Library {this.props.posts.length}
               </span>
