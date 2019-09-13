@@ -8,7 +8,7 @@
 .manager-container {
 display: flex;
 flex-direction: row;
-border: 1px solid #EEEFF2;
+/* border: 1px solid #EEEFF2; */
 }
 
 .manager-title {
@@ -66,6 +66,7 @@ width: 15%;
 height: 100vh;
 border: 1px solid #EEEFF2;
 min-width: 180px;
+box-sizing: border-box;
 }
 
 .manager-middle{
