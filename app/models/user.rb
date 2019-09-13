@@ -9,6 +9,7 @@
 #  last_name       :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
+#  bgphoto         :integer
 #
 
 class User < ApplicationRecord 
