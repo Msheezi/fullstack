@@ -38,6 +38,14 @@ class PostShow extends React.Component {
     this.props.history.push(`/users/${authorId}`);
   }
 
+
+ renderLens(){
+   return (
+     <img className="icon-lens" src="https://mypx-dev.s3-us-west-1.amazonaws.com/telephoto.png"/>
+   )
+ }
+
+
   render() {
     
     if (this.state.fetchDone) {
@@ -62,16 +70,22 @@ class PostShow extends React.Component {
                   </span></span>
                 
               </div>
-
+                    <p> {this.props.post.desc}</p>
               <p>
                 <span>
                   <i className="fas fa-camera" /> Camera {" "}
                   {this.props.post.camera_name || "0"}
                 </span>{" "}
               </p>
-              <p>f/ {this.props.post.f_stop || "0"}</p>
-              <p>ISO {this.props.post.iso || "0"}</p>
-              <p>Lens {this.props.post.lens || "0" }</p>
+              <p> <span>{this.renderLens()}  {this.props.post.lens || "0"}</span></p>
+              <p>
+                <span>
+                  <i className="fas fa-sliders-h" />    {"   "}
+               
+                  ƒ/{this.props.post.f_stop || "0"} {"   "}
+                  ISO {this.props.post.iso || "0"}  {"   "}
+                </span>
+              </p>
               <p className="post-create-time">Date Added August 26, 2019</p>
               <p className="post-category">Category {this.props.post.category_id ? this.props.categories[this.props.post.category_id].title : "Uncategorized"}</p>
             </div>
