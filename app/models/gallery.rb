@@ -12,12 +12,16 @@
 class Gallery < ApplicationRecord
     validates :name, presence: true
 
-    has_many :posts,
-    foreign_key: :gallery_id,
-    class_name: :Post
 
     belongs_to :user, optional: true,
     foreign_key: :author_id,
     class_name: :User
+
+    has_many :gallery_items,
+    foreign_key: :gallery_id, 
+    class_name: :GalleryItem
+
+    has_many :posts,
+    through: :gallery_items
 
 end

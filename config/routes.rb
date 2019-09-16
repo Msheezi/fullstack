@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     resources :posts, only: [:create, :destroy, :show, :index, :update]
     resources :comments, only: [:create, :index, :destroy]
     get 'posts/:post_id/comments', to: 'posts#comments'
-    resources :galleries, only: [:index, :show, :update, :create, :destroy]
+    resources :galleries, only: [:index, :show, :update, :create, :destroy] do
+      resources :gallery_items, only: [ :index]
+    end
+    resources :gallery_items, only: [:create, :delete]
     resources :categories, only: [:index, :show]
     
     end
