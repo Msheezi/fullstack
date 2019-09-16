@@ -58,6 +58,7 @@
 
 .selector-photos {
   margin: 0 10px;
+  cursor: pointer;
   text-transform: uppercase;
   color: #0099e5;
 
@@ -71,6 +72,7 @@
 
 .select-galleries {
   margin: 0 10px;
+  cursor: pointer;
   text-transform: uppercase;
   color: #0099e5;
   font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;

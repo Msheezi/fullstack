@@ -105,21 +105,10 @@ class Profile extends React.Component {
         )
     }
 
-    renderContent(){
-        if (this.state.displayPosts === true) {
-            return this.renderPhotos()
-        }  else if (this.state.displayPosts === false) {
-            this.renderGalleries()
-        }
-    }
-
+   
     render() {
         
-        // debugger
-
-        
-        // let user = this.props.match.params.userId
-        
+           
         if (this.state.loaded) {
         return (
             <div className="profile-page">
