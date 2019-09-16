@@ -72,12 +72,14 @@ class Home extends React.Component {
   }
 
   renderGalleries(){
+    // debugger
+    // this.setState({displayPosts: false})
     let galleries = this.props.galleries.map(gallery =>(
       <GalleryIndexItem
         key={gallery.id}
         gallery={gallery}
         props={this.props}
-        post={this.props.posts[gallery.post_ids[0]]}
+        post={this.props.posts.filter(post => post.id === gallery.post_ids[0])[0]}
         
         />
     ))
@@ -100,9 +102,9 @@ class Home extends React.Component {
             <p>See recently added photos and galleries below.</p>
           </div>
           <div className="photo-gallery-pane-selector1">
-            <span className="selector-photos-index" onClick={this.displayPosts}>Photos</span>
+            <span className="selector-photos-index" id={this.state.displayPosts ? 'selected-index' : ""} onClick={this.displayPosts}>Photos</span>
             <span className="selector-spacer-index"></span>
-            <span className="select-galleries-index" onClick={this.displayGalleries}>Galleries</span>
+               <span className="select-galleries-index"   onClick={this.displayGalleries}>Galleries</span>
           </div>
           <div className="index-photo-wrapper">
             {this.renderPosts()}
@@ -119,7 +121,7 @@ class Home extends React.Component {
             <div className="photo-gallery-pane-selector1">
               <span className="selector-photos-index" onClick={this.displayPosts}>Photos</span>
               <span className="selector-spacer-index"></span>
-              <span className="select-galleries-index" onClick={this.displayGalleries}>Galleries</span>
+              <span className="select-galleries-index" id={(this.state.displayPosts === false) ? 'selected-index' : ""} onClick={this.displayGalleries}>Galleries</span>
             </div>
             <div className="index-photo-wrapper">
               {this.renderGalleries()}

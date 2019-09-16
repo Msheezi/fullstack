@@ -12,7 +12,7 @@ import HomeFeed from "./homefeed/homefeed";
 import PostShowContainer from "./posts/post_show_container";
 import UserProfileContainer from './profile/user_profile_container'
 import PhotoManager from './posts/photo_manager'
-
+//import GalleryShow from './galleries/gallery_show'
 const App = () => (
   <div>
     <header>
@@ -29,6 +29,11 @@ const App = () => (
             path="/signup"
             component={SignUpFormContainer}
           />
+            {/* <ProtectedRoute
+              exactRoute
+              path="/galleries/:galleryId"
+              component={GalleryShow}
+            /> */}
           <ProtectedRoute
             exactRoute
             path="/posts/:postId"

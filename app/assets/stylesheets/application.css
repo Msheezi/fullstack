@@ -257,6 +257,11 @@ sup {
     FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
 }
 
+#selected-index {
+ 
+    border-bottom: 3px solid #3899e5;
+}
+
 .selector-spacer-index {
   margin-left: 25px;
   margin-right: 25px;

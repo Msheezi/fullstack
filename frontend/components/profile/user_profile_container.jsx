@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import Profile from "./user_profile";
 import { fetchAllPosts } from "../../actions/posts_actions";
 import { fetchAllUsers } from "../../actions/user_actions";
+import {fetchAllGalleries} from '../../actions/gallery_actions'
 
 const mapStateToProps = (state, ownProps) => {
   let user = ownProps.match.params.userId;
@@ -13,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     let defaultBG = state.entities.posts[bgId].photoUrl
 
    return {
-  
+     galleries: Object.keys(state.entities.galleries).map(id => state.entities.galleries[id]),
     user: state.entities.users[user],
     posts: posts,
     defaultBG: defaultBG
@@ -22,7 +23,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchAllPosts: () => dispatch(fetchAllPosts()),
-  fetchAllUsers: () => dispatch(fetchAllUsers())
+  fetchAllUsers: () => dispatch(fetchAllUsers()),
+  fetchAllGalleries: () => dispatch(fetchAllGalleries())
+
 });
 
 export default connect(
