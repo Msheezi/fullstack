@@ -6,16 +6,21 @@ import { fetchAllPosts, deletePost } from "../../actions/posts_actions";
 import { fetchComments } from "../../actions/comment_actions";
 import { fetchAllUsers } from "../../actions/user_actions";
 import {fetchAllCategories} from '../../actions/category_actions'
+import {fetchAllGalleries} from '../../actions/gallery_actions'
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loaded: false,
-      test: [["1"], ["2", "3"], ["4"]]
+      displayPosts: true
+      
     };
 
-    // this.getImgValues = this.getImgValues.bind(this)
+    this.displayGalleries = this.displayGalleries.bind(this)
+    this.displayPosts = this.displayPosts.bind(this)
+
+    
   }
 
   componentDidMount() {
@@ -23,63 +28,35 @@ class Home extends React.Component {
       .fetchPosts()
       .then(() => this.props.fetchUsers())
       .then(()=> this.props.fetchAllCategories())
-      // .then(() => this.props.posts.map(post => this.getImgValues(img, post.photoUrl)))
+      .then(()=> this.props.fetchAllGalleries())
+    
       .then(() =>
         this.setState({
           loaded: true
+          
         })
       );
 
-        // let myImg = new Image()
-        // this.getImgValues(myImg, )
+       
   }
 
+  displayPosts() {
+    this.setState({
+      displayPosts: true
+    })
+  }
 
-  // getImgValues(img, src) {
-  //   let myImg = new Image()
-    
-  //   return new Promise((resolve, reject) => {
-  //     myImg.src = src
-  //     myImg.addEventListener("load", e => {
-  //       resolve(img)
-        
-  //               console.log(img)
-  //     })
-  //   })
-  // }
+  displayGalleries() {
+    this.setState({
+      displayPosts: false
+    })
+  }
+
+ 
 
   render() {
     // debugger;
-    // return (
-    //   <div>
-    //     {this.state.test.map(col => (
-    //       <div>
-    //         {col.map(string => (
-    //           <p>{string}</p>
-    //         ))}
-    //       </div>
-    //     ))}
-    //   </div>
-    // );
-
-    // this.props.posts.map(post => { return new Promise((resolve, reject) => { post.addEventListner("load", e => { resolve(post) }) }) })
-
-    // this.props.posts.map( img,post => )
-    // this 2D array is the layout of the image used from the function you haven't written yet
-
-    
-    
-
-    // this function below is a sample of what you can use to get the image proportions
-    // 
-    // let myFunc = (img, src) => {
-    //   return new Promise((resolve, reject) => {
-    //     myImg.src = src
-    //     myImg.addEventListener("load", e => {
-    //       resolve(img)
-    //     })
-    //   })
-    // }
+   
     if (this.state.loaded) {
       let posts = this.props.posts
         .map(post => (
@@ -91,8 +68,7 @@ class Home extends React.Component {
           />
         ))
         .reverse();
-      // console.log(this.props.posts);
-      // debugger
+      
       return (
         <div className="index-container">
           <div className="index-title">
@@ -100,9 +76,9 @@ class Home extends React.Component {
             <p>See recently added photos and galleries below.</p>
           </div>
           <div className="photo-gallery-pane-selector1">
-            <span className="selector-photos-index">Photos</span>
+            <span className="selector-photos-index" onClick={this.displayPosts}>Photos</span>
             <span className="selector-spacer-index"></span>
-            <span className="select-galleries-index">Galleries</span>
+            <span className="select-galleries-index" onClick={this.displayGalleries}>Galleries</span>
           </div>
           <div className="index-photo-wrapper">
           <div className="photo-index-container">{posts}</div>
@@ -124,7 +100,8 @@ const mapDispatchToProps = dispatch => ({
   deletePost: postId => dispatch(deletePost(postId)),
   fetchComments: () => dispatch(fetchComments()),
   fetchUsers: () => dispatch(fetchAllUsers()),
-  fetchAllCategories: () => dispatch(fetchAllCategories())
+  fetchAllCategories: () => dispatch(fetchAllCategories()),
+  fetchAllGalleries: () => dispatch(fetchAllGalleries())
 
 });
 

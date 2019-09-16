@@ -1,3 +1,5 @@
-json.array! @gallery
-json.extract! @gallery, :id, :name,:author_id
+
+json.extract! @gallery, :id, :name, :author_id, :post_ids
    
+
+ 

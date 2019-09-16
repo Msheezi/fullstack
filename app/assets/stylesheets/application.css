@@ -251,6 +251,7 @@ sup {
   margin: 0 10px 0 20px;
   text-transform: uppercase;
   color: #0099e5;
+  cursor:pointer;
 
   font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros,
     FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
@@ -263,6 +264,7 @@ sup {
 
 .select-galleries-index {
   margin: 0 10px;
+  cursor:pointer;
   text-transform: uppercase;
   color: #0099e5;
   font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros,
