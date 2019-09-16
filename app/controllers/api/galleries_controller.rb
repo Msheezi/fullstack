@@ -3,6 +3,7 @@ class Api::GalleriesController < ApplicationController
 
     def index
         @galleries = Gallery.all 
+        
         render :index
 
     end
