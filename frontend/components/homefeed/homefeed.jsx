@@ -77,6 +77,8 @@ class Home extends React.Component {
         key={gallery.id}
         gallery={gallery}
         props={this.props}
+        post={this.props.posts[gallery.post_ids[0]]}
+        
         />
     ))
     return (
