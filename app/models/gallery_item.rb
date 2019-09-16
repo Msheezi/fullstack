@@ -16,7 +16,7 @@ class GalleryItem < ApplicationRecord
     foreign_key: :gallery_id,
     class_name: :Gallery 
 
-    belongs_to :posts,
+    belongs_to :post,
     foreign_key: :post_id,
     class_name: :Post
 end
