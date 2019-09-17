@@ -28,6 +28,10 @@ class GalleryShow extends React.Component{
             .then(() => this.setState({ loaded: true }))
         window.addEventListener('scroll', this.parallaxShift)
     }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.parallaxShift)
+    }
     
     parallaxShift() {
         this.setState({
