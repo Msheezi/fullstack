@@ -84,11 +84,7 @@ class GalleryShow extends React.Component{
                         style={{ bottom: this.state.offset / 2 }}>
                         <h2>{this.props.gallery.name}</h2>
                     </div>
-                    <div className="photo-gallery-pane-selector">
-                        <span className="selector-photos" id={this.state.displayPosts ? 'selected-index' : ""} onClick={this.displayPosts} >Photos</span>
-                        <span className="selector-spacer"></span>
-                        <span className="select-galleries" id={(this.state.displayPosts === false) ? 'selected-index' : ""} onClick={this.displayGalleries}>Galleries</span>
-                    </div>
+                    
 
                     {this.renderPhotos()}
 
