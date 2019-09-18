@@ -13,6 +13,11 @@ ActiveRecord::Base.transaction do
 # Demo Account User
 User.destroy_all
 user1 = User.create!(username:"demo", password:"password",email:"demo@demo.com",first_name:"Mike",last_name:"Roscopic")
+user2 = User.create!(username:"fireball", password:"password", email: "firemail@mail.com", first_name:"Ally", last_name:"Gator")
+user3 = User.create!(username:"iceball", password:"password", email: "icemail@mail.com", first_name:"Horace", last_name:"Cope")
+user4 = User.create!(username:"snowball", password:"password", email: "snowmail@mail.com", first_name:"Jack", last_name:"Pott")
+user5 = User.create!(username:"rainball", password:"password", email: "rainmail@mail.com", first_name:"Don", last_name:"Keigh")
+
 
 Category.destroy_all
 cat1 = Category.create!(title:"Nature")
@@ -24,6 +29,13 @@ cat6 = Category.create!(title:"Black and White")
 
 Post.destroy_all
 
+#create one post per user, then set that as their bgphoto
+#create a batch of at least 15 photos per user
+#create at least 4 galleries per user
+#have a couple of photos per gallery
+#maybe have one user with no posts to show the default actions for users with no
+##  background details
+
 file0 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/Manhattan+Ellis+Island.jpg')
 post0 = Post.create(title:"Manhattan", author_id: user1.id)
 post0.photo.attach(io: file0, filename: "Manhattan+Ellis+Island.jpg")
@@ -31,6 +43,15 @@ post0.save
 
 user1.bgphoto = post0.id 
 user1.save
+
+# user2.bgphoto = post0.id 
+# user2.save
+# user3.bgphoto = post0.id 
+# user3.save
+# user4.bgphoto = post0.id 
+# user4.save
+# user5.bgphoto = post0.id 
+# user5.save
 
 file1 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/bridge.jpg')
 post1 = Post.create(title:"Bridge",  author_id: user1.id)
@@ -101,6 +122,42 @@ file14 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/clearlake.jpg')
 post14 = Post.create(title:"Clear Lake",  author_id: user1.id)
 post14.photo.attach(io: file14, filename: "clearlake.jpg")
 post14.save
+
+
+Gallery.destroy_all
+#user1 Galleries
+gallery1 = Gallery.create!(name:"Pretty Faces", author_id: user1.id)
+gallery2 = Gallery.create!(name:"One With Nature", author_id: user1.id)
+gallery3 = Gallery.create!(name:"Tall Buildings", author_id: user1.id)
+
+GalleryItem.destroy_all
+
+gallery1item1 = GalleryItem.create!(gallery_id: gallery1.id, post_id: post5.id)
+gallery1item2 = GalleryItem.create!(gallery_id: gallery1.id, post_id: post6.id)
+gallery1item3 = GalleryItem.create!(gallery_id: gallery1.id, post_id: post7.id)
+gallery1item4 = GalleryItem.create!(gallery_id: gallery1.id, post_id: post11.id)
+gallery1item5 = GalleryItem.create!(gallery_id: gallery1.id, post_id: post8.id)
+
+gallery2item1 = GalleryItem.create!(gallery_id: gallery2.id, post_id: post3.id)
+gallery2item2 = GalleryItem.create!(gallery_id: gallery2.id, post_id: post9.id)
+gallery2item3 = GalleryItem.create!(gallery_id: gallery2.id, post_id: post10.id)
+gallery2item4 = GalleryItem.create!(gallery_id: gallery2.id, post_id: post12.id)
+gallery2item5 = GalleryItem.create!(gallery_id: gallery2.id, post_id: post14.id)
+
+gallery3item1 = GalleryItem.create!(gallery_id: gallery3.id, post_id: post2.id)
+gallery3item2 = GalleryItem.create!(gallery_id: gallery3.id, post_id: post4.id)
+
+Comment.destroy_all
+
+post1comment1 = Comment.create!(post_id: post1.id, author_id: user2.id, body: "Nice Picture! I see your obsession with bridges continues")
+post1comment2 = Comment.create!(post_id: post1.id, author_id: user3.id, body: "Great Pic!!")
+post1comment3 = Comment.create!(post_id: post1.id, author_id: user4.id, body: "Amazing Color!")
+post2comment1 = Comment.create!(post_id: post2.id, author_id: user2.id, body: "Home of the criminals!!! lol, nice pic though!")
+post2comment2 = Comment.create!(post_id: post2.id, author_id: user3.id, body: "Halls of Greatness!!")
+post2comment3 = Comment.create!(post_id: post2.id, author_id: user4.id, body: "Four Score...something something something")
+post3comment1 = Comment.create!(post_id: post3.id, author_id: user2.id, body: "Reminds me of my time in Japan")
+post3comment2 = Comment.create!(post_id: post3.id, author_id: user3.id, body: "Great Pic!!")
+post3comment3 = Comment.create!(post_id: post3.id, author_id: user4.id, body: "I love Cherry Blossoms!")
 
 
 
