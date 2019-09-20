@@ -64,17 +64,25 @@ class Profile extends React.Component {
   }
 
   renderPhotos() {
-    let profPosts = this.props.posts
-      .map(post => (
-        <PostIndexItem key={post.id} post={post} props={this.props} />
-      ))
-      .reverse();
+    let profPosts 
+        if (this.props.posts.length <1){
+            return (
+                <div className="photo-index-container"> <h3>So Empty</h3></div>
+            )
+        } else {
 
-    return (
-      <div className="layout-container">
+           profPosts = this.props.posts
+            .map(post => (
+                <PostIndexItem key={post.id} post={post} props={this.props} />
+                ))
+                .reverse();
+                
+                return (
+                    <div className="layout-container">
         <div className="photo-index-container">{profPosts}</div>
       </div>
     );
+}
   }
 
   // renderGalleries() {
