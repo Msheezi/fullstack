@@ -12,11 +12,10 @@ const mapStateToProps = (state, ownProps) => {
   let posts = allPosts.filter(post => post.author_id == user);
   let bgId = state.entities.users[user].bgphoto || allPosts[0].id;
   let defaultBG = state.entities.posts[bgId].photoUrl;
-
   return {
     galleries: Object.keys(state.entities.galleries)
       .map(id => state.entities.galleries[id])
-      .filter(gallery => gallery.author_id === user),
+      .filter(gallery => gallery.author_id == user),
     user: state.entities.users[user],
     posts: posts,
     defaultBG: defaultBG

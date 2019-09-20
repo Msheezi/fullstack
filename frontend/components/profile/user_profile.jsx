@@ -96,6 +96,7 @@ class Profile extends React.Component {
 
   renderGalleries() {
     let galleries;
+    debugger;
     if (this.props.galleries === undefined) {
       return <div>So Empty</div>;
     } else {
