@@ -1,13 +1,13 @@
 import React from "react";
 import PostIndexItem from "./post_index_item";
-import GalleryIndexItem from './gallery_index_item'
+import GalleryIndexItem from "./gallery_index_item";
 import { connect } from "react-redux";
 
 import { fetchAllPosts, deletePost } from "../../actions/posts_actions";
 import { fetchComments } from "../../actions/comment_actions";
 import { fetchAllUsers } from "../../actions/user_actions";
-import {fetchAllCategories} from '../../actions/category_actions'
-import {fetchAllGalleries} from '../../actions/gallery_actions'
+import { fetchAllCategories } from "../../actions/category_actions";
+import { fetchAllGalleries } from "../../actions/gallery_actions";
 
 class Home extends React.Component {
   constructor(props) {
@@ -15,46 +15,38 @@ class Home extends React.Component {
     this.state = {
       loaded: false,
       displayPosts: true
-      
     };
 
-    this.displayGalleries = this.displayGalleries.bind(this)
-    this.displayPosts = this.displayPosts.bind(this)
-
-    
+    this.displayGalleries = this.displayGalleries.bind(this);
+    this.displayPosts = this.displayPosts.bind(this);
   }
 
   componentDidMount() {
     this.props
       .fetchPosts()
       .then(() => this.props.fetchUsers())
-      .then(()=> this.props.fetchAllGalleries())
-      .then(()=> this.props.fetchAllCategories())
-    
+      .then(() => this.props.fetchAllGalleries())
+      .then(() => this.props.fetchAllCategories())
       .then(() =>
         this.setState({
           loaded: true
-          
         })
       );
-
-       
   }
 
   displayPosts() {
     this.setState({
       displayPosts: true
-    })
+    });
   }
 
   displayGalleries() {
     this.setState({
       displayPosts: false
-    })
+    });
   }
 
-  renderPosts(){
-
+  renderPosts() {
     let posts = this.props.posts
       .map(post => (
         <PostIndexItem
@@ -65,86 +57,74 @@ class Home extends React.Component {
         />
       ))
       .reverse();
-      return (
-
-        <div className="photo-index-container">{posts}</div>
-      )
+    return <div className="photo-index-container">{posts}</div>;
   }
 
-  renderGalleries(){
-    // debugger
-    // this.setState({displayPosts: false})
-    let galleries = this.props.galleries.map(gallery =>(
-      <GalleryIndexItem
-        key={gallery.id}
-        gallery={gallery}
-        props={this.props}
-        post={this.props.posts.filter(post => post.id === gallery.post_ids[0])[0]}
-        
+  renderGalleries() {
+    let galleries;
+    if (this.props.galleries === undefined) {
+      return <div>So Empty</div>;
+    } else {
+      galleries = this.props.galleries.map(gallery => (
+        <GalleryIndexItem
+          key={gallery.id}
+          gallery={gallery}
+          props={this.props}
+          post={
+            this.props.posts.filter(post => post.id === gallery.post_ids[0])[0]
+          }
         />
-    ))
-    return (
-      <div className = "gallery-index-container">{galleries}</div>
-    )
+      ));
+      return <div className="gallery-index-container">{galleries}</div>;
+    }
   }
- 
 
   render() {
     // debugger;
-   
+
     if (this.state.loaded) {
-      
-      if (this.state.displayPosts){
-         return (
+      let content = this.state.displayPosts
+        ? this.renderPosts()
+        : this.renderGalleries();
+      return (
         <div className="index-container">
           <div className="index-title">
             <h2>What's popular today</h2>
             <p>See recently added photos and galleries below.</p>
           </div>
           <div className="photo-gallery-pane-selector1">
-            <span className="selector-photos-index" id={this.state.displayPosts ? 'selected-index' : ""} onClick={this.displayPosts}>Photos</span>
+            <span
+              className="selector-photos-index"
+              id={this.state.displayPosts ? "selected-index" : ""}
+              onClick={this.displayPosts}
+            >
+              Photos
+            </span>
             <span className="selector-spacer-index"></span>
-               <span className="select-galleries-index"   onClick={this.displayGalleries}>Galleries</span>
+            <span
+              className="select-galleries-index"
+              id={!this.state.displayPosts ? "selected-index" : ""}
+              onClick={this.displayGalleries}
+            >
+              Galleries
+            </span>
           </div>
-          <div className="index-photo-wrapper">
-            {this.renderPosts()}
-          </div>
+          <div className="index-photo-wrapper">{content}</div>
         </div>
       );
-      } else {
-        return (
-          <div className="index-container">
-            <div className="index-title">
-              <h2>What's popular today</h2>
-              <p>See recently added photos and galleries below.</p>
-            </div>
-            <div className="photo-gallery-pane-selector1">
-              <span className="selector-photos-index" onClick={this.displayPosts}>Photos</span>
-              <span className="selector-spacer-index"></span>
-              <span className="select-galleries-index" id={(this.state.displayPosts === false) ? 'selected-index' : ""} onClick={this.displayGalleries}>Galleries</span>
-            </div>
-            <div className="index-photo-wrapper">
-              {this.renderGalleries()}
-            </div>
-          </div>
-        );
-
-      }
-     
-    } else  {
-      return ""
+    } else {
+      return "";
     }
   }
 }
 
 const mapStateToProps = state => {
-
-  
   return {
-    galleries: Object.keys(state.entities.galleries).map(id =>state.entities.galleries[id]),
-   posts: Object.keys(state.entities.posts).map(id => state.entities.posts[id])
-}
-  
+    galleries: Object.keys(state.entities.galleries).map(
+      id => state.entities.galleries[id]
+    ),
+    posts: Object.keys(state.entities.posts).map(id => state.entities.posts[id])
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -154,7 +134,6 @@ const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchAllUsers()),
   fetchAllCategories: () => dispatch(fetchAllCategories()),
   fetchAllGalleries: () => dispatch(fetchAllGalleries())
-
 });
 
 export default connect(

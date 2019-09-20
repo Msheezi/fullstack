@@ -14,9 +14,9 @@ const mapStateToProps = (state, ownProps) => {
   let defaultBG = state.entities.posts[bgId].photoUrl;
 
   return {
-    galleries: Object.keys(state.entities.galleries).map(
-      id => state.entities.galleries[id]
-    ),
+    galleries: Object.keys(state.entities.galleries)
+      .map(id => state.entities.galleries[id])
+      .filter(gallery => gallery.author_id === user),
     user: state.entities.users[user],
     posts: posts,
     defaultBG: defaultBG
