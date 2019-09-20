@@ -61,6 +61,14 @@ class PhotoManager extends React.Component {
         .deletePost(postId));
   }
 
+  handleGalleryAdd(post){
+    this.setState({post: null, photoSelected: false})
+  }
+
+  handleGalleryDelete(post){
+    this.setState({ post: null, photoSelected: false })
+  }
+
   renderUpdateForm() {
     if (this.state.photoSelected) {
       return (
@@ -71,6 +79,8 @@ class PhotoManager extends React.Component {
           categories={this.props.categories}
           handlePhotoDelete={this.handlePhotoDelete}
           handlePhotoUpdate={this.handlePhotoUpdate}
+          handleGalleryAdd={this.handleGalleryAdd}
+          handleGalleryDelete={this.handleGalleryDelete}
         />
       );
     } else {

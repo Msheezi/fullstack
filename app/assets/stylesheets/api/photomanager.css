@@ -215,6 +215,21 @@ overflow-y: auto;
     margin-bottom: 50px;
 }
 
+.phm-add-gallery-btn{
+    cursor:pointer;
+    background-color: #f7f8fa;
+    
+    height: 30px;
+    line-height: 28px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #71767a;
+    border: 1px solid rgba(185,193,199,0.5);
+    margin-bottom: 50px;
+}
+.phm-add-gallery-btn:hover{
+    background-color: #eeeff2;
+}
 .phm-submit-btn{
     height: 40px;
     cursor: pointer;

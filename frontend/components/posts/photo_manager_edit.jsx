@@ -5,7 +5,10 @@ class PostFormEdit extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.props.post;
+    this.state = {
+      post: this.props.post,
+      popupOpen: false
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     // this.handlePhotoUpdate = this.handlePhotoUpdate.bind(this);
@@ -14,26 +17,32 @@ class PostFormEdit extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.post !== this.props.post) {
-      this.setState(this.props.post);
+      this.setState({post: this.props.post});
     }
   }
 
   handleInput(field) {
-    return e =>
-      this.setState({
-        [field]: e.target.value
-      });
+    
+    
+    return e => {
+      let newPost = {...this.state.post}
+      newPost[field] = e.target.value
+      this.setState({post: newPost})
+    }
+      // this.setState({
+      //   post: [field] = e.target.value
+      // });
   }
 
   handleDelete(e) {
     e.preventDefault();
     // this.setState({})
-    this.props.handlePhotoDelete(this.state.id);
+    this.props.handlePhotoDelete(this.state.post.id);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.handlePhotoUpdate(this.state)
+    this.props.handlePhotoUpdate(this.state.post)
     // this.props.updatePost(this.state);
     // this.setState({ title: "", category_id: "Uncategorized", desc: "", camera_name: ""})
   }
@@ -56,10 +65,18 @@ class PostFormEdit extends React.Component {
           onSubmit={this.handleSubmit}
           className="photo-manager-form-container"
         >
-         
+          <label>Description </label>
+          <textarea
+            className="phm-desc-input"
+            value={this.state.post.desc || ""}
+            onChange={this.handleInput("desc")}
+            id="desc"
+            placeholder="Tell us more about your beautiful photo"
+          />
+          <br />
           <label> Category</label>
           <select 
-            value={this.state.category_id || ""}
+            value={this.state.post.category_id || ""}
             onChange={this.handleInput("category_id")}>
               <option value="" >Uncategorized</option>
             {this.props.categories.map(category => {
@@ -76,27 +93,40 @@ class PostFormEdit extends React.Component {
             className="phm-title-input"
             type="text"
             id="title"
-            value={this.state.title}
+            value={this.state.post.title}
             onChange={this.handleInput("title")}
           />
-
+          <br/>
+          <label> Gallery </label>
+          <button className="phm-add-gallery-btn" >
+            Add To Gallery 
+            {/* this button should open the menu displaying the galleries */}
+          </button>
+          {/* <div id="dropdown">
+             <ul onClick={togglePopup} className="nav-list-ul">
+              {popupOpen ? (
+                <div>
+                  <li>
+                    <Link to="/post/manager">Manage Photos</Link>
+                  </li>
+                  <li>
+                    <Link to={`/users/${currentUser.id}`}> View Profile </Link>
+                  </li>
+                </div>
+              ) : (
+                  ""
+                )}
+            </ul>
+          </div> */}
           <br />
-          <label>Description </label>
-          <textarea
-            className="phm-desc-input"
-            value={this.state.desc || ""}
-            onChange={this.handleInput("desc")}
-            id="desc"
-            placeholder="Tell us more about your beautiful photo"
-          />
-          <br />
+          
 
           <label> Camera </label>
 
           <input
             className="phm-camera-input"
             type="text"
-            value={this.state.camera_name || ""}
+            value={this.state.post.camera_name || ""}
             onChange={this.handleInput("camera_name")}
           />
 
