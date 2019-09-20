@@ -67,7 +67,11 @@ class Profile extends React.Component {
     let profPosts 
         if (this.props.posts.length <1){
             return (
-                <div className="photo-index-container"> <h3>So Empty</h3></div>
+                <div className="photo-index-container"> 
+                    <h3>
+                        {this.props.user.first_name} {this.props.user.last_name} hasn't posted any photos yet
+                    </h3>
+                </div>
             )
         } else {
 
@@ -85,37 +89,24 @@ class Profile extends React.Component {
 }
   }
 
-  // renderGalleries() {
-  //     // debugger
-  //     // this.setState({displayPosts: false})
-  //     let galleries = this.props.galleries.map(gallery => (
-  //         <GalleryIndexItem
-  //             key={gallery.id}
-  //             gallery={gallery}
-  //             props={this.props}
-  //             post={this.props.posts.filter(post => post.id === gallery.post_ids[0])[0]}
-
-  //         />
-  //     ))
-  //     return (
-  //         <div className="gallery-index-container">{galleries}</div>
-  //     )
-  // }
-
   renderGalleries() {
     let galleries;
+      let firstName = this.props.user.first_name
+      let lastName = this.props.user.last_name
     if (this.props.galleries.length < 1) {
       return (
         <div className="gallery-index-container">
-          <h3>So Empty</h3>
+              <h3>{firstName} {lastName} hasn't created a Gallery yet</h3>
         </div>
       );
     } else {
+        let length = this.props.galleries.length
       galleries = this.props.galleries.map(gallery => (
         <GalleryIndexItem
           key={gallery.id}
           gallery={gallery}
           props={this.props}
+          length={length}
           post={
             this.props.posts.filter(post => post.id === gallery.post_ids[0])[0]
           }

@@ -63,13 +63,15 @@ class Home extends React.Component {
   renderGalleries() {
     let galleries;
     if (this.props.galleries === undefined) {
-      return <div>So Empty</div>;
+      return <div>No Galleries Exist, You Really shouldn't be receiving this message</div>;
     } else {
+      let length = this.props.galleries.length
       galleries = this.props.galleries.map(gallery => (
         <GalleryIndexItem
           key={gallery.id}
           gallery={gallery}
           props={this.props}
+          length={length}
           post={
             this.props.posts.filter(post => post.id === gallery.post_ids[0])[0]
           }
