@@ -96,9 +96,12 @@ class Profile extends React.Component {
 
   renderGalleries() {
     let galleries;
-    debugger;
-    if (this.props.galleries === undefined) {
-      return <div>So Empty</div>;
+    if (this.props.galleries.length < 1) {
+      return (
+        <div className="gallery-index-container">
+          <h3>So Empty</h3>
+        </div>
+      );
     } else {
       galleries = this.props.galleries.map(gallery => (
         <GalleryIndexItem
