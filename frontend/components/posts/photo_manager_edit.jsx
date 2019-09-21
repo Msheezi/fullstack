@@ -11,7 +11,19 @@ class PostFormEdit extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handlePopup = this.handlePopup.bind(this)
     // this.handlePhotoUpdate = this.handlePhotoUpdate.bind(this);
+    
+  }
+
+  handlePopup(e){
+   e.preventDefault()
+   e.stopPropagation()
+    if(this.state.popupOpen){
+      this.setState({popupOpen: false})
+    } else {
+      this.setState({popupOpen: true})
+    }
     
   }
 
@@ -22,8 +34,6 @@ class PostFormEdit extends React.Component {
   }
 
   handleInput(field) {
-    
-    
     return e => {
       let newPost = {...this.state.post}
       newPost[field] = e.target.value
@@ -98,26 +108,26 @@ class PostFormEdit extends React.Component {
           />
           <br/>
           <label> Gallery </label>
-          <button className="phm-add-gallery-btn" >
+          <button className="phm-add-gallery-btn" onClick={this.handlePopup}>
             Add To Gallery 
             {/* this button should open the menu displaying the galleries */}
           </button>
-          {/* <div id="dropdown">
-             <ul onClick={togglePopup} className="nav-list-ul">
-              {popupOpen ? (
+          <div id="dropdown">
+            <ul onClick={this.handlePopup} className="nav-list-ul">
+              {this.state.popupOpen ? (
                 <div>
                   <li>
-                    <Link to="/post/manager">Manage Photos</Link>
+                    show me
                   </li>
                   <li>
-                    <Link to={`/users/${currentUser.id}`}> View Profile </Link>
+                    this works
                   </li>
                 </div>
               ) : (
                   ""
                 )}
             </ul>
-          </div> */}
+          </div>
           <br />
           
 
