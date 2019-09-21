@@ -6,6 +6,7 @@ import {
   deletePost,
   updatePost
 } from "../../actions/posts_actions";
+import {fetchAllGalleries} from '../../actions/gallery_actions'
 import { openModal } from "../../actions/ui_actions";
 import PostFormEdit from "./photo_manager_edit";
 import {fetchAllCategories} from '../../actions/category_actions'
@@ -27,6 +28,7 @@ class PhotoManager extends React.Component {
   componentDidMount() {
     this.props.fetchPosts()
     .then(()=>this.props.fetchAllCategories())
+    .then(()=>this.props.fetchAllGalleries())
     .then(() =>
       this.setState({
         loaded: true
@@ -81,6 +83,7 @@ class PhotoManager extends React.Component {
           handlePhotoUpdate={this.handlePhotoUpdate}
           handleGalleryAdd={this.handleGalleryAdd}
           handleGalleryDelete={this.handleGalleryDelete}
+          galleries={this.props.galleries}
         />
       );
     } else {
@@ -156,7 +159,11 @@ const mapStateToProps = state => {
   
   let user = state.session.id
   let posts= Object.values(state.entities.posts).filter(post => post.author_id === user)
+  let galleries =  Object.keys(state.entities.galleries)
+    .map(id => state.entities.galleries[id])
+    .filter(gallery => gallery.author_id == user)
   return {
+    galleries: galleries,
     categories: Object.keys(state.entities.categories).map(id => state.entities.categories[id]),
     posts: posts
   }
@@ -167,7 +174,8 @@ const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchAllPosts()),
   openModal: () => dispatch(openModal()),
   updatePost: post => dispatch(updatePost(post)),
-  fetchAllCategories: () => dispatch(fetchAllCategories())
+  fetchAllCategories: () => dispatch(fetchAllCategories()),
+  fetchAllGalleries: () => dispatch(fetchAllGalleries()),
 
 });
 

@@ -12,6 +12,7 @@ class PostFormEdit extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handlePopup = this.handlePopup.bind(this)
+    this.renderGalleries = this.renderGalleries.bind(this)
     // this.handlePhotoUpdate = this.handlePhotoUpdate.bind(this);
     
   }
@@ -19,12 +20,12 @@ class PostFormEdit extends React.Component {
   handlePopup(e){
    e.preventDefault()
    e.stopPropagation()
-    if(this.state.popupOpen){
-      this.setState({popupOpen: false})
-    } else {
-      this.setState({popupOpen: true})
-    }
-    
+    // if(this.state.popupOpen){
+    //   this.setState({popupOpen: false})
+    // } else {
+    //   this.setState({popupOpen: true})
+    // }
+    this.setState({ popupOpen: !this.state.popupOpen})
   }
 
   componentDidUpdate(prevProps) {
@@ -62,6 +63,24 @@ class PostFormEdit extends React.Component {
       return <h2 className="phm-edit-title">Editing 1 Photo</h2>;
     } else {
       return <h2 className="phm-edit-title">Edit</h2>;
+    }
+  }
+
+
+  renderGalleries(){
+    
+    if (this.props.galleries.length < 1){
+       return  <div>No Galleries bro</div>
+    } else {
+      let galleries = this.props.galleries.map(gallery => 
+         (
+
+        
+            <li key={gallery.id}>{gallery.name}</li>
+        
+        )
+       ) 
+       return galleries
     }
   }
 
@@ -113,15 +132,10 @@ class PostFormEdit extends React.Component {
             {/* this button should open the menu displaying the galleries */}
           </button>
           <div id="dropdown">
-            <ul onClick={this.handlePopup} className="nav-list-ul">
+            <ul onClick={this.handlePopup} className="phm-list-ul">
               {this.state.popupOpen ? (
                 <div>
-                  <li>
-                    show me
-                  </li>
-                  <li>
-                    this works
-                  </li>
+                  {this.renderGalleries()}
                 </div>
               ) : (
                   ""

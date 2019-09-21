@@ -67,12 +67,12 @@ body {
   cursor: pointer;
 }
 
-.dropdown {
-  /* list-style: ; */
+/* .dropdown {
+  
   background-color: #eeeff2;
   border: 1px solid #eeeff2;
   border-radius: 2px;
-}
+} */
 
 sup {
   line-height: 0;
