@@ -137,6 +137,8 @@
 .comment-container {
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  margin-bottom:20px;
 }
 
 .comment-body {
@@ -155,11 +157,17 @@
   margin-top: 2px;
   margin-left: 10px;
   width: 500px;
+
 }
 .comment-username {
   font-size: 16pt;
   margin-top: 2px;
   margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.comment-username:hover{
+  color: #1890ff;
 }
 .comment-submit-btn {
   background-color: #3b5998;

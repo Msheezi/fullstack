@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchComments, createComment } from "../../actions/comment_actions";
 // import { fetchUsers } from "../../actions/user_actions";
 // import Comments from "./post_comments";
-
+import {withRouter} from "react-router-dom"
 
  class Comments extends React.Component {
   constructor(props) {
@@ -15,6 +15,7 @@ import { fetchComments, createComment } from "../../actions/comment_actions";
       comments: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.goToProfile = this.goToProfile.bind(this)
   }
 
   handleSubmit(e) {
@@ -46,13 +47,17 @@ import { fetchComments, createComment } from "../../actions/comment_actions";
     });
   }
 
+  goToProfile(id){
+    
+    this.props.history.push(`/users/${id}`)
+  }
   
 
   render() {
     // debugger
     const coms = this.state.comments.map(comment => (
       <div key={comment.id} className="comment-item">
-        <h3 className="comment-username">
+        <h3 className="comment-username" onClick={(e) => this.goToProfile(comment.author_id) }>
           {this.props.users[comment.author_id].first_name +
             " " +
             this.props.users[comment.author_id].last_name}
@@ -105,7 +110,7 @@ const mapDispatchToProps = dispatch => ({
   createComment: comment => dispatch(createComment(comment))
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Comments);
+)(Comments));
