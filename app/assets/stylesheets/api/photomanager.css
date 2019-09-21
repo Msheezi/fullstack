@@ -99,6 +99,7 @@ height: 100vh;
 border: 1px solid #EEEFF2;
 min-width: 180px;
 overflow-y: auto;
+z-index: 10;
 
 }
 
@@ -276,4 +277,9 @@ overflow-y: auto;
   cursor: pointer;
   margin-top: 5px;
   z-index: 20000;
+}
+
+
+fieldset{
+    border: none;
 }

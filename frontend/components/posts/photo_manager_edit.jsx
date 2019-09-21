@@ -7,7 +7,8 @@ class PostFormEdit extends React.Component {
 
     this.state = {
       post: this.props.post,
-      popupOpen: false
+      popupOpen: false,
+      selected: this.props.photoSelected
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -59,7 +60,7 @@ class PostFormEdit extends React.Component {
   }
 
   renderEdit() {
-    if (this.state.id) {
+    if (this.state.post.id) {
       return <h2 className="phm-edit-title">Editing 1 Photo</h2>;
     } else {
       return <h2 className="phm-edit-title">Edit</h2>;
@@ -90,10 +91,15 @@ class PostFormEdit extends React.Component {
     return (
       <div>
         {this.renderEdit()}
+        
+        
+        
+        <fieldset disabled={this.state.post.id ? "" : "disabled"}>
+
         <form
           onSubmit={this.handleSubmit}
           className="photo-manager-form-container"
-        >
+          >
           <label>Description </label>
           <textarea
             className="phm-desc-input"
@@ -101,7 +107,7 @@ class PostFormEdit extends React.Component {
             onChange={this.handleInput("desc")}
             id="desc"
             placeholder="Tell us more about your beautiful photo"
-          />
+            />
           <br />
           <label> Category</label>
           <select 
@@ -109,7 +115,7 @@ class PostFormEdit extends React.Component {
             onChange={this.handleInput("category_id")}>
               <option value="" >Uncategorized</option>
             {this.props.categories.map(category => {
-             return (<option key={category.id} value={category.id||""}  >{category.title}</option>)
+              return (<option key={category.id} value={category.id||""}  >{category.title}</option>)
               
             }
             )}
@@ -124,7 +130,7 @@ class PostFormEdit extends React.Component {
             id="title"
             value={this.state.post.title}
             onChange={this.handleInput("title")}
-          />
+            />
           <br/>
           <label> Gallery </label>
           <button className="phm-add-gallery-btn" onClick={this.handlePopup}>
@@ -138,7 +144,7 @@ class PostFormEdit extends React.Component {
                   {this.renderGalleries()}
                 </div>
               ) : (
-                  ""
+                ""
                 )}
             </ul>
           </div>
@@ -152,7 +158,7 @@ class PostFormEdit extends React.Component {
             type="text"
             value={this.state.post.camera_name || ""}
             onChange={this.handleInput("camera_name")}
-          />
+            />
 
           <br />
 
@@ -163,6 +169,7 @@ class PostFormEdit extends React.Component {
             Save
           </button>
         </form>
+            </fieldset>
       </div>
     );
   }

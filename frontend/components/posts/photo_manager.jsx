@@ -84,6 +84,7 @@ class PhotoManager extends React.Component {
           handleGalleryAdd={this.handleGalleryAdd}
           handleGalleryDelete={this.handleGalleryDelete}
           galleries={this.props.galleries}
+          photoSelected={this.state.photoSelected}
         />
       );
     } else {
