@@ -99,7 +99,7 @@ height: 100vh;
 border: 1px solid #EEEFF2;
 min-width: 180px;
 overflow-y: auto;
-z-index: 10;
+/* z-index: 10; */
 
 }
 
@@ -264,7 +264,7 @@ z-index: 10;
   border-radius: 2px;
   /* width: 180px; */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16), 0 0 4px rgba(0, 0, 0, 0.08);
-    z-index: 20000;
+    /* z-index: 20000; */
 }
 
 .phm-list-ul li {
@@ -276,7 +276,7 @@ z-index: 10;
   width: 100%;
   cursor: pointer;
   margin-top: 5px;
-  z-index: 20000;
+  /* z-index: 20000; */
 }
 
 

@@ -83,7 +83,10 @@ class Profile extends React.Component {
                 
                 return (
                     <div className="layout-container">
-        <div className="photo-index-container">{profPosts}</div>
+        <div className="photo-index-container">{profPosts}
+                      
+                      <img style={{ width: 175, flexGrow: 3, visibility: "hidden", borderColor: "#f7f8fa", background: "transparent" }} />
+        </div>
       </div>
     );
 }

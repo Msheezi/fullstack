@@ -57,7 +57,10 @@ class Home extends React.Component {
         />
       ))
       .reverse();
-    return <div className="photo-index-container">{posts}</div>;
+    return <div className="photo-index-container">
+    {posts}
+      <img style={{ width: 175, flexGrow: 3, visibility: "hidden", borderColor: "#f7f8fa", background:"transparent"}}/>
+    </div>;
   }
 
   renderGalleries() {
