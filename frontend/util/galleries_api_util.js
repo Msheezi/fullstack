@@ -13,7 +13,7 @@ export const fetchGallery = (id) => (
 )
 
 export const createGallery = (gallery) => {
-    debugger
+    
     return (
 
         $.ajax({

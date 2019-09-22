@@ -39,8 +39,21 @@ class GalleryModal extends React.Component{
             return <li>No galleries for this user</li>
         } else {
             galleries = this.props.galleries.map(gallery => (
-               <li key={gallery.id}>{gallery.name}</li>
-            ))
+              <label> 
+
+              <input 
+                key={gallery.id} 
+                type="radio" 
+                name="name" 
+                value={gallery.name} 
+                // onChange={this.props.handleGallerySelection}
+                />
+                {gallery.name}
+                </label>
+               
+              
+               
+            )).reverse()
         }
         return galleries
     }
@@ -58,9 +71,11 @@ class GalleryModal extends React.Component{
             <button onClick={this.handleNewGallery}>Create</button>
 
             <div>
-                <ul>
+                <form>
+
                 {this.renderGalleries()}
-                </ul>
+                </form>
+                
             </div>
             <button onClick={this.props.closeGalleryModal}>Close</button>
         </div>
