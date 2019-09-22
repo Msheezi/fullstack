@@ -13,6 +13,7 @@ import PostShowContainer from "./posts/post_show_container";
 import UserProfileContainer from './profile/user_profile_container'
 import PhotoManager from './posts/photo_manager'
 import GalleryShow from './galleries/gallery_show'
+import GalleryModal from './galleries/gallery_modal'
 const App = () => (
   <div>
     <header>
@@ -21,6 +22,7 @@ const App = () => (
     <div>
       <div className="maincontent">
     <PostFormContainer />
+    <GalleryModal/>
         <Switch>
           {/* <Route path="/posts/new" component={Form}/> */}
           <AuthRoute exactRoute path="/login" component={LogInFormContainer} />

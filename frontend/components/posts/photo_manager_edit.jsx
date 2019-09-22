@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import GalleryModal from '../galleries/gallery_modal'
 
 class PostFormEdit extends React.Component {
   constructor(props) {
@@ -67,23 +68,44 @@ class PostFormEdit extends React.Component {
     }
   }
 
+  toggleModal(e){
+    e.preventDefault()
+    e.stopPropagation()
+    this.props.openGalleryModal()
+  }
+  // renderGalleries(){
+    
+  //   if (this.props.galleries.length < 1){
+  //      return  <div>No Galleries bro</div>
+  //   } else {
+  //     let galleries = this.props.galleries.map(gallery => 
+  //        (
+
+        
+  //           <li key={gallery.id}>{gallery.name}</li>
+        
+  //       )
+  //      ) 
+  //      return galleries
+  //   }
+  // }
+
 
   renderGalleries(){
-    
-    if (this.props.galleries.length < 1){
+  if (this.props.galleries.length < 1){
        return  <div>No Galleries bro</div>
     } else {
-      let galleries = this.props.galleries.map(gallery => 
-         (
-
-        
-            <li key={gallery.id}>{gallery.name}</li>
-        
+        return (
+          <GalleryModal
+              post={this.state.post.id}
+          />
         )
-       ) 
-       return galleries
+
     }
-  }
+        
+    }
+  
+
 
 
   render() {
@@ -133,11 +155,12 @@ class PostFormEdit extends React.Component {
             />
           <br/>
           <label> Gallery </label>
-          <button className="phm-add-gallery-btn" onClick={this.handlePopup}>
+          <button className="phm-add-gallery-btn" onClick={e => this.toggleModal(e)}>
             Add To Gallery 
+            
             {/* this button should open the menu displaying the galleries */}
           </button>
-          <div id="dropdown">
+          {/* <div id="dropdown">
             <ul onClick={this.handlePopup} className="phm-list-ul">
               {this.state.popupOpen ? (
                 <div>
@@ -148,7 +171,7 @@ class PostFormEdit extends React.Component {
                 )}
             </ul>
           </div>
-          <br />
+          <br /> */}
           
 
           <label> Camera </label>

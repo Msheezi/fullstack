@@ -12,7 +12,9 @@ export const fetchGallery = (id) => (
     })
 )
 
-export const createGallery = (gallery) => (
+export const createGallery = (gallery) => {
+    debugger
+    return (
 
         $.ajax({
             method: 'post',
@@ -20,7 +22,7 @@ export const createGallery = (gallery) => (
             data: {gallery}
             
         })
-    )
+    )}
 
 export const updateGallery = gallery => (
     $.ajax({

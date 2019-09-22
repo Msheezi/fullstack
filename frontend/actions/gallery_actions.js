@@ -45,8 +45,9 @@ export const fetchAllGalleries = () => dispatch => (
 )
 
 export const createGallery = (gallery) => dispatch => (
-    GalleryAPIUtil.createGallery(gallery).then(post => dispatch(receiveGallery(gallery)),
-        err => dispatch(receiveGalleryErrors(err.responseJSON)))
+    GalleryAPIUtil.createGallery(gallery).then(gallery=> dispatch(receiveGallery(gallery)),
+        // err => dispatch(receiveGalleryErrors(err.responseJSON))
+        )
 )
 
 export const updateGallery = (gallery) => dispatch => (

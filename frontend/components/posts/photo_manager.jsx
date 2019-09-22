@@ -7,7 +7,7 @@ import {
   updatePost
 } from "../../actions/posts_actions";
 import {fetchAllGalleries} from '../../actions/gallery_actions'
-import { openModal } from "../../actions/ui_actions";
+import { openModal, openGalleryModal, closeGalleryModal } from "../../actions/ui_actions";
 import PostFormEdit from "./photo_manager_edit";
 import {fetchAllCategories} from '../../actions/category_actions'
 
@@ -85,6 +85,8 @@ class PhotoManager extends React.Component {
           handleGalleryDelete={this.handleGalleryDelete}
           galleries={this.props.galleries}
           photoSelected={this.state.photoSelected}
+          openGalleryModal={this.props.openGalleryModal}
+          closeGalleryModal={this.props.closeGalleryModal}
         />
       );
     } else {
@@ -177,6 +179,8 @@ const mapDispatchToProps = dispatch => ({
   updatePost: post => dispatch(updatePost(post)),
   fetchAllCategories: () => dispatch(fetchAllCategories()),
   fetchAllGalleries: () => dispatch(fetchAllGalleries()),
+  openGalleryModal:  ()=> dispatch(openGalleryModal()), 
+   closeGalleryModal:  () => dispatch(closeGalleryModal())
 
 });
 
