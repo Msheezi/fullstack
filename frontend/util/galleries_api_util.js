@@ -22,8 +22,6 @@ export const createGallery = (gallery) => (
         })
     )
 
-
-
 export const updateGallery = gallery => (
     $.ajax({
         method: 'patch',
@@ -37,5 +35,20 @@ export const deleteGallery = galleryId => (
     $.ajax({
         method: 'delete',
         url: `api/galleries/${galleryId}`
+    })
+)
+
+export const createGalleryItem = (galleryItem) => (
+    $.ajax({
+        method: 'post',
+        url: `api/gallery_items`,
+        data: {galleryItem}
+    })
+)
+
+export const deleteGalleryItem = (galleryItemId) => (
+    $.ajax({
+        method: "delete",
+        url: `api/gallery_items/${galleryItemId}`
     })
 )

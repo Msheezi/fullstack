@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :galleries, only: [:index, :show, :update, :create, :destroy] do
       resources :gallery_items, only: [ :index]
     end
-    resources :gallery_items, only: [:create, :delete]
+    resources :gallery_items, only: [:create, :destroy]
     resources :categories, only: [:index, :show]
     
     end

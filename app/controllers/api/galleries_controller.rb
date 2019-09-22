@@ -28,7 +28,7 @@ class Api::GalleriesController < ApplicationController
                 if @post.update(gallery_params)
                     render :show
                 else
-                    render json: @galler.errors.full_messages, status: 500
+                    render json: @gallery.errors.full_messages, status: 500
                 end
             else
                 render json: ["This aint your gallery bro"], status: 404

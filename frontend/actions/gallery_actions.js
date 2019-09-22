@@ -7,10 +7,6 @@ export const REMOVE_GALLERY = 'REMOVE_GALLERY'
 export const RECEIVE_GALLERY_ERRORS = 'RECEIVE_GALLERY_ERRORS'
 export const CLEAR_GALLERY_ERRORS = 'CLEAR_GALLERY_ERRORS'
 
-
-
-
-
 const receiveGallery = (gallery) => ({
     type: RECEIVE_GALLERY,
     gallery
@@ -63,4 +59,11 @@ export const deleteGallery = (galleryId) => dispatch => (
         err => dispatch(receiveGalleryErrors(err.responseJSON)))
 )
 
+export const createGalleryItem = (galleryItem) => dispatch => (
+    GalleryAPIUtil.createGalleryItem(galleryItem).then(() => dispatch(fetchAllGalleries()),
+    err => dispatch(receiveGalleryErrors(err.responseJSON)))
+)
 
+export const deleteGalleryItem = (galleryItemId) => dispatch (
+    GalleryAPIUtil.deleteGalleryItem(galleryItemId).then(() => dispatch(fetchAllGalleries()))
+)
