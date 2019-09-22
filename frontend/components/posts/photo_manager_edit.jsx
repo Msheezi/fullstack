@@ -98,6 +98,10 @@ class PostFormEdit extends React.Component {
         return (
           <GalleryModal
               post={this.state.post.id}
+              handleGallerySelect={this.handleGallerySelect}
+              galleries={this.props.galleries}
+              user={this.props.user}
+              galleryModalOpen={this.props.galleryModalOpen}
           />
         )
 
@@ -160,18 +164,7 @@ class PostFormEdit extends React.Component {
             
             {/* this button should open the menu displaying the galleries */}
           </button>
-          {/* <div id="dropdown">
-            <ul onClick={this.handlePopup} className="phm-list-ul">
-              {this.state.popupOpen ? (
-                <div>
-                  {this.renderGalleries()}
-                </div>
-              ) : (
-                ""
-                )}
-            </ul>
-          </div>
-          <br /> */}
+         
           
 
           <label> Camera </label>

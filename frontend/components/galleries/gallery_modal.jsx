@@ -1,14 +1,15 @@
 import React from "react"
-import {connect } from "react-redux"
+import { withRouter} from "react-router-dom"
 import {openGalleryModal, closeGalleryModal } from '../../actions/ui_actions'
 import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
 
-class GalleryModal extends React.Component{
+ class GalleryModal extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             author_id: this.props.user,
-            name: ""
+            name: "",
+            
         }
         this.handleInput = this.handleInput.bind(this)
         this.handleNewGallery = this.handleNewGallery.bind(this)
@@ -32,6 +33,13 @@ class GalleryModal extends React.Component{
         this.props.createNewGallery(gallery)
     }
 
+    handleGallerySelection(e){
+        e.preventDefault()
+        this.props.handleGallerySelect(gallery.id)
+    }
+
+
+
     renderGalleries() {
         // debugger
         let galleries 
@@ -46,7 +54,7 @@ class GalleryModal extends React.Component{
                 type="radio" 
                 name="name" 
                 value={gallery.name} 
-                // onChange={this.props.handleGallerySelection}
+                onChange={ this.handleGallerySelection}
                 />
                 {gallery.name}
                 </label>
@@ -87,29 +95,30 @@ class GalleryModal extends React.Component{
     }
 }
 
+export default withRouter(GalleryModal) 
 
 
-const msp = state => {
-    let userId = state.session.id 
+// const msp = state => {
+//     let userId = state.session.id 
     
 
-    return {
-        user: state.session.id,
-        galleryModalOpen: state.ui.galleryModalOpen,
-        galleries: Object.keys(state.entities.galleries)
-            .map(id => state.entities.galleries[id])
-            .filter(gallery => gallery.author_id == userId)
-    }
+//     return {
+//         user: state.session.id,
+//         galleryModalOpen: state.ui.galleryModalOpen,
+//         galleries: Object.keys(state.entities.galleries)
+//             .map(id => state.entities.galleries[id])
+//             .filter(gallery => gallery.author_id == userId)
+//     }
 
 
-}
+// }
 
 
-const mdp = dispatch => ({
-    openGalleryModal: () => dispatch(openGalleryModal()),
-    closeGalleryModal: () => dispatch(closeGalleryModal()),
-    createNewGallery: (gallery) => dispatch(createGallery(gallery))
+// const mdp = dispatch => ({
+    // openGalleryModal: () => dispatch(openGalleryModal()),
+    // closeGalleryModal: () => dispatch(closeGalleryModal()),
+    // createNewGallery: (gallery) => dispatch(createGallery(gallery))
     
-})
+// })
 
-export default connect(msp, mdp)(GalleryModal)
+// export default connect(msp, mdp)(GalleryModal)

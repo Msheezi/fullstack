@@ -18,7 +18,8 @@ class PhotoManager extends React.Component {
     this.state = {
       photoSelected: false,
       loaded: false,
-      post: null
+      post: null,
+      gallery_id: null
     };
 
     this.handlePhotoDelete = this.handlePhotoDelete.bind(this);
@@ -48,6 +49,10 @@ class PhotoManager extends React.Component {
       this.setState({ post: post, photoSelected: true });
     }
    
+  }
+
+  handleGallerySelect(){
+    this.setState({gallery_id: galleryId})
   }
 
   handlePhotoUpdate(post){
@@ -87,6 +92,9 @@ class PhotoManager extends React.Component {
           photoSelected={this.state.photoSelected}
           openGalleryModal={this.props.openGalleryModal}
           closeGalleryModal={this.props.closeGalleryModal}
+          handleGallerySelect={this.handleGallerySelect}
+          user={this.props.user}
+          galleryModalOpen={this.props.galleryModalOpen}
         />
       );
     } else {
@@ -166,6 +174,7 @@ const mapStateToProps = state => {
     .map(id => state.entities.galleries[id])
     .filter(gallery => gallery.author_id == user)
   return {
+    galleryModalOpen: state.ui.galleryModalOpen,
     galleries: galleries,
     categories: Object.keys(state.entities.categories).map(id => state.entities.categories[id]),
     posts: posts
@@ -180,7 +189,8 @@ const mapDispatchToProps = dispatch => ({
   fetchAllCategories: () => dispatch(fetchAllCategories()),
   fetchAllGalleries: () => dispatch(fetchAllGalleries()),
   openGalleryModal:  ()=> dispatch(openGalleryModal()), 
-   closeGalleryModal:  () => dispatch(closeGalleryModal())
+  closeGalleryModal:  () => dispatch(closeGalleryModal()),
+  createNewGallery: (gallery) => dispatch(createGallery(gallery))
 
 });
 
