@@ -21,7 +21,7 @@ class Api::GalleryItemsController < ApplicationController
     private
 
     def galleryitemparams
-        params.require(:galleryitem).permit(:gallery_id, :post_id)
+        params.require(:galleryItem).permit(:gallery_id, :post_id)
     end
 
 

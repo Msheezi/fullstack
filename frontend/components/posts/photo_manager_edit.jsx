@@ -9,7 +9,8 @@ class PostFormEdit extends React.Component {
     this.state = {
       post: this.props.post,
       popupOpen: false,
-      selected: this.props.photoSelected
+      selected: this.props.photoSelected,
+      gallery_id: null
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -58,6 +59,11 @@ class PostFormEdit extends React.Component {
     this.props.handlePhotoUpdate(this.state.post)
     // this.props.updatePost(this.state);
     // this.setState({ title: "", category_id: "Uncategorized", desc: "", camera_name: ""})
+  }
+
+  handleGallerySelect(e){
+    e.preventDefault()
+    this.setState({gallery_id: id})
   }
 
   renderEdit() {

@@ -2,7 +2,7 @@ import React from "react"
 import {connect} from 'react-redux'
 import { withRouter} from "react-router-dom"
 import {openGalleryModal, closeGalleryModal } from '../../actions/ui_actions'
-import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
+import { createGallery, createGalleryItem, clearGalleryErrors} from '../../actions/gallery_actions'
 
  class GalleryModal extends React.Component{
     constructor(props){
@@ -10,18 +10,25 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
         this.state = {
             author_id: this.props.user,
             name: "",
-            
+            gallery_id:  "",
+            post_id: this.props.post
         }
         this.handleInput = this.handleInput.bind(this)
         this.handleNewGallery = this.handleNewGallery.bind(this)
         this.handleGallerySelection = this.handleGallerySelection.bind(this)
+        this.handleClose = this.handleClose.bind(this)
     }
 
     handleInput(field) {
       
         return e => this.setState({
-           [field]:  e.target.value
+           [field]:  e.target.value, 
+           
        })
+    }
+
+    componentDidMount(){
+       this.setState({post_id: this.props.post}) 
     }
 
     componentWillUnmount() {
@@ -40,6 +47,16 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
         this.props.handleGallerySelect(id)
     }
 
+    handleClose(){
+        
+        let galleryItem = Object.assign({}, 
+            {"gallery_id": this.state.gallery_id, "post_id": this.props.post}
+            )
+        
+        this.props.createGalleryItem(galleryItem)
+        this.props.closeGalleryModal()
+    }
+
 
 
     renderGalleries() {
@@ -49,14 +66,14 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
         //     return <li>No galleries for this user</li>
         // } else {
            let galleries = this.props.galleries.map(gallery => (
-              <label> 
+               <label key={gallery.id}> 
 
               <input 
-                key={gallery.id} 
+                
                 type="radio" 
-                name="name" 
-                value={gallery.name} 
-                onChange={this.handleInput("name")}
+                name="id" 
+                value={gallery.id} 
+                onChange={this.handleInput("gallery_id")}
                 />
                 {gallery.name}
                 </label>
@@ -95,7 +112,7 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
                     {/* </form> */}
                     
                 </div>
-                <button onClick={this.props.closeGalleryModal}>Close</button>
+                <button onClick={this.handleClose}>Close</button>
             </div>
         </div>
         )
@@ -128,7 +145,9 @@ const msp = state => {
 const mdp = dispatch => ({
     openGalleryModal: () => dispatch(openGalleryModal()),
     closeGalleryModal: () => dispatch(closeGalleryModal()),
-    createNewGallery: (gallery) => dispatch(createGallery(gallery))
+    createNewGallery: (gallery) => dispatch(createGallery(gallery)),
+    createGalleryItem: (galleryItem) => dispatch(createGalleryItem(galleryItem)),
+    clearErrors: () => dispatch(clearGalleryErrors()),
     
 })
 
