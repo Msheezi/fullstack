@@ -1,4 +1,5 @@
 import React from "react"
+import {connect} from 'react-redux'
 import { withRouter} from "react-router-dom"
 import {openGalleryModal, closeGalleryModal } from '../../actions/ui_actions'
 import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
@@ -13,6 +14,7 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
         }
         this.handleInput = this.handleInput.bind(this)
         this.handleNewGallery = this.handleNewGallery.bind(this)
+        this.handleGallerySelection = this.handleGallerySelection.bind(this)
     }
 
     handleInput(field) {
@@ -33,9 +35,9 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
         this.props.createNewGallery(gallery)
     }
 
-    handleGallerySelection(e){
+    handleGallerySelection(id){
         e.preventDefault()
-        this.props.handleGallerySelect(gallery.id)
+        this.props.handleGallerySelect(id)
     }
 
 
@@ -54,7 +56,7 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
                 type="radio" 
                 name="name" 
                 value={gallery.name} 
-                onChange={ this.handleGallerySelection}
+                onChange={ e => this.handleGallerySelection(gallery.id)}
                 />
                 {gallery.name}
                 </label>
@@ -69,23 +71,32 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
 
     render(){
         if (this.props.galleryModalOpen){
-        return (<div>
-            <h3>ADD TO GALLERY</h3>
-            <form >
-                <input type="text" id="name"
-                    onChange={this.handleInput("name")}
-                    />
-            </form>
-            <button onClick={this.handleNewGallery}>Create</button>
+        return (
+        <div className="gallery-modal-background" 
+            onClick={this.props.closeGalleryModal}
+        >
+            <div className="gallery-modal-box"
 
-            <div>
-                <form>
+            
+            >
 
-                {this.renderGalleries()}
+                <h3>ADD TO GALLERY</h3>
+                <form >
+                    <input type="text" id="name"
+                        onChange={this.handleInput("name")}
+                        />
                 </form>
-                
+                <button onClick={this.handleNewGallery}>Create</button>
+
+                <div>
+                    <form className="gallery-modal-list">
+
+                    {this.renderGalleries()}
+                    </form>
+                    
+                </div>
+                <button onClick={this.props.closeGalleryModal}>Close</button>
             </div>
-            <button onClick={this.props.closeGalleryModal}>Close</button>
         </div>
         )
         } else return null;
@@ -95,30 +106,30 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
     }
 }
 
-export default withRouter(GalleryModal) 
+// export default withRouter(GalleryModal) 
 
 
-// const msp = state => {
-//     let userId = state.session.id 
+const msp = state => {
+    let userId = state.session.id 
     
 
-//     return {
-//         user: state.session.id,
-//         galleryModalOpen: state.ui.galleryModalOpen,
-//         galleries: Object.keys(state.entities.galleries)
-//             .map(id => state.entities.galleries[id])
-//             .filter(gallery => gallery.author_id == userId)
-//     }
+    return {
+        user: state.session.id,
+        galleryModalOpen: state.ui.galleryModalOpen,
+        galleries: Object.keys(state.entities.galleries)
+            .map(id => state.entities.galleries[id])
+            .filter(gallery => gallery.author_id == userId)
+    }
 
 
-// }
+}
 
 
-// const mdp = dispatch => ({
-    // openGalleryModal: () => dispatch(openGalleryModal()),
-    // closeGalleryModal: () => dispatch(closeGalleryModal()),
-    // createNewGallery: (gallery) => dispatch(createGallery(gallery))
+const mdp = dispatch => ({
+    openGalleryModal: () => dispatch(openGalleryModal()),
+    closeGalleryModal: () => dispatch(closeGalleryModal()),
+    createNewGallery: (gallery) => dispatch(createGallery(gallery))
     
-// })
+})
 
-// export default connect(msp, mdp)(GalleryModal)
+export default connect(msp, mdp)(GalleryModal)

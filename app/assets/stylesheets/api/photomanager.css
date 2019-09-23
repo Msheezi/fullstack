@@ -220,7 +220,7 @@ overflow-y: auto;
 .phm-add-gallery-btn{
     cursor:pointer;
     background-color: #f7f8fa;
-    
+    position: relative;
     height: 30px;
     line-height: 28px;
     border-radius: 3px;
