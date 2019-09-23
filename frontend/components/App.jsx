@@ -22,7 +22,7 @@ const App = () => (
     <div>
       <div className="maincontent">
     <PostFormContainer />
-    <GalleryModal/>
+    {/* <GalleryModal/> */}
         <Switch>
           {/* <Route path="/posts/new" component={Form}/> */}
           <AuthRoute exactRoute path="/login" component={LogInFormContainer} />

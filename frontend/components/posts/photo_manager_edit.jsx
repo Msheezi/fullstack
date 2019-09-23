@@ -92,7 +92,7 @@ class PostFormEdit extends React.Component {
 
 
   renderGalleries(){
-  if (this.props.galleries.length < 1){
+  if (!this.props.galleries){
        return  <div>No Galleries bro</div>
     } else {
         return (
@@ -161,9 +161,9 @@ class PostFormEdit extends React.Component {
           <label> Gallery </label>
           <button className="phm-add-gallery-btn" onClick={e => this.toggleModal(e)}>
             Add To Gallery 
-            
             {/* this button should open the menu displaying the galleries */}
           </button>
+            {this.renderGalleries()}
          
           
 

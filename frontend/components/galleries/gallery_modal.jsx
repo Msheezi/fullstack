@@ -44,11 +44,11 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
 
     renderGalleries() {
         // debugger
-        let galleries 
-        if (this.props.galleries.length < 1){
-            return <li>No galleries for this user</li>
-        } else {
-            galleries = this.props.galleries.map(gallery => (
+        // let galleries 
+        // if (this.props.galleries.length < 1){
+        //     return <li>No galleries for this user</li>
+        // } else {
+           let galleries = this.props.galleries.map(gallery => (
               <label> 
 
               <input 
@@ -64,9 +64,9 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
               
                
             )).reverse()
+            return galleries
         }
-        return galleries
-    }
+    
 
 
     render(){
@@ -81,18 +81,18 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
             >
 
                 <h3>ADD TO GALLERY</h3>
-                <form >
+                {/* <form > */}
                     <input type="text" id="name"
                         onChange={this.handleInput("name")}
                         />
-                </form>
+                {/* </form> */}
                 <button onClick={this.handleNewGallery}>Create</button>
 
                 <div>
-                    <form className="gallery-modal-list">
+                    {/* <form className="gallery-modal-list"> */}
 
                     {this.renderGalleries()}
-                    </form>
+                    {/* </form> */}
                     
                 </div>
                 <button onClick={this.props.closeGalleryModal}>Close</button>
