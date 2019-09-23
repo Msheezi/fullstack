@@ -99,7 +99,7 @@ class PostFormEdit extends React.Component {
 
   renderGalleries(){
   if (!this.props.galleries){
-       return  <div>No Galleries bro</div>
+       return  ""
     } else {
         return (
           <GalleryModal
