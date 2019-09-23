@@ -112,7 +112,7 @@ import { createGallery, createGalleryItem, clearGalleryErrors} from '../../actio
                     {/* </form> */}
                     
                 </div>
-                <button onClick={this.handleClose}>Close</button>
+                <button onClick={this.handleClose}>Add Photo</button>
             </div>
         </div>
         )
