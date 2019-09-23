@@ -19,6 +19,7 @@
   box-shadow: 0 2px 25px rgba(0,0,0,0.2);
   box-sizing: border-box;
   overflow-y: auto;
+  padding: 10px;
   /* width: 90%;
   min-width: 700px;
   height: 90%;
@@ -31,6 +32,11 @@
   border: 1px solid black;
   overflow-y: auto; */
 }
+
+
+
+
+
 
 .gallery-modal-list {
     display:flex;

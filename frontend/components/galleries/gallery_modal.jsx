@@ -56,7 +56,7 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
                 type="radio" 
                 name="name" 
                 value={gallery.name} 
-                onChange={ e => this.handleGallerySelection(gallery.id)}
+                onChange={this.handleInput("name")}
                 />
                 {gallery.name}
                 </label>
@@ -76,7 +76,7 @@ import {createGallery, createGalleryItem} from '../../actions/gallery_actions'
             onClick={this.props.closeGalleryModal}
         >
             <div className="gallery-modal-box"
-
+                onClick={e => e.stopPropagation()}
             
             >
 
