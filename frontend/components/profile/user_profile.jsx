@@ -179,12 +179,13 @@ class Profile extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   let user = ownProps.match.params.userId;
-  let posts = Object.keys(state.entities.posts)
-    .map(id => state.entities.posts[id])
-    .filter(post => post.author_id == user);
-  // let posts = allPosts.filter(post => post.author_id == user);
+  let allPosts = Object.keys(state.entities.posts).map(
+    id => state.entities.posts[id]
+  );
 
-  let bgId = state.entities.users[user].bgphoto || posts[0].id;
+  let posts = allPosts.filter(post => post.author_id == user);
+
+  let bgId = state.entities.users[user].bgphoto || allPosts[0].id;
   let defaultBG = state.entities.posts[bgId].photoUrl || {};
   // debugger;
   return {
