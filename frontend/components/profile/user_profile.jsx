@@ -2,6 +2,11 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import PostIndexItem from "../homefeed/post_index_item";
 import GalleryIndexItem from "../homefeed/gallery_index_item";
+import { connect } from "react-redux";
+
+import { fetchAllPosts } from "../../actions/posts_actions";
+import { fetchAllUsers } from "../../actions/user_actions";
+import { fetchAllGalleries } from "../../actions/gallery_actions";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -64,46 +69,57 @@ class Profile extends React.Component {
   }
 
   renderPhotos() {
-    let profPosts 
-        if (this.props.posts.length <1){
-            return (
-                <div className="photo-index-container"> 
-                    <h3>
-                        {this.props.user.first_name} {this.props.user.last_name} hasn't posted any photos yet
-                    </h3>
-                </div>
-            )
-        } else {
-
-           profPosts = this.props.posts
-            .map(post => (
-                <PostIndexItem key={post.id} post={post} props={this.props} />
-                ))
-                .reverse();
-                
-                return (
-                    <div className="layout-container">
-        <div className="photo-index-container">{profPosts}
-                      
-                      <img style={{ width: 175, flexGrow: 3, visibility: "hidden", borderColor: "#f7f8fa", background: "transparent" }} />
+    let profPosts;
+    if (this.props.posts.length < 1) {
+      return (
+        <div className="photo-index-container">
+          <h3>
+            {this.props.user.first_name} {this.props.user.last_name} hasn't
+            posted any photos yet
+          </h3>
         </div>
-      </div>
-    );
-}
+      );
+    } else {
+      profPosts = this.props.posts
+        .map(post => (
+          <PostIndexItem key={post.id} post={post} props={this.props} />
+        ))
+        .reverse();
+
+      return (
+        <div className="layout-container">
+          <div className="photo-index-container">
+            {profPosts}
+
+            <img
+              style={{
+                width: 175,
+                flexGrow: 3,
+                visibility: "hidden",
+                borderColor: "#f7f8fa",
+                background: "transparent"
+              }}
+            />
+          </div>
+        </div>
+      );
+    }
   }
 
   renderGalleries() {
     let galleries;
-      let firstName = this.props.user.first_name
-      let lastName = this.props.user.last_name
+    let firstName = this.props.user.first_name;
+    let lastName = this.props.user.last_name;
     if (this.props.galleries.length < 1) {
       return (
         <div className="gallery-index-container">
-              <h3>{firstName} {lastName} hasn't created a Gallery yet</h3>
+          <h3>
+            {firstName} {lastName} hasn't created a Gallery yet
+          </h3>
         </div>
       );
     } else {
-        let length = this.props.galleries.length
+      let length = this.props.galleries.length;
       galleries = this.props.galleries.map(gallery => (
         <GalleryIndexItem
           key={gallery.id}
@@ -161,4 +177,38 @@ class Profile extends React.Component {
   }
 }
 
-export default withRouter(Profile);
+const mapStateToProps = (state, ownProps) => {
+  let user = ownProps.match.params.userId;
+  let allPosts = Object.keys(state.entities.posts).map(
+    id => state.entities.posts[id]
+  );
+  let posts = allPosts.filter(post => post.author_id == user);
+  let bgId = state.entities.users[user].bgphoto || allPosts[0].id;
+  let defaultBG = state.entities.posts[bgId].photoUrl;
+  return {
+    galleries: Object.keys(state.entities.galleries)
+      .map(id => state.entities.galleries[id])
+      .filter(gallery => gallery.author_id == user),
+    user: state.entities.users[user],
+    posts: posts,
+    defaultBG: defaultBG
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  fetchAllPosts: () => dispatch(fetchAllPosts()),
+  fetchAllUsers: () => dispatch(fetchAllUsers()),
+  fetchAllGalleries: () => dispatch(fetchAllGalleries())
+});
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Profile);
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Profile)
+);

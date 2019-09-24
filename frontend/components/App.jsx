@@ -10,10 +10,10 @@ import NavBar from "./navbar";
 import PostFormContainer from "./posts/post_form_container";
 import HomeFeed from "./homefeed/homefeed";
 import PostShowContainer from "./posts/post_show_container";
-import UserProfileContainer from './profile/user_profile_container'
-import PhotoManager from './posts/photo_manager'
-import GalleryShow from './galleries/gallery_show'
-import GalleryModal from './galleries/gallery_modal'
+import Profile from "./profile/user_profile";
+import PhotoManager from "./posts/photo_manager";
+import GalleryShow from "./galleries/gallery_show";
+
 const App = () => (
   <div>
     <header>
@@ -21,8 +21,7 @@ const App = () => (
     </header>
     <div>
       <div className="maincontent">
-    <PostFormContainer />
-    {/* <GalleryModal/> */}
+        <PostFormContainer />
         <Switch>
           {/* <Route path="/posts/new" component={Form}/> */}
           <AuthRoute exactRoute path="/login" component={LogInFormContainer} />
@@ -31,35 +30,32 @@ const App = () => (
             path="/signup"
             component={SignUpFormContainer}
           />
-            <ProtectedRoute
-              exactRoute
-              path="/galleries/:galleryId"
-              component={GalleryShow}
-            />
+          <ProtectedRoute
+            exactRoute
+            path="/galleries/:galleryId"
+            component={GalleryShow}
+          />
           <ProtectedRoute
             exactRoute
             path="/posts/:postId"
             component={PostShowContainer}
           />
-            <ProtectedRoute
+          <ProtectedRoute
             exactRoute
             path="/post/manager"
             component={PhotoManager}
-            />
+          />
           <ProtectedRoute
             exactRoute
             path="/post/new"
             component={PostFormContainer}
           />
           <ProtectedRoute
-          exactRoute
-          path ="/users/:userId"
-          component={UserProfileContainer}/>
-          <ProtectedRoute
             exactRoute
-            path="/home"
-            component={HomeFeed}
+            path="/users/:userId"
+            component={Profile}
           />
+          <ProtectedRoute exactRoute path="/home" component={HomeFeed} />
           <AuthRoute exactRoute="/" component={Splash} />
         </Switch>
       </div>
