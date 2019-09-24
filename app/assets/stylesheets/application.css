@@ -74,10 +74,10 @@ body {
   border-radius: 2px;
 } */
 
-.header-name{
+.header-name {
   cursor: pointer;
 }
-.header-name:hover{
+.header-name:hover {
   color: lightgrey;
 }
 
@@ -356,19 +356,18 @@ sup {
   height: 330px;
   margin: 0 25px 50px 25px;
   border-radius: 3px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   box-sizing: border-box;
   border: 0.5px solid #d4d4d4;
-  overflow:hidden;
+  overflow: hidden;
   cursor: pointer;
-
 }
 
-.gallery-index-item-container:hover{
+.gallery-index-item-container:hover {
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.08);
   transition: margin 0.2s ease-in-out, position 0.2s ease-in-out;
-} 
+}
 
 /* .photo-index-container a {
   box-sizing: border-box;
@@ -380,19 +379,15 @@ sup {
   height: 240px;
   border-radius: 3px;
   object-fit: cover;
-  
 }
 
-
-.gallery-index-photo-info{
-height: 90px;
-background-color: #fff;
-text-align: center;
-
-
+.gallery-index-photo-info {
+  height: 90px;
+  background-color: #fff;
+  text-align: center;
 }
 
-#gallery-name{
+#gallery-name {
   display: inline-block;
   font-size: 20px;
   line-height: 1.4em;
@@ -403,11 +398,11 @@ text-align: center;
   margin-bottom: 10px;
 }
 
-#gallery-name:hover{
+#gallery-name:hover {
   color: #0099e5;
 }
 
-#gallery-count{
+#gallery-count {
   display: inline-block;
   color: #b9c1c7;
   font-size: 14px;
@@ -428,8 +423,6 @@ text-align: center;
   /* position: relative; */
   /* flex: 0 2 400px; */
 }
-
-
 
 .photo-post-index-photo:hover {
   cursor: pointer;

@@ -127,8 +127,6 @@ class GalleryModal extends React.Component {
   }
 }
 
-// export default withRouter(GalleryModal)
-
 const msp = state => {
   let userId = state.session.id;
 
