@@ -6,11 +6,14 @@ import {
   deletePost,
   updatePost
 } from "../../actions/posts_actions";
-import {fetchAllGalleries} from '../../actions/gallery_actions'
-import { openModal, openGalleryModal, closeGalleryModal } from "../../actions/ui_actions";
+import { fetchAllGalleries } from "../../actions/gallery_actions";
+import {
+  openModal,
+  openGalleryModal,
+  closeGalleryModal
+} from "../../actions/ui_actions";
 import PostFormEdit from "./photo_manager_edit";
-import {fetchAllCategories} from '../../actions/category_actions'
-
+import { fetchAllCategories } from "../../actions/category_actions";
 
 class PhotoManager extends React.Component {
   constructor(props) {
@@ -27,57 +30,56 @@ class PhotoManager extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts()
-    .then(()=>this.props.fetchAllCategories())
-    .then(()=>this.props.fetchAllGalleries())
-    .then(() =>
-      this.setState({
-        loaded: true
-      })
-    );
+    this.props
+      .fetchPosts()
+      .then(() => this.props.fetchAllCategories())
+      .then(() => this.props.fetchAllGalleries())
+      .then(() =>
+        this.setState({
+          loaded: true
+        })
+      );
   }
 
   handlePhotoSelect(e, post) {
-    
     e.preventDefault();
     e.stopPropagation();
     if (this.state.post === null) {
       this.setState({ post: post, photoSelected: true });
-    } else if (this.state.post.id === post.id ) {
+    } else if (this.state.post.id === post.id) {
       this.setState({ post: null, photoSelected: false });
-    } else if (this.state.post && this.state.post.id !== post.id){
+    } else if (this.state.post && this.state.post.id !== post.id) {
       this.setState({ post: post, photoSelected: true });
     }
-   
   }
 
-  handleGallerySelect(){
-    this.setState({gallery_id: galleryId})
+  handleGallerySelect() {
+    this.setState({ gallery_id: galleryId });
   }
 
-  handlePhotoUpdate(post){
-    this.setState({ post: null, photoSelected: false}, () => 
-    this.props.updatePost(post)
-    )
+  handlePhotoUpdate(post) {
+    this.setState({ post: null, photoSelected: false }, () =>
+      this.props.updatePost(post)
+    );
   }
 
   handlePhotoDelete(postId) {
-    
     this.setState({ post: null, photoSelected: false }, () =>
-      this.props
-        .deletePost(postId));
+      this.props.deletePost(postId)
+    );
   }
 
-  handleGalleryAdd(post){
-    this.setState({post: null, photoSelected: false})
+  handleGalleryAdd(post) {
+    this.setState({ post: null, photoSelected: false });
   }
 
-  handleGalleryDelete(post){
-    this.setState({ post: null, photoSelected: false })
+  handleGalleryDelete(post) {
+    this.setState({ post: null, photoSelected: false });
   }
 
   renderUpdateForm() {
     if (this.state.photoSelected) {
+      // console.log(this.state.post);
       return (
         <PostFormEdit
           post={this.state.post}
@@ -98,18 +100,24 @@ class PhotoManager extends React.Component {
         />
       );
     } else {
-      return <PostFormEdit 
-      post={{ id: "",title: "", category_id: "Uncategorized", desc: "", camera_name: "" }} 
-      categories={this.props.categories}
-      />;
+      return (
+        <PostFormEdit
+          post={{
+            id: "",
+            title: "",
+            category_id: "Uncategorized",
+            desc: "",
+            camera_name: ""
+          }}
+          categories={this.props.categories}
+        />
+      );
     }
   }
 
   render() {
-
     // debugger;
     if (this.state.loaded) {
-     
       let posts = this.props.posts
         .map(post => (
           <PhotoManagerItem
@@ -118,16 +126,13 @@ class PhotoManager extends React.Component {
             // deletePost={this.props.deletePost}
             props={this.props}
             handlePhotoSelect={e => this.handlePhotoSelect(e, post)}
-            cssClass={this.state.post === post} 
-            
+            cssClass={this.state.post === post}
           />
         ))
         .reverse();
 
       return (
         <div className="manager-page">
-
-
           <div className="manager-left">
             <div className="manager-button">
               <button
@@ -143,7 +148,6 @@ class PhotoManager extends React.Component {
               <span id="left-bar-title">Photos</span>
               <br />
 
-              
               <span id="left-bar-detail">
                 Library {this.props.posts.length}
               </span>
@@ -151,13 +155,11 @@ class PhotoManager extends React.Component {
           </div>
 
           <div className="manager-middle">
-              <div className="manager-middle-title">Photo Library</div>
-                                            
-              <div className="manager-middle-posts">{posts}</div>
-              
+            <div className="manager-middle-title">Photo Library</div>
+
+            <div className="manager-middle-posts">{posts}</div>
           </div>
-            <div className="manager-right">{this.renderUpdateForm()}</div>
-          
+          <div className="manager-right">{this.renderUpdateForm()}</div>
         </div>
       );
     } else {
@@ -167,18 +169,21 @@ class PhotoManager extends React.Component {
 }
 
 const mapStateToProps = state => {
-  
-  let user = state.session.id
-  let posts= Object.values(state.entities.posts).filter(post => post.author_id === user)
-  let galleries =  Object.keys(state.entities.galleries)
+  let user = state.session.id;
+  let posts = Object.values(state.entities.posts).filter(
+    post => post.author_id === user
+  );
+  let galleries = Object.keys(state.entities.galleries)
     .map(id => state.entities.galleries[id])
-    .filter(gallery => gallery.author_id == user)
+    .filter(gallery => gallery.author_id == user);
   return {
     galleryModalOpen: state.ui.galleryModalOpen,
     galleries: galleries,
-    categories: Object.keys(state.entities.categories).map(id => state.entities.categories[id]),
+    categories: Object.keys(state.entities.categories).map(
+      id => state.entities.categories[id]
+    ),
     posts: posts
-  }
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -188,10 +193,9 @@ const mapDispatchToProps = dispatch => ({
   updatePost: post => dispatch(updatePost(post)),
   fetchAllCategories: () => dispatch(fetchAllCategories()),
   fetchAllGalleries: () => dispatch(fetchAllGalleries()),
-  openGalleryModal:  ()=> dispatch(openGalleryModal()), 
-  closeGalleryModal:  () => dispatch(closeGalleryModal()),
-  createNewGallery: (gallery) => dispatch(createGallery(gallery))
-
+  openGalleryModal: () => dispatch(openGalleryModal()),
+  closeGalleryModal: () => dispatch(closeGalleryModal()),
+  createNewGallery: gallery => dispatch(createGallery(gallery))
 });
 
 export default connect(

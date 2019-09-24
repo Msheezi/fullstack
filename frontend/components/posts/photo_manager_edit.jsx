@@ -80,9 +80,10 @@ class PostFormEdit extends React.Component {
   }
 
   renderGalleries() {
-    if (!this.props.galleries) {
+    if (!this.props.galleries || !this.state.post.id) {
       return "";
     } else {
+      // console.log(this.state.post);
       return (
         <GalleryModal
           post={this.state.post.id}
