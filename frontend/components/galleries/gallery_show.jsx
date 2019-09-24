@@ -52,8 +52,6 @@ class GalleryShow extends React.Component {
       return { backgroundPositionY: this.state.offset,}
     } else {
         let width = window.innerWidth;
-        // let urlMe = this.props.posts[3].photoUrl === undefined ? this.props.defaultBG : this.props.posts[3].photoUrl
-        
         let urlMe = this.props.defaultBG.photoUrl ;
         let betterUrl = urlMe.split("?")[0];
         let finalUrl = `https://res.cloudinary.com/ddtykf72z/image/fetch/c_fill,g_center,f_auto,h_500,w_${width},q_auto:best/${betterUrl}`;
@@ -121,8 +119,6 @@ const msp = (state, ownProps) => {
   let postids = state.entities.galleries[galleryId].post_ids;
 
   let posts = postids.length < 1 ? [] : postids.map(id => state.entities.posts[id]);
-  // let posts = allPosts.filter(post => post_ids.includes(post.id))
-  // let posts = state.entities.posts.filter(post => post.id.includes(post_ids))
   let defaultBG = posts === [] ? [] : posts[0];
   
   return {
