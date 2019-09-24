@@ -1,9 +1,8 @@
 .profile-page {
-
 }
 
-.profile-index-title{
-    text-align: center;
+.profile-index-title {
+  text-align: center;
 }
 
 .profile-index-title h2 {
@@ -14,36 +13,32 @@
   font-weight: normal;
 }
 
-
-.layout-container{
-  background-color: #F7F8FA;
-  height: 100vh;
+.layout-container {
+  background-color: #f7f8fa;
+  height: auto;
   padding-top: 10px;
-
-
+  padding-bottom: 20px;
 }
 
 .parallax-bg {
   /* background-image:
     
     url('images/bridgesmaller.jpg'); */
-    display: block;
+  display: block;
 
   /* background-size: cover; */
   background-repeat: no-repeat;
   /* background-attachment: scroll; */
   background-position: center center;
   position: relative;
-  top:0;
-  bottom:0;
+  top: 0;
+  bottom: 0;
   right: 0;
   left: 0;
-  height:500px;
+  height: 500px;
   /* width: auto; */
   /* background-blend-mode: saturation; */
   /* transform: translate3d(0px, 50px, 0px) */
-
-  
 }
 
 .photo-gallery-pane-selector {
@@ -62,7 +57,8 @@
   text-transform: uppercase;
   color: #0099e5;
 
-  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros,
+    FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
 }
 
 .selector-spacer {
@@ -75,5 +71,6 @@
   cursor: pointer;
   text-transform: uppercase;
   color: #0099e5;
-  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros,
+    FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
 }
