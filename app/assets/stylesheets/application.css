@@ -270,6 +270,7 @@ sup {
   padding-top: 20px;
   padding-bottom: 20px;
   box-sizing: border-box;
+  
 }
 
 .selector-photos-index {
@@ -284,6 +285,8 @@ sup {
 
 #selected-index {
   border-bottom: 3px solid #3899e5;
+  transition-timing-function: ease-in;
+  transition: 0.2s
 }
 
 .selector-spacer-index {
@@ -335,6 +338,7 @@ sup {
   padding-top: 10px;
   /* padding-bottom: 50px; */
   margin-bottom: 10px;
+  
 }
 .gallery-index-container {
   display: flex;
@@ -349,6 +353,7 @@ sup {
   margin-bottom: 10px;
   min-height: 800px;
   justify-content: center;
+ 
 }
 
 .gallery-index-item-container {
