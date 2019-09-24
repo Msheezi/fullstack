@@ -124,11 +124,79 @@ post14.photo.attach(io: file14, filename: "clearlake.jpg")
 post14.save
 
 
+#user 2
+file15 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/redrocks.jpg')
+post15 = Post.create(title:"Red Rocks",  author_id: user2.id)
+post15.photo.attach(io: file15, filename: "redrocks.jpg")
+post15.save
+
+file16 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/redrocks.jpg')
+post16 = Post.create(title:"Red Rocks",  author_id: user2.id)
+post16.photo.attach(io: file16, filename: "redrocks.jpg")
+post16.save
+
+file17 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/redrocks.jpg')
+post17 = Post.create(title:"Red Rocks",  author_id: user2.id)
+post17.photo.attach(io: file17, filename: "redrocks.jpg")
+post17.save
+
+file18 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/redrocks.jpg')
+post18 = Post.create(title:"Red Rocks",  author_id: user2.id)
+post18.photo.attach(io: file18, filename: "redrocks.jpg")
+post18.save
+
+file19 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/redrocks.jpg')
+post19 = Post.create(title:"Red Rocks",  author_id: user2.id)
+post19.photo.attach(io: file19, filename: "redrocks.jpg")
+post19.save
+
+file20 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/redrocks.jpg')
+post20 = Post.create(title:"Red Rocks",  author_id: user2.id)
+post20.photo.attach(io: file20, filename: "redrocks.jpg")
+post20.save
+
+file21 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/redrocks.jpg')
+post21 = Post.create(title:"Red Rocks",  author_id: user2.id)
+post21.photo.attach(io: file21, filename: "redrocks.jpg")
+post21.save
+
+file22 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/redrocks.jpg')
+post22 = Post.create(title:"Red Rocks",  author_id: user2.id)
+post22.photo.attach(io: file22, filename: "redrocks.jpg")
+post22.save
+
+file23 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/redrocks.jpg')
+post23 = Post.create(title:"Red Rocks",  author_id: user2.id)
+post23.photo.attach(io: file23, filename: "redrocks.jpg")
+post23.save
+
+file24 = open('https://mypx-dev.s3-us-west-1.amazonaws.com/redrocks.jpg')
+post24 = Post.create(title:"Red Rocks",  author_id: user2.id)
+post24.photo.attach(io: file24, filename: "redrocks.jpg")
+post24.save
+
+
+
+
+
+
 Gallery.destroy_all
 #user1 Galleries
 gallery1 = Gallery.create!(name:"Pretty Faces", author_id: user1.id)
 gallery2 = Gallery.create!(name:"One With Nature", author_id: user1.id)
 gallery3 = Gallery.create!(name:"Tall Buildings", author_id: user1.id)
+
+gallery4 = Gallery.create!(name:"New York", author_id: user2.id)
+gallery5 = Gallery.create!(name:"Pretty Faces", author_id: user2.id)
+gallery6 = Gallery.create!(name:"Pretty Faces", author_id: user2.id)
+
+gallery7  = Gallery.create!(name:"Pretty Faces", author_id: user3.id)
+gallery8 = Gallery.create!(name:"Pretty Faces", author_id: user3.id)
+gallery9 = Gallery.create!(name:"Pretty Faces", author_id: user3.id)
+
+gallery10 = Gallery.create!(name:"Pretty Faces", author_id: user4.id)
+gallery11 = Gallery.create!(name:"Pretty Faces", author_id: user4.id)
+gallery12 = Gallery.create!(name:"Pretty Faces", author_id: user4.id)
 
 GalleryItem.destroy_all
 
