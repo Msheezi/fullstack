@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { fetchAllPosts } from "../../actions/posts_actions";
 import { fetchAllUsers } from "../../actions/user_actions";
-import { fetchAllGalleries } from "../../actions/gallery_actions";
+import { fetchAllGalleries, deleteGallery } from "../../actions/gallery_actions";
 import PostIndexItem from "../homefeed/post_index_item";
 
 class GalleryShow extends React.Component {
@@ -17,13 +17,14 @@ class GalleryShow extends React.Component {
 
     this.parallaxShift = this.parallaxShift.bind(this);
     this.bgStyle = this.bgStyle.bind(this);
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount() {
     this.props
       .fetchAllUsers()
-      .then(() => this.props.fetchAllPosts())
       .then(() => this.props.fetchAllGalleries())
+      .then(() => this.props.fetchAllPosts())
       .then(() => this.setState({ loaded: true }));
     window.addEventListener("scroll", this.parallaxShift);
   }
@@ -36,6 +37,12 @@ class GalleryShow extends React.Component {
     this.setState({
       offset: window.pageYOffset
     });
+  }
+
+  handleDelete(e){
+    e.preventDefault()
+    this.props.history.push('/home')
+    this.props.deleteGallery(this.props.galleryId)
   }
 
   bgStyle() {
@@ -71,10 +78,14 @@ class GalleryShow extends React.Component {
       return (
         <div className="profile-page">
           <div className="parallax-bg" style={this.bgStyle()}></div>
+            <span>
+            <button className="gallery-delete-btn" onClick={this.handleDelete}>Delete Gallery</button>
+            </span>
           <div
             className="profile-index-title"
             style={{ bottom: this.state.offset / 2 }}
           >
+
             <h2>{this.props.gallery.name}</h2>
           </div>
 
@@ -88,7 +99,7 @@ class GalleryShow extends React.Component {
 }
 
 const msp = (state, ownProps) => {
-  //   debugger;
+    
   let galleryId = ownProps.match.params.galleryId;
   let postids = state.entities.galleries[galleryId].post_ids;
 
@@ -99,14 +110,16 @@ const msp = (state, ownProps) => {
   return {
     gallery: state.entities.galleries[galleryId],
     posts: posts,
-    defaultBG: defaultBG
+    defaultBG: defaultBG,
+    galleryId: galleryId
   };
 };
 
 const mdp = dispatch => ({
   fetchAllPosts: () => dispatch(fetchAllPosts()),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
-  fetchAllGalleries: () => dispatch(fetchAllGalleries())
+  fetchAllGalleries: () => dispatch(fetchAllGalleries()),
+  deleteGallery: (id) => dispatch(deleteGallery(id))
 });
 
 export default withRouter(

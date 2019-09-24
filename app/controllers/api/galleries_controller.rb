@@ -36,10 +36,11 @@ class Api::GalleriesController < ApplicationController
     end
 
     def destroy
-        @gallery = Gallery.find(params([:id]))
+        @gallery = Gallery.find(params[:id])
         @gallery.destroy
         render :index
 
+        
     end
 
     private

@@ -74,3 +74,26 @@
   font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros,
     FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
 }
+
+
+.gallery-delete-btn{
+  cursor: pointer;
+  font-size: 14px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 3px;
+  padding: 0 10px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0099e5;
+  text-align: right;
+  position: absolute;
+  right: 50px;
+  margin-top: 5px;
+  border: none;
+
+}
+
+.gallery-delete-btn:hover{
+  background-color: #00aaff;
+}

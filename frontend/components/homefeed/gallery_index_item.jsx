@@ -19,13 +19,16 @@ const GalleryIndexItem = ({ post, props, gallery, length}) => {
 
   return (
    <div className="gallery-index-item-container">
+      <Link to={`/galleries/${gallery.id}`}>
+
       <img
        
-        className="gallery-index-photo"
-        src={photoSrc}
-        onClick={e => props.history.push(`/galleries/${gallery.id}`)}
-        
-      />
+       className="gallery-index-photo"
+       src={photoSrc}
+       onClick={e => props.history.push(`/galleries/${gallery.id}`)}
+       
+       />
+       </Link>
       <div className="gallery-index-photo-info"
         onClick={e => props.history.push(`/galleries/${gallery.id}`)}>
           <span id="gallery-name">{gallery.name}</span>
