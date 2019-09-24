@@ -67,19 +67,27 @@ class GalleryShow extends React.Component {
 }
 
   renderPhotos() {
-    let profPosts = this.props.posts
-      .map(post => (
-        <PostIndexItem key={post.id} post={post} props={this.props} />
-      ))
-      .reverse();
+     if (this.props.posts.length < 1){
+       return <div className="layout-container">
+                    <h3 style={{textAlign: "center"}}>This Gallery Has no posts</h3>
+                </div>
+     } else {
 
-    return (
-      <div className="layout-container">
+       
+       let profPosts = this.props.posts
+       .map(post => (
+         <PostIndexItem key={post.id} post={post} props={this.props} />
+         ))
+         .reverse();
+         
+         return (
+           <div className="layout-container">
         <div className="photo-index-container">{profPosts}
           <img style={{ width: 175, flexGrow: 3, visibility: "hidden", borderColor: "#f7f8fa", background: "transparent" }} />
         </div>
       </div>
     );
+  }
   }
 
   render() {
