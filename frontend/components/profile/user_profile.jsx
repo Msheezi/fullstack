@@ -48,7 +48,16 @@ class Profile extends React.Component {
   bgStyle() {
     let width = window.innerWidth;
     // let urlMe = this.props.posts[3].photoUrl === undefined ? this.props.defaultBG : this.props.posts[3].photoUrl
-    let urlMe = this.props.defaultBG;
+    let bgphoto = this.props.user.bgphoto
+    let urlMe 
+      if (this.props.user.bgphoto !== null && this.props.posts.includes(bgphoto)){
+        urlMe = this.props.posts[bgphoto].photoUrl
+      } else if (this.props.posts.length > 1) {
+        urlMe = this.props.posts[0].photoUrl
+      } else {
+        urlMe = this.props.defaultBG.photoUrl
+      }
+    
     let betterUrl = urlMe.split("?")[0];
     let finalUrl = `https://res.cloudinary.com/ddtykf72z/image/fetch/c_fill,g_center,f_auto,h_500,w_${width},q_auto:best/${betterUrl}`;
     return {
@@ -56,6 +65,7 @@ class Profile extends React.Component {
       backgroundImage: `url(${finalUrl})`
     };
   }
+
   displayPosts() {
     this.setState({
       displayPosts: true
@@ -185,8 +195,9 @@ const mapStateToProps = (state, ownProps) => {
 
   let posts = allPosts.filter(post => post.author_id == user);
 
-  let bgId = state.entities.users[user].bgphoto || allPosts[0].id;
-  let defaultBG = state.entities.posts[bgId].photoUrl || {};
+  // let bgId = state.entities.users[user].bgphoto || allPosts[0].id;
+  let defaultBG = allPosts[0]
+  // let defaultBG = state.entities.posts[bgId].photoUrl || {};
   // debugger;
   return {
     galleries: Object.keys(state.entities.galleries)
