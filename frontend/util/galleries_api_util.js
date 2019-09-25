@@ -1,56 +1,45 @@
-export const fetchGalleries = () => (
-    $.ajax({
-        method: 'get',
-        url: 'api/galleries'
-    })
-)
+export const fetchGalleries = () =>
+  $.ajax({
+    method: "get",
+    url: "api/galleries"
+  });
 
-export const fetchGallery = (id) => (
-    $.ajax({
-        method: 'get',
-        url: `api/galleries/${id}`
-    })
-)
+export const fetchGallery = id =>
+  $.ajax({
+    method: "get",
+    url: `api/galleries/${id}`
+  });
 
-export const createGallery = (gallery) => {
-    
-    return (
+export const createGallery = gallery => {
+  return $.ajax({
+    method: "post",
+    url: "api/galleries",
+    data: { gallery }
+  });
+};
 
-        $.ajax({
-            method: 'post',
-            url: 'api/galleries',
-            data: {gallery}
-            
-        })
-    )}
+export const updateGallery = gallery =>
+  $.ajax({
+    method: "patch",
+    url: `api/galleries/${gallery.id}`,
+    data: { gallery }
+  });
 
-export const updateGallery = gallery => (
-    $.ajax({
-        method: 'patch',
-        url: `api/galleries/${gallery.id}`,
-        data: { gallery }
-    })
-)
+export const deleteGallery = galleryId =>
+  $.ajax({
+    method: "delete",
+    url: `api/galleries/${galleryId}`
+  });
 
+export const createGalleryItem = galleryItem =>
+  $.ajax({
+    method: "post",
+    url: `api/gallery_items`,
+    data: { galleryItem }
+  });
 
-export const deleteGallery = galleryId => (
-    $.ajax({
-        method: 'delete',
-        url: `api/galleries/${galleryId}`
-    })
-)
-
-export const createGalleryItem = (galleryItem) => (
-    $.ajax({
-        method: 'post',
-        url: `api/gallery_items`,
-        data: {galleryItem}
-    })
-)
-
-export const deleteGalleryItem = (galleryItemId) => (
-    $.ajax({
-        method: "delete",
-        url: `api/gallery_items/${galleryItemId}`
-    })
-)
+export const deleteGalleryItem = galleryItemId =>
+  $.ajax({
+    method: "delete",
+    url: `api/gallery_items/${galleryItemId}`
+  });
