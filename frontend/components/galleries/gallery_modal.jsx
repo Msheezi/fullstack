@@ -127,7 +127,7 @@ class GalleryModal extends React.Component {
     // debugger;
     let galleries = this.state.galleries
       .map((gallery, idx) => (
-        <label key={gallery.id}>
+        <label id="gallery-modal-list-label" key={gallery.id}>
           <input
             type="checkbox"
             checked={gallery.checked}
@@ -153,13 +153,15 @@ class GalleryModal extends React.Component {
           onClick={this.props.closeGalleryModal}
         >
           <div className="gallery-modal-box" onClick={e => e.stopPropagation()}>
-            <h3>ADD TO GALLERY</h3>
+            <div className="gallery-modal-title">
+              <h3>ADD TO GALLERY</h3>
+            </div>
             {/* <form > */}
-            <input type="text" id="name" onChange={this.handleInput("name")} />
+            <input type="text" id="name" placeholder="Create a new Gallery" onChange={this.handleInput("name")} />
             {/* </form> */}
             <button onClick={this.handleNewGallery}>Create</button>
 
-            <div>
+            <div className="galleries-list">
               {/* <form className="gallery-modal-list"> */}
 
               {this.renderGalleries()}
