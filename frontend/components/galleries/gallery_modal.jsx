@@ -93,13 +93,13 @@ class GalleryModal extends React.Component {
           {},
           { gallery_id: this.state.galleries[i].id, post_id: this.props.post }
         );
-        // console.log(`create: ${galleryItem}`);
-        return this.props.createGalleryItem(galleryItem);
+        
+        this.props.createGalleryItem(galleryItem);
       } else if (next[i] !== prev[i] && !next[i]) {
-        // console.log(`delete: ${this.state.galleries[i].id}`);
+      
          galleryItem = Object.assign({},{gallery_id: this.state.galleries[i].id, post_id: this.props.post}) 
-        // debugger
-        return this.props.deleteGalleryItem(galleryItem);
+        
+         this.props.deleteGalleryItem(galleryItem);
       }
     }
 
@@ -165,7 +165,7 @@ class GalleryModal extends React.Component {
               {this.renderGalleries()}
               {/* </form> */}
             </div>
-            <button onClick={this.handleClose}>Add Photo</button>
+            <button onClick={this.handleClose}>Update Galleries</button>
           </div>
         </div>
       );
