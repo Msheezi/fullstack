@@ -87,8 +87,9 @@ class GalleryModal extends React.Component {
     const next = this.state.galleries.map(gallery => gallery.checked);
 
     for (let i = 0; i <= next.length; i++) {
+      let galleryItem
       if (next[i] !== prev[i] && next[i]) {
-        let galleryItem = Object.assign(
+         galleryItem = Object.assign(
           {},
           { gallery_id: this.state.galleries[i].id, post_id: this.props.post }
         );
@@ -96,13 +97,15 @@ class GalleryModal extends React.Component {
         return this.props.createGalleryItem(galleryItem);
       } else if (next[i] !== prev[i] && !next[i]) {
         // console.log(`delete: ${this.state.galleries[i].id}`);
-        return this.props.deleteGalleryItem(this.state.gallery_id);
+         galleryItem = Object.assign({},{gallery_id: this.state.galleries[i].id, post_id: this.props.post}) 
+        // debugger
+        return this.props.deleteGalleryItem(galleryItem);
       }
     }
 
     //compare prev[idx] and next[idx] if same, do nothing, if different and next = true, create else
     //if different and next is false, delete
-    console.log(prev, next);
+    // console.log(prev, next);
   }
 
   handleClose() {

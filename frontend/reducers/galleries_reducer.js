@@ -12,7 +12,7 @@ const GalleriesReducer = (state = {}, action) => {
         case RECEIVE_ALL_GALLERIES:
             newState = {};
             action.galleries.forEach(el => (newState[el.id] = el));
-            return merge({}, state, newState);
+            return Object.assign({}, state, newState);
         case RECEIVE_GALLERY:
             newState = merge({}, state)
             newState[action.gallery.id] = action.gallery

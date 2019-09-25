@@ -41,5 +41,5 @@ export const createGalleryItem = galleryItem =>
 export const deleteGalleryItem = galleryItemId =>
   $.ajax({
     method: "delete",
-    url: `api/gallery_items/${galleryItemId}`
+    url: `api/gallery_items/${galleryItemId.gallery_id}?post_id=${galleryItemId.post_id}`
   });
