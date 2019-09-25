@@ -167,7 +167,7 @@ class GalleryModal extends React.Component {
               {this.renderGalleries()}
               {/* </form> */}
             </div>
-            <button onClick={this.handleClose}>Update Galleries</button>
+            <button className="gallery-submit" onClick={this.handleClose}>Update Galleries</button>
           </div>
         </div>
       );

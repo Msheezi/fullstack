@@ -71,11 +71,31 @@
   line-height: 20px;
   height: 30px;
   border-bottom: 0.5px solid rgba(34,34,34,0.1);
+  box-sizing: border-box;
 }
+
+#gallery-modal-list-label:hover {
+  background-color: #eeeff2;
+}
+
 
 #name{
   outline-style: none;
   outline-width: 0px;
+}
+
+
+.gallery-submit {
+    height: 20px;
+    cursor: pointer;
+    background-color: #34bf49;
+    border-color: #34bf49;
+    line-height: 18px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid #0099e5;
+    margin-left: 30%;
 }
 
 .modal {
