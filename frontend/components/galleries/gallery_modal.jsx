@@ -27,24 +27,28 @@ class GalleryModal extends React.Component {
     this.handleNewGallery = this.handleNewGallery.bind(this);
     this.handleGallerySelection = this.handleGallerySelection.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.updateGalleryState = this.updateGalleryState.bind(this)
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.post !== this.props.post) {
-      // if (prevProps.galleries.length !== this.props.galleries.length) {
-      // debugger;
-      const galleriesClone = JSON.parse(JSON.stringify(this.props.galleries));
-
-      this.setState({
-        author_id: this.props.user,
-        name: "",
-        gallery_id: "",
-        post_id: this.props.post,
-        galleries: galleriesClone.map(gallery => {
-          gallery.checked = gallery.post_ids.includes(this.props.post);
-          return gallery;
-        })
-      });
+   
+      if (prevProps.post !== this.props.post){
+      
+        // if (prevProps.galleries.length !== this.props.galleries.length) {
+          // debugger;
+          const galleriesClone = JSON.parse(JSON.stringify(this.props.galleries));
+          debugger
+          this.setState({
+            author_id: this.props.user,
+            name: "",
+            gallery_id: "",
+            post_id: this.props.post,
+            galleries: galleriesClone.map(gallery => {
+              gallery.checked = gallery.post_ids.includes(this.props.post);
+              return gallery;
+            })
+          });
+        
     }
   }
 
@@ -63,12 +67,34 @@ class GalleryModal extends React.Component {
     this.props.clearErrors();
   }
 
+  updateGalleryState() {
+    const galleriesClone = JSON.parse(JSON.stringify(this.props.galleries));
+    debugger
+    this.setState({
+      author_id: this.props.user,
+      name: "",
+      gallery_id: "",
+      post_id: this.props.post,
+      galleries: galleriesClone.map(gallery => {
+        gallery.checked = gallery.post_ids.includes(this.props.post);
+        return gallery;
+      })
+    });
+  }
+
   handleNewGallery(e) {
     e.preventDefault();
     let gallery = Object.assign({}, this.state);
     // debugger
-    this.props.createNewGallery(gallery);
+    this.props.createNewGallery(gallery)
+    .then(()=> this.updateGalleryState())
+
+    
   }
+
+  
+
+
 
   handleGallerySelection(idx) {
     return () => {
@@ -125,7 +151,7 @@ class GalleryModal extends React.Component {
     //     return <li>No galleries for this user</li>
     // } else {
     // debugger;
-    let galleries = this.state.galleries
+    let galleries = this.state.galleries //props updates the list, state makes it controlled
       .map((gallery, idx) => (
         <label id="gallery-modal-list-label" key={gallery.id}>
           <input
@@ -159,7 +185,7 @@ class GalleryModal extends React.Component {
             {/* <form > */}
             <input type="text" id="name" placeholder="Create a new Gallery" onChange={this.handleInput("name")} />
             {/* </form> */}
-            <button onClick={this.handleNewGallery}>Create</button>
+            <button className="gallery-create"onClick={this.handleNewGallery}>Create</button>
 
             <div className="galleries-list">
               {/* <form className="gallery-modal-list"> */}

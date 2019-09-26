@@ -98,6 +98,21 @@
     margin-left: 30%;
 }
 
+
+.gallery-create{
+   font-size: 14px;
+    margin-left: 10%;
+    margin-right: 10%;
+    /* height: 80%; */
+    /* width: 15%; */
+    cursor:pointer;
+    background-color: #0099e5;
+    color: #fff;
+    border:none;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
 .modal {
   position: fixed;
   top: 0;
