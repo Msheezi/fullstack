@@ -8,6 +8,7 @@ import { fetchComments } from "../../actions/comment_actions";
 import { fetchAllUsers } from "../../actions/user_actions";
 import { fetchAllCategories } from "../../actions/category_actions";
 import { fetchAllGalleries } from "../../actions/gallery_actions";
+import { getGalleries, getPosts } from "../../reducers/selectors";
 
 class Home extends React.Component {
   constructor(props) {
@@ -57,24 +58,36 @@ class Home extends React.Component {
         />
       ))
       .reverse();
-    return <div className="photo-index-container">
-    {posts}
-      <img style={{ width: 175, flexGrow: 3, visibility: "hidden", borderColor: "#f7f8fa", background:"transparent"}}/>
-    </div>;
+    return (
+      <div className="photo-index-container">
+        {posts}
+        <img
+          style={{
+            width: 175,
+            flexGrow: 3,
+            visibility: "hidden",
+            borderColor: "#f7f8fa",
+            background: "transparent"
+          }}
+        />
+      </div>
+    );
   }
 
   renderGalleries() {
     let galleries;
     if (this.props.galleries === undefined) {
-      return <div>No Galleries Exist, You Really shouldn't be receiving this message</div>;
+      return (
+        <div>
+          No Galleries Exist, You Really shouldn't be receiving this message
+        </div>
+      );
     } else {
-      
       galleries = this.props.galleries.map(gallery => (
         <GalleryIndexItem
           key={gallery.id}
           gallery={gallery}
           props={this.props}
-          
           post={
             this.props.posts.filter(post => post.id === gallery.post_ids[0])[0]
           }
@@ -125,10 +138,13 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    galleries: Object.keys(state.entities.galleries).map(
-      id => state.entities.galleries[id]
-    ),
-    posts: Object.keys(state.entities.posts).map(id => state.entities.posts[id])
+    // galleries: Object.keys(state.entities.galleries).map(
+    //   id => state.entities.galleries[id]
+    // ),
+    // posts: Object.keys(state.entities.posts).map(id => state.entities.posts[id])
+
+    galleries: getGalleries(state),
+    posts: getPosts(state)
   };
 };
 
