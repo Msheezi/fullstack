@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { fetchAllPosts } from "../../actions/posts_actions";
 import { fetchAllUsers } from "../../actions/user_actions";
 import { fetchAllGalleries } from "../../actions/gallery_actions";
+import { getPosts } from "../../reducers/selectors";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -48,16 +49,19 @@ class Profile extends React.Component {
   bgStyle() {
     let width = window.innerWidth;
     // let urlMe = this.props.posts[3].photoUrl === undefined ? this.props.defaultBG : this.props.posts[3].photoUrl
-    let bgphoto = this.props.user.bgphoto
-    let urlMe 
-      if (this.props.user.bgphoto !== null && this.props.posts.includes(bgphoto)){
-        urlMe = this.props.posts[bgphoto].photoUrl
-      } else if (this.props.posts.length > 1) {
-        urlMe = this.props.posts[0].photoUrl
-      } else {
-        urlMe = this.props.defaultBG.photoUrl
-      }
-    
+    let bgphoto = this.props.user.bgphoto;
+    let urlMe;
+    if (
+      this.props.user.bgphoto !== null &&
+      this.props.posts.includes(bgphoto)
+    ) {
+      urlMe = this.props.posts[bgphoto].photoUrl;
+    } else if (this.props.posts.length > 1) {
+      urlMe = this.props.posts[0].photoUrl;
+    } else {
+      urlMe = this.props.defaultBG.photoUrl;
+    }
+
     let betterUrl = urlMe.split("?")[0];
     let finalUrl = `https://res.cloudinary.com/ddtykf72z/image/fetch/c_fill,g_center,f_auto,h_500,w_${width},q_auto:best/${betterUrl}`;
     return {
@@ -189,16 +193,14 @@ class Profile extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   let user = ownProps.match.params.userId;
-  let allPosts = Object.keys(state.entities.posts).map(
-    id => state.entities.posts[id]
-  );
+  // let allPosts = Object.keys(state.entities.posts).map(
+  //   id => state.entities.posts[id]
+  // );
+  let allPosts = getPosts(state);
 
   let posts = allPosts.filter(post => post.author_id == user);
+  let defaultBG = allPosts[0];
 
-  // let bgId = state.entities.users[user].bgphoto || allPosts[0].id;
-  let defaultBG = allPosts[0]
-  // let defaultBG = state.entities.posts[bgId].photoUrl || {};
-  // debugger;
   return {
     galleries: Object.keys(state.entities.galleries)
       .map(id => state.entities.galleries[id])

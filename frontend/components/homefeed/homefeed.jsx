@@ -138,11 +138,6 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    // galleries: Object.keys(state.entities.galleries).map(
-    //   id => state.entities.galleries[id]
-    // ),
-    // posts: Object.keys(state.entities.posts).map(id => state.entities.posts[id])
-
     galleries: getGalleries(state),
     posts: getPosts(state)
   };

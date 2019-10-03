@@ -1,5 +1,3 @@
-import React from "react";
-
 export const getGalleries = state =>
   Object.keys(state.entities.galleries).map(id => state.entities.galleries[id]);
 
