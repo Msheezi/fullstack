@@ -2,6 +2,7 @@ import React from "react";
 import PostIndexItem from "./post_index_item";
 import GalleryIndexItem from "./gallery_index_item";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { fetchAllPosts, deletePost } from "../../actions/posts_actions";
 import { fetchComments } from "../../actions/comment_actions";
@@ -98,12 +99,11 @@ class Home extends React.Component {
   }
 
   render() {
-    // debugger;
-
     if (this.state.loaded) {
-      let content = this.state.displayPosts
-        ? this.renderPosts()
-        : this.renderGalleries();
+      let content =
+        this.props.match.path === "/home/photos"
+          ? this.renderPosts()
+          : this.renderGalleries();
       return (
         <div className="index-container">
           <div className="index-title">
@@ -113,18 +113,24 @@ class Home extends React.Component {
           <div className="photo-gallery-pane-selector1">
             <span
               className="selector-photos-index"
-              id={this.state.displayPosts ? "selected-index" : ""}
-              onClick={this.displayPosts}
+              id={
+                this.props.match.path === "/home/photos" ? "selected-index" : ""
+              }
+              // onClick={this.displayPosts}
             >
-              Photos
+              <Link to="/home/photos">Photos</Link>
             </span>
             <span className="selector-spacer-index"></span>
             <span
               className="select-galleries-index"
-              id={!this.state.displayPosts ? "selected-index" : ""}
-              onClick={this.displayGalleries}
+              id={
+                this.props.match.path === "/home/galleries"
+                  ? "selected-index"
+                  : ""
+              }
+              // onClick={this.displayGalleries}
             >
-              Galleries
+              <Link to="/home/galleries">Galleries</Link>
             </span>
           </div>
           <div className="index-photo-wrapper">{content}</div>

@@ -287,6 +287,12 @@ sup {
     FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
 }
 
+.selector-photos-index a,
+.select-galleries-index a {
+  text-decoration: none;
+  color: #0099e5;
+}
+
 #selected-index {
   border-bottom: 3px solid #3899e5;
   transition-timing-function: ease-in;

@@ -55,7 +55,13 @@ const App = () => (
             path="/users/:userId"
             component={Profile}
           />
-          <ProtectedRoute exactRoute path="/home" component={HomeFeed} />
+          <ProtectedRoute
+            exactRoute
+            path="/home/galleries"
+            component={HomeFeed}
+          />
+          <ProtectedRoute exactRoute path="/home/photos" component={HomeFeed} />
+          {/* <ProtectedRoute exactRoute path="/home" component={HomeFeed} /> */}
           <AuthRoute exactRoute="/" component={Splash} />
         </Switch>
       </div>

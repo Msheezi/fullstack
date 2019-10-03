@@ -6,9 +6,8 @@ import { logout } from "../actions/session_actions";
 
 import { openModal } from "../actions/ui_actions";
 
-const NavBar = ({ currentUser, logout, openModal, props }) => {
+const NavBar = ({ currentUser, logout, openModal }) => {
   const [popupOpen, setPopupOpen] = useState(false);
-
   // document.body.addEventListener("click", () => {
   //   if (popupOpen) {
   //     setPopupOpen(false);
@@ -16,7 +15,6 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
   // });  need to figure out a way to handle the click outside of the popup
   //so that it closes  the below is the use case for hooks to add stateful
   //properties to a functional component
-
   const togglePopup = e => {
     e.stopPropagation();
     setPopupOpen(!popupOpen);
@@ -71,7 +69,11 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
   );
 
   let loginButtons = currentUser ? personalGreeting() : sessionLinks();
-
+  // let galnav = match.params ? (
+  //   ""
+  // ) : (
+  //   <Link to="/home/galleries"> back to Galleries</Link>
+  // );
   return (
     <div className={currentUser ? "nav-logged" : "nav-not-logged"}>
       <span className="logo">
@@ -83,6 +85,8 @@ const NavBar = ({ currentUser, logout, openModal, props }) => {
       </span>
 
       <span className="links">
+        {/* {galnav} */}
+
         <ul>
           {/* <li>Discover</li> */}
 
@@ -106,7 +110,9 @@ const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(openModal())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NavBar);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(NavBar)
+);
