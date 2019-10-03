@@ -193,9 +193,7 @@ class Profile extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   let user = ownProps.match.params.userId;
-  // let allPosts = Object.keys(state.entities.posts).map(
-  //   id => state.entities.posts[id]
-  // );
+
   let allPosts = getPosts(state);
 
   let posts = allPosts.filter(post => post.author_id == user);
