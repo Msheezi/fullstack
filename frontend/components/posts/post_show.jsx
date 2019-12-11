@@ -47,12 +47,6 @@ class PostShow extends React.Component {
       let myDate = `${createDate.getMonth() +
         1}/${createDate.getDate()}/${createDate.getFullYear()}`;
 
-      console.log(
-        createDate.getDate(),
-        createDate.getMonth(),
-        createDate.getFullYear()
-      );
-
       return (
         <div className="post-show-container">
           <div className="post-show-img-container">

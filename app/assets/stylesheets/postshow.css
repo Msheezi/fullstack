@@ -14,8 +14,8 @@
 }
 .post-show-img {
   display: flex;
-  /* max-width: 600px; */
-  max-height: 800px;
+  max-width: 80vw;
+  max-height: 80vw;
   /* height: auto; */
   margin: 0 auto;
 }
@@ -99,7 +99,7 @@
 /* .post-show-post-camera-details p {
   display: flex;
   flex-direction: column;
-  /* margin-left: 20%; */
+  margin-left: 20%;
 
   font-size: 16pt;
 } */
