@@ -74,6 +74,14 @@ body {
   border-radius: 2px;
 } */
 
+#dropdown {
+  padding-bottom: 5px;
+}
+
+#menu-item-container {
+  padding-bottom: 5px;
+}
+
 .header-name {
   cursor: pointer;
 }

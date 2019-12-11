@@ -48,7 +48,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
         {/* <button onClick={togglePopup}>open</button> */}
         <ul onClick={togglePopup} className="nav-list-ul">
           {popupOpen ? (
-            <div>
+            <div id="menu-item-container">
               <li>
                 <Link to="/post/manager">Manage Photos</Link>
               </li>
@@ -110,9 +110,4 @@ const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(openModal())
 });
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(NavBar)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));
