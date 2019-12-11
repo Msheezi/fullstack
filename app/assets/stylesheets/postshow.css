@@ -20,11 +20,10 @@
   margin: 0 auto;
 }
 
-.icon-lens{
+.icon-lens {
   width: 30px;
-  
-  vertical-align: middle;
 
+  vertical-align: middle;
 }
 
 .lens-text {
@@ -57,31 +56,39 @@
   flex-direction: column;
   /* margin-left: 10%; */
   justify-content: flex-start;
-  border-bottom: 1px solid #EEEFF2;
+  border-bottom: 1px solid #eeeff2;
   padding-bottom: 20px;
   box-sizing: border-box;
 }
 
-.author-by {
+.author-by,
+.post-show-author,
+.lens-text,
+.post-create-time,
+.post-category,
+.span-detail-text {
   /* margin-left: 10%; */
   font-size: 18px;
-  color: rgb(34,34,34);
+  color: rgb(34, 34, 34);
+}
+
+.post-show-post-camera-details > p {
+  font-size: 18px;
+  color: rgb(34, 34, 34);
 }
 
 .post-show-author {
   /* display: flex;
   align-content: center; */
   cursor: pointer;
-  
-  
-  font-size: 18pt;
+
+  /* font-size: 18pt; */
   margin-top: 10px;
   min-width: 240px;
-  color: rgb(34,34,34);
-
+  /* color: rgb(34, 34, 34); */
 }
 
-.post-show-author:hover{
+.post-show-author:hover {
   color: #1890ff;
 }
 
@@ -89,13 +96,13 @@
   margin: 0;
 }
 
-.post-show-post-camera-details p {
+/* .post-show-post-camera-details p {
   display: flex;
   flex-direction: column;
   /* margin-left: 20%; */
 
   font-size: 16pt;
-}
+} */
 
 .post-show-comments {
   width: 40%;
@@ -138,7 +145,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 }
 
 .comment-body {
@@ -157,7 +164,6 @@
   margin-top: 2px;
   margin-left: 10px;
   width: 500px;
-
 }
 .comment-username {
   font-size: 16pt;
@@ -166,7 +172,7 @@
   cursor: pointer;
 }
 
-.comment-username:hover{
+.comment-username:hover {
   color: #1890ff;
 }
 .comment-submit-btn {

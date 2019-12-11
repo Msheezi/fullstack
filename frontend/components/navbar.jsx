@@ -69,11 +69,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
   );
 
   let loginButtons = currentUser ? personalGreeting() : sessionLinks();
-  // let galnav = match.params ? (
-  //   ""
-  // ) : (
-  //   <Link to="/home/galleries"> back to Galleries</Link>
-  // );
+
   return (
     <div className={currentUser ? "nav-logged" : "nav-not-logged"}>
       <span className="logo">
