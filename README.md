@@ -14,6 +14,14 @@ MyPx is an app gearded towards allowing photographers of every level to share an
 * Drag and drop photo uploads
 * Add comments to photos
 
+### User Profile:
+
+ Each user will have a profile that contains all the photos and galleries associated with their account.  The profile makes use of resuable React components and maintains the visual theme of the application. 
+
+
+ ![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/mypxprofile.png "User Profile")
+
+
 ### Photo Uploads: 
 
 From the navigation bar, users can select the "+" symbol to open the photo upload modal. Users have the option to drag and drop or click the button to open the browser dialog to select a file.  Clicking outside of the modal will trigger the modal to close and clear any data captured but not persisted to the database.  
@@ -71,13 +79,7 @@ Once a photo is selected, the update to state will render the image preview and 
  ![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/mypxpostshow.png "Post Show Page")
  
 
- ### User Profile:
-
- Each user will have a profile that contains all the photos and galleries associated with their account.  The profile makes use of resuable React components and maintains the visual theme of the application. 
-
-
- ![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/mypxprofile.png "User Profile")
-
+ 
 
  
 Features to be implemeted at a later date
