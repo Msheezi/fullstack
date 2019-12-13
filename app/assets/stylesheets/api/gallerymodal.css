@@ -196,12 +196,12 @@
   font-weight: normal;
 }
 
-.modal-image-preview {
+/* .modal-image-preview {
   padding-left: 30px;
   width: calc(100% - 340px);
   background: #f7f8fa;
   box-sizing: border-box;
-}
+} */
 
 .form-flex {
   display: flex;
