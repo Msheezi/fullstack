@@ -472,9 +472,9 @@ sup {
 
 .photo-post-index-photo:hover {
   cursor: pointer;
-  /* opacity: 0.5; */
-  /* transition-duration: 0.4s;
-  transform: scale(1.05); */
+  opacity: 0.8;
+  transition-duration: 0.4s;
+  transform: scale(1.05);
 }
 
 .photo-index-title {
