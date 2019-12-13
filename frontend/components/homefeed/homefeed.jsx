@@ -16,11 +16,13 @@ class Home extends React.Component {
     super(props);
     this.state = {
       loaded: false,
-      displayPosts: true
+      displayPosts: true,
+      photoDims: {}
     };
 
     this.displayGalleries = this.displayGalleries.bind(this);
     this.displayPosts = this.displayPosts.bind(this);
+    // this.getImageWidths = this.getImageWidths.bind(this);
   }
 
   componentDidMount() {
@@ -29,12 +31,114 @@ class Home extends React.Component {
       .then(() => this.props.fetchUsers())
       .then(() => this.props.fetchAllGalleries())
       .then(() => this.props.fetchAllCategories())
+      // .then(() => this.getImageWidths())
       .then(() =>
         this.setState({
           loaded: true
         })
       );
   }
+
+  // getImageWidths() {
+  //   let widths = {};
+  //   let tempImage;
+  //   let photoUrl;
+  //   let finalUrl;
+  //   let postArray = this.props.posts;
+  //   let wait;
+  //   postArray.forEach(post => {
+  //     tempImage = new Image();
+  //     //  {post.photoUrl.split("?")[0]}
+  //     tempImage.src = `https://res.cloudinary.com/ddtykf72z/image/fetch/c_fill,g_center,f_auto,h_600/${
+  //       post.photoUrl.split("?")[0]
+  //     }`;
+  //     console.log(tempImage.naturalWidth, tempImage.width, post.title);
+  //     // tempImage.src = finalUrl;
+
+  //     let loaded = false,
+  //       wait;
+  //     tempImage.addEventListener(
+  //       "load",
+  //       () => {
+  //         loaded = true;
+  //       },
+  //       true
+  //     );
+  //     wait = setInterval(() => {
+  //       loaded
+  //         ? clearInterval(wait)
+  //         : (widths[post.id] = [tempImage.naturalWidth, post.title]);
+  //     }, 100);
+  //     // tempImage.src = "";
+  //   });
+
+  //   console.log(widths);
+  //   this.setState({ photoDims: widths });
+  // }
+
+  // var console = document.getElementById('console');
+  // var log = function () {
+  //   console.innerHTML = Array.prototype.join.call(arguments, '');
+  // }
+  // var imageSrc = 'http://environmentalgeography.files.wordpress.com/2010/02/nature_by_abhishekultimatum.jpg?q=' + Math.random();
+  // var img = document.createElement('img');
+  // var loaded = false, wait;
+  // img.addEventListener('load', function () { loaded = true; }, true);
+  // wait = setInterval(function () {
+  //   loaded ? clearInterval(wait) : log(img.width, 'x', img.height);
+  // }, 0);
+
+  // document.body.appendChild(img);
+
+  // img.setAttribute('src', imageSrc);
+
+  //   function getImageSize(img, callback) {
+  //   var $img = $(img);
+
+  //   var wait = setInterval(function () {
+  //     var w = $img[0].naturalWidth,
+  //       h = $img[0].naturalHeight;
+  //     if (w && h) {
+  //       clearInterval(wait);
+  //       callback.apply(this, [w, h]);
+  //     }
+  //   }, 30);
+
+  //   var img = document.createElement('img');
+
+  //   img.src = 'some-image.jpg';
+
+  // var poll = setInterval(function () {
+  //     if (img.naturalWidth) {
+  //       clearInterval(poll);
+  //       console.log(img.naturalWidth, img.naturalHeight);
+  //     }
+  //   }, 10);
+
+  // img.onload = function () { console.log('Fully loaded'); }
+
+  // for (let i = 0; i < postArray.length + 1; i++) {
+  //   tempImage = new Image();
+  //   photoUrl = postArray[i].photoUrl.split("?")[0];
+  //   finalUrl = `https://res.cloudinary.com/ddtykf72z/image/fetch/c_fill,g_center,f_auto,h_600/${photoUrl}`;
+  //   tempImage.src = finalUrl;
+  //   tempImage.onload = () => {
+  //     widths[postArray[i].id] = [
+  //       tempImage.width,
+  //       finalUrl,
+  //       postArray[i].title
+  //     ];
+  //   };
+  // this.props.posts.forEach(post => {
+  //   };
+  //   // console.log(tempImage.naturalWidth);
+  // });
+
+  //   var tempImage1 = new Image();
+  // tempImage1.src = "path/to/image";
+  // tempImage1.onload = function () {
+  //   console.log(tempImage1.width, tempImage1.height);
+  // }
 
   displayPosts() {
     this.setState({
@@ -104,6 +208,7 @@ class Home extends React.Component {
         this.props.match.path === "/home/photos"
           ? this.renderPosts()
           : this.renderGalleries();
+
       return (
         <div className="index-container">
           <div className="index-title">
@@ -158,7 +263,4 @@ const mapDispatchToProps = dispatch => ({
   fetchAllGalleries: () => dispatch(fetchAllGalleries())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

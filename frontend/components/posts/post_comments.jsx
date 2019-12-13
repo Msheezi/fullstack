@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { fetchComments, createComment } from "../../actions/comment_actions";
 // import { fetchUsers } from "../../actions/user_actions";
 // import Comments from "./post_comments";
-import {withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom";
 
- class Comments extends React.Component {
+class Comments extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,7 @@ import {withRouter} from "react-router-dom"
       comments: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.goToProfile = this.goToProfile.bind(this)
+    this.goToProfile = this.goToProfile.bind(this);
   }
 
   handleSubmit(e) {
@@ -47,17 +47,18 @@ import {withRouter} from "react-router-dom"
     });
   }
 
-  goToProfile(id){
-    
-    this.props.history.push(`/users/${id}`)
+  goToProfile(id) {
+    this.props.history.push(`/users/${id}`);
   }
-  
 
   render() {
     // debugger
     const coms = this.state.comments.map(comment => (
       <div key={comment.id} className="comment-item">
-        <h3 className="comment-username" onClick={(e) => this.goToProfile(comment.author_id) }>
+        <h3
+          className="comment-username"
+          onClick={e => this.goToProfile(comment.author_id)}
+        >
           {this.props.users[comment.author_id].first_name +
             " " +
             this.props.users[comment.author_id].last_name}
@@ -71,7 +72,6 @@ import {withRouter} from "react-router-dom"
         <form className="comment-submit">
           <br />
           <label>
-            <br />
             <textarea
               value={this.state.body}
               onChange={this.update("body")}
@@ -81,19 +81,17 @@ import {withRouter} from "react-router-dom"
             />
           </label>
           <br />
+        </form>
         <button className="comment-submit-btn" onClick={this.handleSubmit}>
           Post a Comment
-        </button> 
-        </form>
-        
+        </button>
+
         {/* <input type="submit" value="post comment" /> */}
         {coms}
       </div>
     );
   }
 }
-
-
 
 const mapStateToProps = (state, ownProps) => {
   let postId = ownProps.postId;
@@ -110,7 +108,6 @@ const mapDispatchToProps = dispatch => ({
   createComment: comment => dispatch(createComment(comment))
 });
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Comments));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Comments)
+);

@@ -72,7 +72,7 @@ class PostShow extends React.Component {
                   </span>
                 </span>
               </div>
-              <p> {this.props.post.desc}</p>
+              <p id="post-show-post-desc"> {this.props.post.desc}</p>
               <p>
                 <span className="span-detail-text">
                   <i className="fas fa-camera" /> Camera{" "}
@@ -105,7 +105,7 @@ class PostShow extends React.Component {
 
             <div className="post-show-comments">
               <h3 className="post-comment">
-                <span style={{ fontSize: 30, color: "Tomato", height: 20 }}>
+                <span style={{ fontSize: 22, color: "Tomato", height: 20 }}>
                   <i className="fas fa-comments" />
                 </span>{" "}
                 Comments

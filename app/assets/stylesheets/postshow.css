@@ -48,6 +48,14 @@
   min-width: 400px;
 }
 
+.post-show-post-camera-details > p {
+  margin: 5px;
+}
+
+#post-show-post-desc {
+  margin-bottom: 100px;
+}
+
 .post-show-post-camera-details {
   margin-left: 0%;
 }
@@ -137,7 +145,7 @@
 
 .post-comment {
   font-size: 22pt;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 /* comments */
@@ -146,6 +154,7 @@
   flex-direction: column;
   overflow-y: auto;
   margin-bottom: 20px;
+  justify-content: flex-start;
 }
 
 .comment-body {
