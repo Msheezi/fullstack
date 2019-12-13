@@ -22,7 +22,7 @@ From the navigation bar, users can select the "+" symbol to open the photo uploa
 
 Once a photo is selected, the update to state will render the image preview and input form for users to add information to complete the post.  After posting, the user is redirected to the show page for the post. 
 
-![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/modal-detail.png "Modal after photo selected")
+![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/mypximagepreview.png "Modal after photo selected")
  
  Below is a snippet of the code that enables the drag and drop on the modal initially and the function calls that manage the form display post attachment
 
@@ -57,12 +57,31 @@ Once a photo is selected, the update to state will render the image preview and 
 
   }
  ```
+
+ ### Photo Manager:
+
+ The photo manager is the resource for users to update existing photos as well as upload new photos.  By selecting a photo, users can update or add any of the available fields as well as add the photo to an existing gallery or create a new one.  
+
+ ![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/mypxphotomanager.png "Photo Manager")
  
- ### Comments: 
+ ### Post Detail Page: 
+
+ Individual user posts are displayed using a functional, reusable react component.  Each post displays the relevant post information as well as the ability for logged in users to leave comments on the photo. 
+
+ ![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/mypxpostshow.png "Post Show Page")
  
+
+ ### User Profile:
+
+ Each user will have a profile that contains all the photos and galleries associated with their account.  The profile makes use of resuable React components and maintains the visual theme of the application. 
+
+
+ ![alt text](https://github.com/Msheezi/fullstack/blob/master/app/assets/images/mypxprofile.png "User Profile")
+
+
  
 Features to be implemeted at a later date
 
 * Photos Categories and Search
-* Photo Detail page with specifics (camera and lens settings)
+
 
