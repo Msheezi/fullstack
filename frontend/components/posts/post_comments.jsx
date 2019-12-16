@@ -69,18 +69,23 @@ class Comments extends React.Component {
     ));
     return (
       <div className="comment-container">
+        <h3 className="post-comment">
+          <span style={{ fontSize: 18, color: "Tomato", height: 20 }}>
+            <i className="fas fa-comments" />
+          </span>{" "}
+          Comments
+        </h3>
         <form className="comment-submit">
           <br />
           <label>
             <textarea
               value={this.state.body}
               onChange={this.update("body")}
-              className="comment-body"
+              className="comment-body-text-area"
               name="comment"
               placeholder="Add A Comment"
             />
           </label>
-          <br />
         </form>
         <button className="comment-submit-btn" onClick={this.handleSubmit}>
           Post a Comment

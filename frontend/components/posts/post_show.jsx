@@ -104,12 +104,12 @@ class PostShow extends React.Component {
             <div className="post-show-spacer"> </div>
 
             <div className="post-show-comments">
-              <h3 className="post-comment">
+              {/* <h3 className="post-comment">
                 <span style={{ fontSize: 22, color: "Tomato", height: 20 }}>
                   <i className="fas fa-comments" />
                 </span>{" "}
                 Comments
-              </h3>
+              </h3> */}
 
               <Comments postId={this.props.postId} users={this.props.users} />
             </div>

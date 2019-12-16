@@ -339,6 +339,12 @@ sup {
   width: 90vw;
   /* margin: 10px 10px 10px 0px; */
   box-sizing: border-box;
+  width: 90%;
+
+  margin-left: 5%;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  min-height: 400px;
 
   /* justify-content: flex-start;
   align-content: flex-start;
@@ -351,13 +357,7 @@ sup {
   ); */
   /* [2] Make columns adjust according to the available viewport */
   /* grid-auto-rows: 175px; /* [3] Set the height for implicitly-created row track */
-  width: 90%;
-
-  margin-left: 5%;
-  padding-top: 10px;
   /* padding-bottom: 50px; */
-  margin-bottom: 10px;
-  min-height: 400px;
 }
 .gallery-index-container {
   display: flex;
@@ -438,9 +438,11 @@ sup {
   position: relative;
   /* margin: 0px; */
   /* overflow: hidden; */
-  margin: 10px 5px 2px 5px;
+  /* margin: 10px 5px 2px 5px; */
+  margin: 0;
   flex-grow: 1;
   flex-basis: auto;
+  max-width: 33%;
 }
 
 .div-test {
@@ -474,7 +476,7 @@ sup {
   cursor: pointer;
   opacity: 0.8;
   transition-duration: 0.4s;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .photo-index-title {
