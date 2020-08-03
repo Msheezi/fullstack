@@ -82,8 +82,5 @@ Once a photo is selected, the update to state will render the image preview and 
  
 
  
-Features to be implemeted at a later date
-
-* Photos Categories and Search
 
 
