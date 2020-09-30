@@ -13,8 +13,16 @@ import PostShowContainer from "./posts/post_show_container";
 import Profile from "./profile/user_profile";
 import PhotoManager from "./posts/photo_manager";
 import GalleryShow from "./galleries/gallery_show";
+import ReactGA from 'react-ga'
 
-const App = () => (
+const initializeReactGA = () => {
+  ReactGA.initialize("UA-179339656-1");
+  ReactGA.pageview('/homepage')
+}
+
+const App = () => {
+  initializeReactGA();
+  return(
   <div>
     <header>
       <NavBar />
@@ -66,7 +74,7 @@ const App = () => (
         </Switch>
       </div>
     </div>
-  </div>
-);
+  </div>)
+}
 
 export default App;

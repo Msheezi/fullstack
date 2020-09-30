@@ -111,7 +111,7 @@ class PostForm extends React.Component {
   }
 
   renderCategories() {
-    debugger
+   
     this.props.categories.map(category =>
 
       <option value={category.id}>{category.title}</option>

@@ -10,6 +10,7 @@ import { fetchAllUsers } from "../../actions/user_actions";
 import { fetchAllCategories } from "../../actions/category_actions";
 import { fetchAllGalleries } from "../../actions/gallery_actions";
 import { getGalleries, getPosts } from "../../reducers/selectors";
+import ReactGA from "react-ga";
 
 class Home extends React.Component {
   constructor(props) {
@@ -25,7 +26,13 @@ class Home extends React.Component {
     // this.getImageWidths = this.getImageWidths.bind(this);
   }
 
+  initializeReactGA() {
+  ReactGA.initialize("UA-179339656-1");
+  ReactGA.pageview('/feed')
+}
+
   componentDidMount() {
+    this.initializeReactGA()
     this.props
       .fetchPosts()
       .then(() => this.props.fetchUsers())

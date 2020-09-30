@@ -34,10 +34,9 @@ class GalleryModal extends React.Component {
    
       if (prevProps.post !== this.props.post){
       
-        // if (prevProps.galleries.length !== this.props.galleries.length) {
-          // debugger;
+       
           const galleriesClone = JSON.parse(JSON.stringify(this.props.galleries));
-          debugger
+          
           this.setState({
             author_id: this.props.user,
             name: "",
@@ -69,7 +68,7 @@ class GalleryModal extends React.Component {
 
   updateGalleryState() {
     const galleriesClone = JSON.parse(JSON.stringify(this.props.galleries));
-    debugger
+    
     this.setState({
       author_id: this.props.user,
       name: "",
@@ -85,7 +84,7 @@ class GalleryModal extends React.Component {
   handleNewGallery(e) {
     e.preventDefault();
     let gallery = Object.assign({}, this.state);
-    // debugger
+    
     this.props.createNewGallery(gallery)
     .then(()=> this.updateGalleryState())
 
